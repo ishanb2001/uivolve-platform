@@ -1,0 +1,1614 @@
+
+.button {
+  padding: 10px 20px;
+  border: 1px solid transparent; /* Default to no visible border, but maintain layout */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 5px;
+  font-family: "Inter", sans-serif; /* Corrected font family name */
+  color: #333; /* Default text color set to dark for visibility */
+  background-color: rgb(228, 228, 228); /* Default background is transparent */
+}
+
+.line {
+  border: 1px dotted rgb(0, 0, 0);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+body {
+  font-family: "Inter", sans-serif; /* Corrected font family name */
+}
+
+
+
+/* Modifier for rounded buttons */
+.rounded {
+  border-radius: 30px; /* More pronounced rounding */
+}
+
+/* Modifier for outline buttons */
+.button-outline {
+  background: none;
+  color: inherit; /* Inherits color from parent unless specified */
+  border-color: currentColor; /* Uses the current text color for border */
+}
+
+.button-outline:hover {
+  background-color: var(--hover-background-color, #f8f8f8);
+  border-color: var(--hover-border-color, #ccc);
+  color: var(--hover-color, #333333); /* Ensures text color changes if needed */
+}
+
+.button-outline:active {
+  background-color: var(--active-background-color, #e0e0e0);
+  border-color: var(--active-border-color, #aaa);
+  color: var(--active-color, #111111);
+}
+
+.yellow-bg {
+  background-color: #f5e230;
+}
+
+.blue-bg {
+  background-color: #0e74f6
+}
+
+.white-bg {
+  background-color: #ffffff;
+  border: 1px solid rgb(243, 243, 243);
+
+}
+
+
+.purple-bg {
+  background-color: #6d37ff;
+}
+
+.purple-bg:hover {
+  background-color: #713eff;
+}
+
+.purple-bg:active {
+  background-color: #7e4fff;
+}
+
+.green-bg {
+  background-color: #44d375;
+}
+
+.orange-bg {
+  background-color: #ec6a41;
+}
+
+.black-bg {
+  background-color: black;
+}
+
+.red-bg {
+  background-color: #ff6382;
+}
+
+.yellow-text {
+  color: #f5e230;
+}
+
+.blue-text {
+  color: #0e74f6
+}
+
+.purple-text {
+  color: #6d37ff;
+}
+
+.green-text {
+  color: #44d375;
+}
+
+.orange-text {
+  color: #ec6a41;
+}
+
+.black-text {
+  color: black;
+}
+
+.red-text {
+  color: #ff6382;
+}
+
+.yellow-bg-tinted {
+  background-color: #faf3b0; /* Tint of #f5e230 */
+}
+
+.blue-bg-tinted {
+  background-color: #85bdf9; /* Tint of #0e74f6 */
+}
+
+.purple-bg-tinted {
+  background-color: #E5DFFD; /* Tint of #6d37ff */
+}
+
+.green-bg-tinted {
+  background-color: #dcffe9; /* Tint of #44d375 */
+}
+
+.orange-bg-tinted {
+  background-color: #f3a793; /* Tint of #ec6a41 */
+}
+
+.black-bg-tinted {
+  background-color: #b3b3b3; /* Tint of black */
+}
+
+.red-bg-tinted {
+  background-color: #ffb3c5; /* Tint of #ff6382 */
+}
+
+
+
+
+.glass-bg {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.19);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.black-text {
+  color: #000000;
+}
+
+.white-text {
+  color: #ffffff;
+}
+
+/* No-outline button with text only initially */
+.button-no-outline {
+  background-color: transparent; /* No background color initially */
+  color: #333; /* Text color */
+  border: none; /* No border */
+}
+
+.button-no-outline:hover {
+  background-color: #f8f8f8; /* Light grey background on hover */
+}
+
+.button-no-outline:active {
+  background-color: #e0e0e0; /* Darker grey background when clicked */
+}
+
+/* Hover and active states for non-outline buttons */
+.button:hover::before,
+.button:active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s;
+  mix-blend-mode: lighten;
+}
+
+.button:active::before {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Size modifiers for buttons */
+.button-small {
+  padding: 5px 10px; /* Smaller padding */
+  font-size: 12px; /* Smaller font size */
+}
+
+.button-medium {
+  padding: 7px 30px; /* Medium padding, same as default */
+  font-size: 16px; /* Medium font size, same as default */
+  font-family: "Inter", sans-serif; /* Corrected font family name */
+  font-weight: 500;
+}
+
+.button-large {
+  padding: 15px 30px; /* Larger padding */
+  font-size: 20px; /* Larger font size */
+}
+
+/* Hover border button */
+.button-hover-border {
+  border: 2px solid transparent; /* Initially invisible border */
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transitions */
+}
+
+.button-hover-border:hover {
+  color: #000000;
+  background-color: transparent; /* Background disappears on hover */
+  border-color: #000000; /* Visible border on hover */
+}
+
+.button-hover-border-blue {
+  border: 2px solid transparent; /* Initially invisible border */
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transitions */
+}
+
+.button-hover-border-blue:hover {
+  color: #2748ff;
+  background-color: #d2d9ff; /* Background disappears on hover */
+  border-color: #2748ff; /* Visible border on hover */
+}
+
+.button-hover-border-danger {
+  border: 2px solid transparent; /* Initially invisible border */
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transitions */
+}
+
+.button-hover-border-danger:hover {
+  color: #ff6382;
+  background-color: rgba(
+    255,
+    200,
+    211,
+    0.573
+  ); /* Background disappears on hover */
+  border-color: #ff6382; /* Visible border on hover */
+}
+
+/* Base styles for all labels */
+/* Base styles for all labels */
+.label {
+  padding: 1px 30px;
+  font-size: 14px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+  display: inline-block; /* Only take up as much space as the content requires */
+  margin: 0; /* Reset default margins */
+  align-items: center; /* Align items in the center vertically */
+  justify-content: flex-start; /* Align items to the start horizontally */
+}
+
+/* Modifier for rounded labels */
+.label-rounded {
+  border-radius: 30px; /* More pronounced rounding */
+}
+
+/* Modifier for outline labels */
+.label-outline {
+  border-color: black; /* Uses the current text color for border */
+}
+
+/* Size modifiers for labels */
+.label-small {
+  padding: 5px 10px; /* Smaller padding */
+  font-size: 12px; /* Smaller font size */
+}
+
+.label-medium {
+  padding: 10px 20px; /* Medium padding, same as default */
+  font-size: 16px; /* Medium font size, same as default */
+}
+
+.label-large {
+  padding: 15px 30px; /* Larger padding */
+  font-size: 20px; /* Larger font size */
+}
+
+
+/* Typography /*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Basic Typography Settings */
+:root {
+  --font-size-base: 1rem; /* 16px */
+  --line-height-base: 1.6;
+  --font-weight-normal: 500;
+  --font-weight-medium: 600;
+  --font-weight-bold: 600;
+}
+
+/* Global Styles */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: #333; /* Dark gray for better readability */
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.3;
+  color: #222; /* Slightly darker than body text */
+}
+
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.3;
+  color: #373737; /* Slightly darker than body text */
+}
+
+.font-giant {
+  font-size: 4.5rem; /* 36px */
+  letter-spacing: -0.2rem;
+  line-height: 5rem;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.25rem; /* 36px */
+}
+
+h2 {
+  font-size: 1.8rem; /* 29px */
+}
+
+h3 {
+  font-size: 1.5rem; /* 24px */
+}
+
+h4 {
+  font-size: 1.2rem; /* 19px */
+}
+
+h5 {
+  font-size: 1rem; /* 16px */
+}
+
+h6 {
+  font-size: 0.875rem; /* 14px */
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+/* Paragraphs */
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 2rem;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* Link Styling */
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* List Styling */
+ul,
+ol {
+  margin-bottom: 1rem;
+}
+
+/* Additional Elements */
+strong {
+  font-weight: var(--font-weight-medium);
+}
+
+em {
+  font-style: italic;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem; /* Scale down on smaller screens */
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+}
+
+
+.border {
+  border: 1px solid rgb(0, 0, 0);
+}
+
+/* Base styles for cards */
+.card {
+  border-radius: 30px; 
+  transition: box-shadow 0.3s, border-color 0.3s;
+  overflow: hidden;
+  color: #333;
+}
+
+/* Hover effect for cards */
+.card:hover {
+  border-color: #ccc; /* Darker border on hover */
+}
+
+/* Themed cards */
+/* Card with an image */
+.card-image {
+  position: relative;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px 8px 0 0; /* Rounded top corners only */
+}
+
+.card-content {
+  padding: 20px;
+}
+
+/* Card footer */
+.card-footer {
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  text-align: right;
+}
+
+/* Responsive card adjustments */
+@media (max-width: 768px) {
+  .card {
+    margin: 10px;
+  }
+
+  .card-content,
+  .card-footer {
+    padding: 10px;
+  }
+}
+
+/* Flex Container */
+.flex {
+  display: flex; /* Establishes a flex container */
+  width: 100%;
+  gap: 20px; /* Add gap between flex items */
+}
+
+/* Flex Direction Utilities */
+.is-flex-direction-row {
+  flex-direction: row;
+}
+
+.is-flex-direction-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.is-flex-direction-column {
+  flex-direction: column;
+}
+
+.is-flex-direction-column-reverse {
+  flex-direction: column-reverse;
+}
+
+/* Flex Wrap Utilities */
+.is-flex-wrap-nowrap {
+  flex-wrap: nowrap;
+}
+
+.is-flex-wrap-wrap {
+  flex-wrap: wrap;
+}
+
+.is-flex-wrap-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+/* Justify Content Utilities */
+.is-justify-content-flex-start {
+  justify-content: flex-start;
+}
+
+.is-justify-content-flex-end {
+  justify-content: flex-end;
+}
+
+.is-justify-content-center {
+  justify-content: center;
+}
+
+.is-justify-content-space-between {
+  justify-content: space-between;
+}
+
+.is-justify-content-space-around {
+  justify-content: space-around;
+}
+
+.is-justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+.is-justify-content-start {
+  justify-content: start;
+}
+
+.is-justify-content-end {
+  justify-content: end;
+}
+
+.is-justify-content-left {
+  justify-content: left;
+}
+
+.is-justify-content-right {
+  justify-content: right;
+}
+
+/* Align Content Utilities */
+.is-align-content-flex-start {
+  align-content: flex-start;
+}
+
+.is-align-content-flex-end {
+  align-content: flex-end;
+}
+
+.is-align-content-center {
+  align-content: center;
+}
+
+.is-align-content-space-between {
+  align-content: space-between;
+}
+
+.is-align-content-space-around {
+  align-content: space-around;
+}
+
+.is-align-content-space-evenly {
+  align-content: space-evenly;
+}
+
+.is-align-content-stretch {
+  align-content: stretch;
+}
+
+.is-align-content-start {
+  align-content: start;
+}
+
+.is-align-content-end {
+  align-content: end;
+}
+
+.is-align-content-baseline {
+  align-content: baseline;
+}
+
+/* Align Items Utilities */
+.is-align-items-stretch {
+  align-items: stretch;
+}
+
+.is-align-items-flex-start {
+  align-items: flex-start;
+}
+
+.is-align-items-flex-end {
+  align-items: flex-end;
+}
+
+.is-align-items-center {
+  align-items: center;
+}
+
+.is-align-items-baseline {
+  align-items: baseline;
+}
+
+.is-align-items-start {
+  align-items: start;
+}
+
+.is-align-items-end {
+  align-items: end;
+}
+
+.is-align-items-self-start {
+  align-items: self-start;
+}
+
+.is-align-items-self-end {
+  align-items: self-end;
+}
+
+/* Align Self Utilities */
+.is-align-self-auto {
+  align-self: auto;
+}
+
+.is-align-self-flex-start {
+  align-self: flex-start;
+}
+
+.is-align-self-flex-end {
+  align-self: flex-end;
+}
+
+.is-align-self-center {
+  align-self: center;
+}
+
+.is-align-self-baseline {
+  align-self: baseline;
+}
+
+.is-align-self-stretch {
+  align-self: stretch;
+}
+
+/* Flex Grow Utilities */
+.is-flex-grow-0 {
+  flex-grow: 0;
+}
+
+.is-flex-grow-1 {
+  flex-grow: 1;
+}
+
+.is-flex-grow-2 {
+  flex-grow: 2;
+}
+
+.is-flex-grow-3 {
+  flex-grow: 3;
+}
+
+.is-flex-grow-4 {
+  flex-grow: 4;
+}
+
+.is-flex-grow-5 {
+  flex-grow: 5;
+}
+
+/* Flex Shrink Utilities */
+.is-flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.is-flex-shrink-1 {
+  flex-shrink: 1;
+}
+
+.is-flex-shrink-2 {
+  flex-shrink: 2;
+}
+
+.is-flex-shrink-3 {
+  flex-shrink: 3;
+}
+
+.is-flex-shrink-4 {
+  flex-shrink: 4;
+}
+
+.is-flex-shrink-5 {
+  flex-shrink: 5;
+}
+
+/* Gap Utilities */
+.gap-1 {
+  gap: 4px;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+.gap-3 {
+  gap: 16px;
+}
+
+.gap-4 {
+  gap: 32px;
+}
+
+/* Responsive Flex Column */
+@media (max-width: 768px) {
+  .flex-responsive {
+    flex-direction: column;
+  }
+}
+
+
+
+/* Flex Container with Full Width */
+.flex-full-width {
+  width: 100%;
+}
+
+/* Flex Column Container with Full Height */
+.flex-full-height {
+  height: 100%;
+}
+
+/* Base shadow */
+.shadow-sm {
+  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Regular shadow */
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Large shadow */
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Extra large shadow */
+.shadow-xl {
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Ultra refined shadow for high-end effect */
+.shadow-refined {
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Inner shadow */
+.shadow-inner {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Hover state shadows to create a lifting effect */
+.shadow-hover:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.11), 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+
+/* Base styles for the navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: var(--font-family);
+  position: relative; /* Allows for fixed/sticky positioning */
+  z-index: 1000; /* Ensures navbar stays on top */
+}
+
+/* Dark theme styles */
+.navbar-dark {
+  background-color: #333; /* Dark background */
+  color: #fff; /* Light text */
+}
+
+.navbar-dark .navbar-link,
+.navbar-dark .navbar-button {
+  color: #fff;
+}
+
+.navbar-dark .navbar-link:hover,
+.navbar-dark .navbar-link:focus,
+.navbar-dark .navbar-button:hover,
+.navbar-dark .navbar-button:focus {
+  background-color: #555; /* Slightly lighter background on hover */
+}
+
+/* Light theme styles */
+.navbar-light {
+  background-color: #f8f8f8; /* Light background */
+  color: #333; /* Dark text */
+}
+
+.navbar-light .navbar-link,
+.navbar-light .navbar-button {
+  color: #333;
+}
+
+.navbar-light .navbar-link:hover,
+.navbar-light .navbar-link:focus,
+.navbar-light .navbar-button:hover,
+.navbar-light .navbar-button:focus {
+  background-color: #ddd; /* Light hover background */
+}
+
+/* Navbar positioning */
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar-sticky {
+  position: sticky;
+  top: 0;
+}
+
+/* Navbar logo */
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Navbar menu */
+.navbar-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-item {
+  list-style: none;
+}
+
+/* Responsive menu for small screens */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: inherit; /* Matches navbar background */
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-link {
+    padding: 15px;
+    text-align: center;
+  }
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.navbar-toggle span {
+  height: 3px;
+  width: 25px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .navbar-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+/* Dropdown menu styles */
+.navbar-dropdown {
+  position: relative;
+}
+
+.navbar-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: inherit; /* Matches navbar background */
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-dropdown-content a {
+  color: inherit; /* Matches text color */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.navbar-dropdown-content a:hover {
+  background-color: #555;
+}
+
+.navbar-dropdown:hover .navbar-dropdown-content {
+  display: block;
+}
+
+/* Centered and right-aligned navbars */
+.navbar-centered {
+  justify-content: center;
+}
+
+.navbar-right {
+  justify-content: flex-end;
+}
+
+
+
+
+
+
+
+
+
+
+
+.button-arrow-slide {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button-arrow-slide span {
+  position: relative;
+  display: block;
+  transition: transform 0.3s ease; /* Smooth transition for moving the text */
+}
+
+.button-arrow-slide::after {
+  content: '➔'; /* Arrow symbol */
+  position: absolute;
+  right: -20px; /* Start outside the right edge of the button */
+  top: 50%;
+  transform: translateY(-50%);
+  transition: right 0.3s ease, transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for the arrow */
+  z-index: 1;
+  opacity: 0; /* Start invisible */
+}
+
+.button-arrow-slide:hover::after {
+  right: 10px; /* Position arrow beside text on hover */
+  opacity: 1; /* Make arrow visible */
+}
+
+.button-arrow-slide:hover span {
+  transform: translateX(-10px); /* Move text to the left to make space */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----*/
+
+/* Base styles for all buttons */
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 5px;
+  font-family: "Inter", sans-serif;
+  color: #333;
+  background-color: transparent;
+  font-weight: 500;
+  border: none; /* Ensure no border by default */
+}
+
+/* Background color styles */
+.bg-red {
+  background-color: #ff6382;
+  color: white;
+}
+
+.bg-red:hover {
+  background-color: #e55574; /* Darker shade on hover */
+}
+
+.bg-red:active {
+  background-color: #ff8095; /* Lighter shade on click */
+}
+
+.white-text {
+  color: white;
+}
+
+.black-text {
+  color: black;
+}
+
+.bg-green {
+  color: white;
+  background-color: #44d375;
+}
+
+.bg-green:hover {
+  background-color: #3bb469; /* Darker shade on hover */
+}
+
+.bg-green:active {
+  background-color: #5be087; /* Lighter shade on click */
+}
+
+.bg-blue {
+  background-color: #0000ff;
+  color: white;
+}
+
+.bg-blue:hover {
+  background-color: #0000cc; /* Darker shade on hover */
+}
+
+.bg-blue:active {
+  background-color: #3333ff; /* Lighter shade on click */
+}
+
+.bg-purple {
+  background-color: #6d37ff;
+  color: white;
+}
+
+.bg-purple:hover {
+  background-color: #5c30e5; /* Darker shade on hover */
+}
+
+.bg-purple:active {
+  background-color: #7e4fff; /* Lighter shade on click */
+}
+
+.bg-black {
+  background-color: black;
+  color: white;
+}
+
+.bg-black:hover {
+  background-color: #333; /* Darker shade on hover */
+}
+
+.bg-black:active {
+  background-color: #666; /* Lighter shade on click */
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-white:hover {
+  background-color: #e0e0e0; /* Darker shade on hover */
+}
+
+.bg-white:active {
+  background-color: #f0f0f0; /* Lighter shade on click */
+}
+
+/* Border styles */
+.border-red {
+  border: 3px solid #ec6a41;
+  color: #ec6a41;
+}
+
+.border-red:hover {
+  background-color: #e05b30; /* Darker shade of border color */
+  color: white;
+}
+
+.border-red:active {
+  background-color: #ff8563; /* Lighter shade of border color */
+}
+
+.border-green {
+  border: 3px solid #44d375;
+  color: #44d375;
+}
+
+.border-green:hover {
+  background-color: #36d76e; /* Darker shade of border color */
+  color: white;
+}
+
+.border-green:active {
+  background-color: #72e099; /* Lighter shade of border color */
+}
+
+.border-blue {
+  border: 3px solid #0000ff;
+  color: #0000ff;
+}
+
+.border-blue:hover {
+  background-color: #0000cc; /* Darker shade of border color */
+  color: white;
+}
+
+.border-blue:active {
+  background-color: #3333ff; /* Lighter shade of border color */
+}
+
+.border-purple {
+  border: 3px solid #6d37ff;
+  color: #6d37ff;
+}
+
+.border-purple:hover {
+  background-color: #5c30e5; /* Darker shade of border color */
+  color: white;
+}
+
+.border-purple:active {
+  background-color: #7e4fff; /* Lighter shade of border color */
+}
+
+.border-grey {
+  border: 1px solid rgb(238, 238, 238);
+  color: #000000;
+}
+
+.border-grey:hover {
+  border: 1px solid #dadada;
+  color: #000000;
+  background-color: #d9d9d961;
+}
+
+.border-grey:active {
+  border: 1px solid #b0b0b0;
+  color: #000000;
+  background-color: #c0c0c061;
+}
+
+.border-black {
+  border: 3px solid #000000;
+  color: #000000;
+}
+
+.border-black:hover {
+  background-color: #333333; /* Darker shade of border color */
+  color: white;
+}
+
+.border-black:active {
+  background-color: #666666; /* Lighter shade of border color */
+}
+
+/* Tint styles */
+.tint-grey {
+  background-color: transparent;
+  color: black;
+}
+
+.tint-grey:hover {
+  background-color: rgba(0, 0, 0, 0.031);
+}
+
+.tint-grey:active {
+  background-color: rgba(0, 0, 0, 0.142);
+}
+
+.tint-purple {
+  background-color: transparent;
+  color: #6d37ff;
+}
+
+.tint-purple:hover {
+  background-color: rgba(128, 0, 128, 0.031);
+}
+
+.tint-purple:active {
+  background-color: rgba(128, 0, 128, 0.142);
+}
+
+.tint-orange {
+  background-color: transparent;
+  color: #ec6a41;
+}
+
+.tint-orange:hover {
+  background-color: rgba(255, 165, 0, 0.031);
+}
+
+.tint-orange:active {
+  background-color: rgba(255, 165, 0, 0.142);
+}
+
+.tint-blue {
+  background-color: transparent;
+  color: #0000ff;
+}
+
+.tint-blue:hover {
+  background-color: rgba(0, 0, 255, 0.031);
+}
+
+.tint-blue:active {
+  background-color: rgba(0, 0, 255, 0.142);
+}
+
+/* Light background color variations */
+.light-grey {
+  background-color: rgba(211, 211, 211, 0.5);
+  color: black;
+}
+
+.light-grey:hover {
+  background-color: rgba(169, 169, 169, 0.5);
+}
+
+.light-grey:active {
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.light-purple {
+  background-color: rgba(230, 230, 250, 0.5);
+  color: #6d37ff;
+}
+
+.light-purple:hover {
+  background-color: rgba(230, 230, 250, 0.65)
+}
+
+.light-purple:active {
+  background-color: rgba(230, 230, 250, 0.525);
+}
+
+.light-orange {
+  background-color: rgba(255, 228, 196, 0.5);
+  color: #ec6a41;
+}
+
+.light-orange:hover {
+  background-color: rgba(255, 218, 185, 0.5);
+}
+
+.light-orange:active {
+  background-color: rgba(255, 165, 0, 0.5);
+}
+
+.light-blue {
+  background-color: rgba(173, 216, 230, 0.5);
+  color: #0000ff;
+}
+
+.light-blue:hover {
+  background-color: rgba(135, 206, 250, 0.5);
+}
+
+.light-blue:active {
+  background-color: rgba(70, 130, 180, 0.5);
+}
+
+/* Additional styles */
+.hover-circle {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.hover-circle::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+    top 0.3s ease-in-out, left 0.3s ease-in-out;
+  z-index: 0; /* Ensure the circle is behind the content */
+  transform: translate(-50%, -50%);
+}
+
+.hover-circle:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+.hover-circle span {
+  position: relative;
+  z-index: 1; 
+  transition: color 0s ease-in-out 0s; 
+}
+
+/* Background color variations */
+.hover-circle.red::before {
+  background-color: #ec6a41; /* Red color */
+}
+
+.hover-circle.red:active::before {
+  background-color: #cf5c37; /* Darker red color */
+}
+
+.hover-circle.green::before {
+  background-color: #44d375; 
+}
+
+.hover-circle.green:active::before {
+  background-color: #3bb469; 
+}
+
+.hover-circle.blue::before {
+  background-color: #0000ff; 
+}
+
+.hover-circle.blue:active::before {
+  background-color: #0000e5; 
+}
+
+.hover-circle.purple::before {
+  background-color: #6d37ff; 
+}
+
+.hover-circle.purple:active::before {
+  background-color: #5c30e5; 
+}
+
+
+.hover-circle.hover-circle-color-white:hover span {
+  color: #ffffff; 
+}
+
+.hover-circle.hover-circle-color-black:hover span {
+  color: #000000; 
+}
+
+
+.button-arrow-slide {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.4s, color 0.4s; 
+  cursor: pointer;
+}
+
+.button-arrow-slide span {
+  position: relative;
+  display: block;
+  transition: transform 0.3s ease; 
+}
+
+.button-arrow-slide::after {
+  content: "➔"; 
+  position: absolute;
+  right: -20px; 
+  top: 50%;
+  transform: translateY(-50%);
+  transition: right 0.3s ease, transform 0.3s ease; 
+  z-index: 1;
+  opacity: 0; 
+}
+
+.button-arrow-slide:hover::after {
+  right: 10px; 
+  opacity: 1; 
+}
+
+.button-arrow-slide:hover span {
+  transform: translateX(-10px); 
+}
+
+.button-arrow-slide:hover {
+  color: white; 
+  background-color: black; 
+}
+
+
+.scale-up {
+  transition: transform 0.3s ease-in-out; 
+}
+
+.scale-up:hover {
+  transform: scale(1.1); 
+}
+
+.scale-up:active {
+  transform: scale(1.05); 
+}
+
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.bounce-effect:hover {
+  animation: bounce 1s;
+}
+
+ @keyframes slide-up {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hover-slide-up {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+
+.hover-slide-up span {
+  display: inline-block;
+  animation: slide-up 2s infinite;
+}
+
+.hover-slide-up:hover span {
+  animation-play-state: running;
+}
+
+
+
+
+.test {
+  transition: box-shadow 0.3s ease; 
+  box-shadow: 0px 0px 0 0 var(--btn-color);
+  position: relative; 
+}
+
+.test::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 0;
+  height: 0;
+  background-color: black;
+  transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease; 
+  z-index: 0; 
+  transform: translate(-50%, -50%);
+  border-radius: 50%; 
+}
+
+.test:active {
+  transition: box-shadow 0.1s ease-in-out; 
+}
+
+.test:hover {
+  transition: box-shadow 0.1s ease-in-out; 
+}
+
+.test span {
+  position: relative;
+  z-index: 1; 
+}
+
+.test:hover {
+  box-shadow: 7px 7px 0 0 var(--btn-color); 
+}
+
+.test:active {
+  box-shadow: 3px 3px 0 0 var(--btn-color); 
+}
+
+.shadow-red {
+  --btn-color: red;
+}
+
+.shadow-blue {
+  --btn-color: blue;
+}
+
+.shadow-purple {
+  --btn-color: #6d37ff;
+}
+
+.shadow-green {
+  --btn-color: #44d375;
+}
+
+.shadow-black {
+  --btn-color: black;
+}
+
+.button-small {
+  padding: 5px 10px;
+  font-size: 12px; 
+}
+
+.button-medium {
+  padding: 10px 20px; 
+  font-size: 16px; 
+  font-family: "Plus Jakarta Sans", sans-serif; 
+  font-weight: 600;
+}
+
+.button-large {
+  padding: 15px 30px; 
+  font-size: 20px; 
+}
+
+.lift-effect {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.lift-effect:hover {
+  transform: translateY(-5px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
