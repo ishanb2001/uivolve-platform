@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import LeftSidebar from './LeftSidebar';
 import Introduction from './Introduction';
 import Overview from './Overview'; 
+import DrawerPage from './DrawerPage';
 
 const ButtonsPage = () => {
   return (
@@ -15,6 +16,7 @@ const ButtonsPage = () => {
         <Routes>
           <Route path="introduction" element={<Introduction />} />
           <Route path="overview" element={<Overview />} />
+          <Route path="drawerpage" element={<DrawerPage />} />
           
         </Routes>
       </div>

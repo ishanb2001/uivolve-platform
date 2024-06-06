@@ -8,7 +8,7 @@ const Home = () => {
     <div>
 <div className="banner-content flex text-center">
         <div style={{ marginTop: 140, marginBottom: 50 }} className="banner">
-          <div style={{ marginBottom: 30 }} className="label purple-bg white-text label-rounded">
+          <div style={{ marginBottom: 30 }} className="label black-bg white-text label-rounded">
             <strong>EXPLORE HERE</strong>
           </div>
           <h1 className="font-giant shiny-text">Frontend Boost with Snippets and Docs</h1>

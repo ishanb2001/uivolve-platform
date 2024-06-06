@@ -4,7 +4,7 @@ body {
 
 .App {
   font-family: "Inter", sans-serif;
-  max-width: 1300px;
+  max-width: 1450px;
   margin: auto;
   background-color: white;
 }
@@ -63,20 +63,6 @@ body {
   background-color: #f0f0f0;
 }
 
-/*.grid-background:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background-image: 
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.023), rgba(0, 0, 0, 0.023) 2px, transparent 1px, transparent 29px),
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.023), rgba(0, 0, 0, 0.023) 2px, transparent 1px, transparent 29px);
-  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.507) 600px, rgba(0, 0, 0, 0.452) 700px);
-}*/
-
 .toggle-button {
   background-color: transparent;
   border: 1px solid transparent;
@@ -100,7 +86,6 @@ body {
 
 .navbar {
   border: 1px solid rgb(234, 234, 234);
-  
 }
 
 .navbar-inner {
@@ -140,9 +125,9 @@ body {
 .Menu {
   display: flex;
   min-height: 100vh;
-  max-width: 1300px;
+  max-width: 1900px;
   margin: auto;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 10px;
 }
 
@@ -219,7 +204,7 @@ li {
   color: black;
   background-color: white;
   flex-grow: 1;
-  max-width: 900px;
+  max-width: 1100px;
   overflow-x: hidden;
   border: 1px solid rgb(238, 238, 238);
 }
@@ -298,92 +283,303 @@ li {
   transform: rotate(180deg);
 }
 
- .menu-container {
-    position: relative;
-  }
+.menu-container {
+  position: relative;
+}
 
-  .menu-button {
-    padding: 6px 24px;
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 25px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
+.menu-button {
+  padding: 6px 24px;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-  .menu-button:hover {
-    transform: translateY(-2px);
-  }
+.menu-button:hover {
+  transform: translateY(-2px);
+}
 
-  .dropdown {
-    display: none;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-  }
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
 
-  .dropdown.show {
-    display: block;
-    max-height: 300px; /* Set a maximum height for the dropdown */
-    opacity: 1;
-  }
+.dropdown.show {
+  display: block;
+  max-height: 300px; /* Set a maximum height for the dropdown */
+  opacity: 1;
+}
 
-  .dropdown .dropdown-item {
-    padding: 15px 15px;
-    font-size: 16px;
-    color: #333;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s ease;
-  }
+.dropdown .dropdown-item {
+  padding: 15px 15px;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
 
-  .dropdown .dropdown-item:hover {
-    background-color: #f0f0f0;
-  }
+.dropdown .dropdown-item:hover {
+  background-color: #f0f0f0;
+}
 
-  .banner-content {
-    max-width: 700px;
-    margin: auto;
-  }
+.banner-content {
+  max-width: 700px;
+  margin: auto;
+}
 
-  .footer {
-    display: flex;
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  bottom: 0;
+}
+
+.logo-container {
+  margin-bottom: 10px;
+}
+
+.logo {
+  height: 50px; /* Adjust the height of your logo as needed */
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.icon {
+  font-size: 24px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: #007bff;
+}
+
+/* Existing Styles */
+.block {
+  color: #333;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-wrap: break-word; /* Ensure long words break to avoid overflow */
+  font-weight: 500;
+  width: 100%; /* Ensure the block takes full width */
+  box-sizing: border-box;
+}
+
+.variable-block {
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.function-block {
+  background-color: rgba(230, 230, 250, 0.5);
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.function-block .block-header {
+  background-color: #6d37ff;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+.event-block {
+  background-color: #9c27b0;
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.block-content {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: pre-wrap; /* Preserve whitespace formatting and wrap text */
+  word-wrap: break-word; /* Break long words */
+}
+
+.block-header {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+  padding: 5px;
+  background-color: #388e3c;
+  border-radius: 5px 5px 0 0;
+}
+
+.nested-block {
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+.inner-nested-block {
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+.inner-inner-nested-block {
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+.container {
+  background-color: #fff;
+  border: 1px solid rgb(238, 238, 238);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: flex-start;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 20px; /* Ensure there is space between the content and the explanation box */
+  width: 100%; /* Make sure the container takes the full width */
+  max-width: 1200px;
+}
+
+.explanation-box {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  flex-shrink: 0; /* Prevent the box from shrinking */
+}
+
+@media (max-width: 1200px) {
+  .app-container {
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+  }
+
+  .explanation-box {
+    width: 90%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
     width: 100%;
-    bottom: 0;
+    padding: 10px;
   }
-  
-  .logo-container {
-    margin-bottom: 10px;
+
+  .block {
+    padding: 5px;
+    font-size: 14px;
   }
-  
-  .logo {
-    height: 50px; /* Adjust the height of your logo as needed */
+
+  .nested-block,
+  .inner-nested-block,
+  .inner-inner-nested-block {
+    margin-left: 10px;
+    padding-left: 5px;
   }
-  
-  .social-icons {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .icon {
-    font-size: 24px;
-    color: #333;
-    transition: color 0.3s;
-  }
-  
-  .icon:hover {
-    color: #007bff;
-  }
-  
+}
+
+
+/*Drawer CSS */
+
+.drawer-container {
+  position: relative;
+}
+
+.drawer-button {
+  padding: 12px 24px;
+  background-color: #007aff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.drawer-button:hover {
+  background-color: #005bb5;
+  transform: translateY(-2px);
+}
+
+.drawer {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: bottom 0.5s ease;
+  z-index: 1000;
+}
+
+.drawer.show {
+  bottom: 0;
+}
+
+.drawer .notch {
+  width: 40px;
+  height: 5px;
+  background-color: #ccc;
+  border-radius: 5px;
+  margin: 0 auto 10px;
+  cursor: pointer;
+}
+
+.drawer .content {
+  font-size: 16px;
+  color: #333;
+}
+
+.drawer .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #007aff;
+}
+
+
+
+
+

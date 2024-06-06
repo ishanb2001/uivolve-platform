@@ -1,0 +1,90 @@
+.container-custom {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.function-elements {
+    margin-left: 30px;
+}
+
+.title-custom,
+.function-title-custom {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.title-custom {
+    background-color: #e1ccec;
+    color: #5f4b8b;
+}
+
+.function-title-custom {
+    background-color: #A16CF5;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.1rem;
+}
+
+.step-custom,
+.nested-step-custom {
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 15px;
+    margin-left: 20px;
+    position: relative;
+}
+
+.step-custom::before,
+.nested-step-custom::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #000;
+}
+
+.nested-step-custom {
+    margin-left: 60px;
+}
+
+.end-function-custom {
+    background-color: #A16CF5;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.dropdown-content-custom {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.dropdown-content-custom.visible {
+    max-height: 3000px; /* Adjust this value based on your content's height */
+}
+
+.dropdown-content-custom.hidden {
+    max-height: 0;
+}
+
+
+.dropdown-content-custom {
+    display: none; /* Hidden by default */
+}
+
+.dropdown-content-custom.visible {
+    display: block; /* Shown when the visible class is added */
+}
+
+.dropdown-content-custom.hidden {
+    display: none; /* Hidden when the hidden class is added */
+}
