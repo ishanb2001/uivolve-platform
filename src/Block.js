@@ -3,7 +3,7 @@ import './Block.css';
 
 const Block = ({ type, header, content, children }) => {
   return (
-    <div className={`space ${type}`}>
+    <div className={`block ${type}`}>
       {header && <div className="block-header">{header}</div>}
       {content && <div className="block-content">{content}</div>}
       {children}

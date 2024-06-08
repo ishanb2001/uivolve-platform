@@ -24,11 +24,10 @@ const LeftSidebar = () => {
           <span className="arrow">▼</span>
         </div>
         <ul className="dropdown-content">
-          <li className="dropdown-item" onClick={() => navigateToPage('overview')}>Overview</li>
-          <li className="dropdown-item" onClick={() => navigateToPage('drawerpage')}>Header</li>
-          <li className="dropdown-item">Footer</li>
-          <li className="dropdown-item">Sidebar</li>
-          <li className="dropdown-item">Main Content</li>
+          
+          <li className="dropdown-item" onClick={() => navigateToPage('buttons-library')}>Buttons</li>
+          <li className="dropdown-item" onClick={() => navigateToPage('cards-library')}>Sidebar</li>
+          <li className="dropdown-item" onClick={() => navigateToPage('navbar-library')}>Main Content</li>
         </ul>
       </div>
 

@@ -4,6 +4,10 @@ import LeftSidebar from './LeftSidebar';
 import Introduction from './Introduction';
 import Overview from './Overview'; 
 import DrawerPage from './DrawerPage';
+import Buttons from './Buttons';
+import Cards from './Cards';
+import NavbarSnippets from './NavbarSnippets';
+
 
 const ButtonsPage = () => {
   return (
@@ -17,7 +21,9 @@ const ButtonsPage = () => {
           <Route path="introduction" element={<Introduction />} />
           <Route path="overview" element={<Overview />} />
           <Route path="drawerpage" element={<DrawerPage />} />
-          
+          <Route path="buttons-library" element={<Buttons/>} />
+          <Route path="cards-library" element={<Cards/>} />
+          <Route path="navbar-library" element={<NavbarSnippets/>} />
         </Routes>
       </div>
     </div>

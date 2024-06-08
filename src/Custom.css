@@ -67,15 +67,15 @@ body {
 
 
 .purple-bg {
-  background-color: #6d37ff;
+  background-color: #5F7DFC;
 }
 
 .purple-bg:hover {
-  background-color: #713eff;
+  background-color: #5776ff;
 }
 
 .purple-bg:active {
-  background-color: #7e4fff;
+  background-color: #516eec;
 }
 
 .green-bg {
@@ -464,6 +464,7 @@ em {
   transition: box-shadow 0.3s, border-color 0.3s;
   overflow: hidden;
   color: #333;
+
 }
 
 /* Hover effect for cards */
@@ -481,8 +482,15 @@ em {
   border-radius: 8px 8px 0 0; /* Rounded top corners only */
 }
 
+.card-background {
+  background-color: white;
+  border: 1px solid rgb(237, 237, 237);
+  border-radius: 8px;
+}
+
 .card-content {
   padding: 20px;
+  text-align: left;
 }
 
 /* Card footer */
@@ -979,7 +987,11 @@ em {
 }
 
 
+@media only screen and (max-width: 900px) {
+  
 
+  
+}
 
 
 
@@ -1102,7 +1114,7 @@ em {
 }
 
 .bg-purple {
-  background-color: #6d37ff;
+  background-color: #5F7DFC;
   color: white;
 }
 
@@ -1295,8 +1307,8 @@ em {
 }
 
 .light-purple {
-  background-color: rgba(230, 230, 250, 0.5);
-  color: #6d37ff;
+  background-color: #5f7cfc23;
+  color: #5F7DFC;
 }
 
 .light-purple:hover {
@@ -1596,7 +1608,6 @@ em {
 .lift-effect:hover {
   transform: translateY(-5px);
 }
-
 
 
 

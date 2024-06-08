@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaGithub, FaTwitter } from 'react-icons/fa'; 
+import Logo from './images/uivolve-logo.png';
 
 const Navbar = () => {
   const [visibleDropdown, setVisibleDropdown] = useState(null);
@@ -34,8 +35,8 @@ const Navbar = () => {
   return (
     <div className="navbar navbar-fixed white-bg">
       <div className="navbar-inner flex is-align-items-center">
-        <div className="logo">Logo</div>
-        <div className="flex">
+      <img style={{width:40}} src={Logo} alt="UIVolve Logo" />
+        <div className="navbar-menu flex">
           <div className="flex is-justify-content-flex-start">
             <div className="menu-container">
               <button className="button black-text border-grey" onClick={HomePage}>Home</button>
