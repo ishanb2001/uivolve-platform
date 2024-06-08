@@ -88,11 +88,53 @@ body {
   border: 1px solid rgb(234, 234, 234);
 }
 
+/* Add this CSS to your styles */
+.navbar {
+  position: relative;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mobile-menu .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  position: absolute;
+  top: 80px; /* Adjust based on your navbar height */
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+@media (min-width: 771px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 770px) {
+  .navbar-menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
+
+
 .navbar-inner {
   max-width: 1500px;
   margin: auto;
   padding-top: 10px;
   padding-bottom: 10px;
+  justify-content: space-between
 }
 
 @media (max-width: 768px) {
@@ -345,7 +387,6 @@ li {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  width: 100%;
   bottom: 0;
 }
 
@@ -584,7 +625,7 @@ li {
   flex-wrap: nowrap;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 770px) {
   .flex-container {
     display: flex;
     flex-direction: column;
@@ -593,6 +634,10 @@ li {
 
   .navbar-menu {
  display: none;
+  }
+
+  .left-sidebar {
+    display: none;
   }
 }
 
@@ -614,6 +659,58 @@ li {
     padding: 20px;
     
 }
+
+
+/* LeftSidebar.css */
+
+/* General styles */
+.sidebar {
+  position: relative;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .sidebar-menu {
+    display: none;
+  }
+  
+  .sidebar.open .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    z-index: 10;
+  }
+  
+  .mobile-menu-button {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+
+
+
+
+
 
 
 

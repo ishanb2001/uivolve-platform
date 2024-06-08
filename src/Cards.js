@@ -17,6 +17,7 @@ const Cards = () => {
         }}
       ></div>
       <div className="card-content">
+      <div className="label green-bg white-text label-rounded">Introduction</div>
         <h4>Image Card</h4>
         <p>This card includes a top image with content below it.</p>
         <button className="button bg-purple">Action</button>
@@ -32,6 +33,7 @@ const Cards = () => {
         }}
       ></div>
       <div className="card-content">
+      <div className="label black-bg white-text label-rounded">Intro</div>
         <h4>Image Card</h4>
         <p>This card includes a top image with content below it.</p>
         <button className="button bg-purple">Action</button>
@@ -51,6 +53,7 @@ const Cards = () => {
         }}
       ></div>
       <div className="card-content">
+      <div className="label black-bg white-text label-rounded">Intro</div>
         <h4>Image Card</h4>
         <p>This card includes a top image with content below it.</p>
         <button className="button bg-purple">Action</button>
@@ -66,6 +69,7 @@ const Cards = () => {
         }}
       ></div>
       <div className="card-content">
+      <div className="label black-bg white-text label-rounded">Intro</div>
         <h4>Image Card</h4>
         <p>This card includes a top image with content below it.</p>
         <button className="button bg-purple">Action</button>

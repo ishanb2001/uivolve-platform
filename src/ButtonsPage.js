@@ -7,6 +7,7 @@ import DrawerPage from './DrawerPage';
 import Buttons from './Buttons';
 import Cards from './Cards';
 import NavbarSnippets from './NavbarSnippets';
+import Navbar from './Navbar';
 
 
 const ButtonsPage = () => {
@@ -17,6 +18,7 @@ const ButtonsPage = () => {
       </div>
 
       <div className="main-content">
+        
         <Routes>
           <Route path="introduction" element={<Introduction />} />
           <Route path="overview" element={<Overview />} />
