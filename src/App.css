@@ -851,6 +851,25 @@ li {
   }
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+.row {
+  display: flex;
+  gap: 10px;
+}
+.block {
+  width: 100px;
+  height: 50px;
+  background-color: black;
+}
+.spacer {
+  flex-grow: 1;
+}
+
 
 
 
