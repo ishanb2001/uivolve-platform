@@ -6,7 +6,7 @@ body {
 
 .App {
   font-family: "Inter", sans-serif;
-  max-width: 1050px;
+  max-width: 1400px;
   margin: auto;
 }
 
@@ -21,11 +21,41 @@ body {
   z-index: -1; /* Put it behind the actual content */
   
   background-image: 
-      repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 1px, transparent 1px, transparent 29px),
-      repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 1px, transparent 1px, transparent 29px);
+      repeating-linear-gradient(0deg, rgba(55, 55, 55, 0.027), rgba(55, 55, 55, 0.027) 1px, transparent 1px, transparent 29px),
+      repeating-linear-gradient(90deg, rgba(55, 55, 55, 0.027), rgba(55, 55, 55, 0.027) 1px, transparent 1px, transparent 29px);
   
   mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
 }
+
+/* Fade up animation for initial page load */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 1s ease-in-out forwards;
+}
+
+/* Wiggle up animation for scroll */
+@keyframes wiggleUp {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-5px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.wiggle-up {
+  animation: wiggleUp 0.5s ease-in-out;
+}
+
 
 .menu-container {
   position: relative;
@@ -66,6 +96,20 @@ body {
   display: block;
   max-height: 300px;
   opacity: 1;
+}
+
+.homepage-cards {
+  gap: 20px;
+}
+
+@media (min-width: 860px) {
+
+  .homepage-cards {
+    display: flex;
+    flex-direction: row;
+  }
+
+  
 }
 
 .dropdown .dropdown-item {
@@ -231,10 +275,10 @@ li {
 }
 
 .left-sidebar {
-  width: 250px;
+  width: 190px;
   height: 20%;
   position: sticky;
-  top: 120px;
+  top: 130px;
   max-width: 350px;
   margin-top: 20px;
   border-radius: 10px;
@@ -531,7 +575,6 @@ li {
   box-sizing: border-box;
   gap: 20px; /* Ensure there is space between the content and the explanation box */
   width: 100%; /* Make sure the container takes the full width */
-  max-width: 1200px;
 }
 
 .explanation-box {

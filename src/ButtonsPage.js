@@ -50,6 +50,7 @@ const ButtonsPage = () => {
 
   return (
     <div className="Menu">
+      <Navbar/>
       {isFlyoutVisible && <div className="overlay show" onClick={closeFlyoutMenu}></div>}
       <div className="left-sidebar">
         <LeftSidebar />

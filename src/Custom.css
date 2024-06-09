@@ -354,6 +354,7 @@ h6 {
 
 h1 {
   font-size: 2.25rem; /* 36px */
+  font-weight: 600;
 }
 
 h2 {
@@ -398,7 +399,7 @@ p {
   margin-bottom: 1rem;
   font-size: 18px;
   letter-spacing: -0.02em;
-  line-height: 2rem;
+  line-height: 1.5rem;
   font-weight: 400;
   color: #454545;
 }
@@ -454,7 +455,6 @@ em {
   transition: box-shadow 0.3s, border-color 0.3s;
   overflow: hidden;
   color: #333;
-
 }
 
 /* Hover effect for cards */
@@ -505,13 +505,14 @@ em {
 
 /* Responsive card adjustments */
 @media (max-width: 768px) {
-  .card {
-    margin: 10px;
-  }
 
   .card-content,
   .card-footer {
     padding: 10px;
+  }
+
+  .card {
+    margin-bottom: 20px;
   }
 
 }

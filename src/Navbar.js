@@ -33,7 +33,7 @@ const Navbar = () => {
   }, []);
 
   const HomePage = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   const Documentation = () => {
