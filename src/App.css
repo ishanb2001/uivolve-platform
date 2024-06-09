@@ -4,7 +4,7 @@ body {
 
 @font-face {
   font-family: 'Inter';
-  src: url('Inter-Medium.ttf') format('woff2'),
+  src: url('Inter-Medium.ttf') format('ttf')
 }
 
 
