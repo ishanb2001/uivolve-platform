@@ -527,7 +527,9 @@ em {
 }
 
 /* Flex Container */
-
+.flex {
+  display: flex; /* Establishes a flex container */
+}
 
 /* Flex Direction Utilities */
 .is-flex-direction-row {
