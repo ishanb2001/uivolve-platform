@@ -524,6 +524,11 @@ em {
   .card-footer {
     padding: 10px;
   }
+
+  /* Flex Container */
+.flex {
+  gap: 0px; /* Add gap between flex items */
+}
 }
 
 /* Flex Container */
