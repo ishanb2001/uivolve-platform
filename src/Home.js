@@ -6,7 +6,7 @@ import './App.css';
 const Home = () => {
   return (
     <div>
-<div className="banner-content flex text-center">
+<div className="banner-content flex">
         <div style={{ marginTop: 140, marginBottom: 50 }} className="banner">
           <div style={{ marginBottom: 30 }} className="label black-bg white-text label-rounded">
             <strong>EXPLORE HERE</strong>
@@ -17,7 +17,7 @@ const Home = () => {
             font. It is designed to be clean and readable, suitable for modern
             web UI trends.
           </h4>
-          <div className="flex is-justify-content-center">
+          <div className="flex">
             <Link to="/buttons">
               <button className="button button-large bg-purple hover-slide-up">
                 Explore Here

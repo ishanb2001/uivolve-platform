@@ -16,6 +16,7 @@
 }
 
 
+
 .line {
   border: 1px dotted rgb(0, 0, 0);
   margin-top: 10px;
@@ -524,9 +525,15 @@ em {
   .card-footer {
     padding: 10px;
   }
+
 }
 
 /* Flex Container */
+.flex {
+  display: flex; /* Establishes a flex container */
+  width: 100%;
+  gap: 20px; /* Add gap between flex items */
+}
 
 /* Flex Direction Utilities */
 .is-flex-direction-row {
