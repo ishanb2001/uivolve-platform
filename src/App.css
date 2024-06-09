@@ -2,6 +2,15 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url('inter.woff2') format('woff2'),
+       url('inter.woff') format('woff'),
+       url('inter.ttf') format('truetype'),
+       url('inter.eot') format('embedded-opentype');
+}
+
+
 .App {
   font-family: "Inter", sans-serif;
   max-width: 1450px;

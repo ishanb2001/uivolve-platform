@@ -15,6 +15,15 @@
   background-color: rgb(228, 228, 228); /* Default background is transparent */
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url('inter.woff2') format('woff2'),
+       url('inter.woff') format('woff'),
+       url('inter.ttf') format('truetype'),
+       url('inter.eot') format('embedded-opentype');
+}
+
+
 .line {
   border: 1px dotted rgb(0, 0, 0);
   margin-top: 10px;
