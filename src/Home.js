@@ -6,7 +6,7 @@ import './App.css';
 const Home = () => {
   return (
     <div>
-<div className="banner-content flex">
+<div className="banner-content">
         <div style={{ marginTop: 140, marginBottom: 50 }} className="banner">
           <div style={{ marginBottom: 30 }} className="label black-bg white-text label-rounded">
             <strong>EXPLORE HERE</strong>

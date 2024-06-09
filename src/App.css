@@ -1,5 +1,6 @@
 body {
   font-family: "Inter", sans-serif;
+  overflow-x: hidden;
 }
 
 
@@ -448,6 +449,17 @@ li {
   border: 1px solid rgb(238, 238, 238);
 }
 
+.flex-container {
+  display: flex;
+  flex-wrap: wrap; /* Ensure flex items wrap */
+}
+
+.flex-item {
+  flex: 1 1 auto; /* Allow flex items to grow and shrink */
+  min-width: 200px; /* Ensure a minimum width for items */
+}
+
+
 .block-content {
   background-color: white;
   padding: 10px;
@@ -541,6 +553,17 @@ li {
     text-align: left;
   }
 }
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none; /* Hide large screen menu */
+  }
+
+  .mobile-menu {
+    display: block; /* Show mobile menu */
+  }
+}
+
 
 @media (max-width: 480px) {
   .container {

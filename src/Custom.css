@@ -23,10 +23,6 @@
   margin-bottom: 10px;
 }
 
-body {
-  font-family: "Inter", sans-serif; /* Corrected font family name */
-}
-
 
 
 /* Modifier for rounded buttons */
@@ -327,14 +323,6 @@ body {
 }
 
 /* Global Styles */
-body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  color: #333; /* Dark gray for better readability */
-  margin: 0;
-  padding: 0;
-}
 
 /* Headings */
 h1,
@@ -358,7 +346,7 @@ h6 {
 }
 
 .font-giant {
-  font-size: 4.5rem; /* 36px */
+  /* font-size: 4.5rem;  36px */
   letter-spacing: -0.2rem;
   line-height: 5rem;
   font-weight: 700;
