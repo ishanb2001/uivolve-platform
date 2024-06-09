@@ -113,13 +113,13 @@ body {
   padding: 10px 0;
 }
 
-@media (min-width: 771px) {
+@media (min-width: 860px) {
   .mobile-menu {
     display: none;
   }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 860px) {
   .navbar-menu {
     display: none;
   }
@@ -137,7 +137,7 @@ body {
   justify-content: space-between
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .navbar {
     flex-direction: column;
     align-items: center;
@@ -528,7 +528,7 @@ li {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .container {
     width: 95%;
   }
@@ -625,7 +625,7 @@ li {
   flex-wrap: nowrap;
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 860px) {
   .flex-container {
     display: flex;
     flex-direction: column;
@@ -660,51 +660,107 @@ li {
     
 }
 
-
-/* LeftSidebar.css */
-
-/* General styles */
-.sidebar {
-  position: relative;
+@media (max-width: 1230px) {
+.main-content {
+  max-width: 700px;
 }
 
-.sidebar-menu {
-  display: flex;
-  flex-direction: column;
+.Menu {
+  justify-content: center;
+}
 }
 
-/* Mobile styles */
-@media (max-width: 768px) {
-  .sidebar-menu {
-    display: none;
+@media (max-width: 1060px) {
+  .main-content {
+    max-width: 700px;
   }
   
-  .sidebar.open .sidebar-menu {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
-    background: white;
-    border: 1px solid #ddd;
-    z-index: 10;
+  .Menu {
+    justify-content: center;
   }
+  }
+
+/* Show button and flyout menu only on screens smaller than 769px */
+@media (max-width: 860px) {
+  .list-container {
+    padding: 10px;
+  }
+
   
-  .mobile-menu-button {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 24px;
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
   }
+
+  .flyout-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full screen height */
+    width: 250px; /* You can adjust the width as needed */
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 0 5px 5px 0; /* Adjust border radius if needed */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    z-index: 1000;
+  }
+
+  .flyout-menu.open {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .list-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+
+  .list-item:last-child {
+    border-bottom: none;
+  }
+
+  .close-button {
+    align-self: flex-end;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .overlay.show {
+    display: block;
+    opacity: 1;
+  }
 }
 
-@media (min-width: 769px) {
-  .mobile-menu-button {
+/* Hide button and flyout menu on screens 769px and larger */
+@media (min-width: 860px) {
+  .list-container button,
+  .flyout-menu {
     display: none;
   }
 }
+
 
 
 
