@@ -2,11 +2,6 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-@font-face {
-  font-family: 'Inter';
-  src: url('Inter-Medium.ttf') format('ttf')
-}
-
 
 .App {
   font-family: "Inter", sans-serif;
