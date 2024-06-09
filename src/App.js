@@ -6,23 +6,27 @@ import { Routes, Route } from 'react-router-dom';
 import ButtonsPage from './ButtonsPage';
 import Home from './Home';
 import Footer from './Footer';
+import Logo from './images/uivolve-logo.png';
 
 const App = () => {
   return (
-    <div className="App">
+    <div style={{ marginTop: 180, marginBottom: 30 }} className="App">
       <Navbar />
-      <div style={{ marginTop: 110, marginBottom: 30 }} className="label black-bg white-text label-rounded">
-            <strong>EXPLORE HERE</strong>
-          </div>
-      <h1 className="font-giant shiny-text">Frontend Boost with Snippets and Docs</h1>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap</p>
-      <div className="flex">
-      <button className="button button-medium light-purple">
+      <div style={{display: 'flex'}}>
+        <div>
+      <h1 style={{ marginBottom: 30 }} className="font-giant shiny-text">Frontend Boost with Snippets and Docs</h1>
+      <p style={{ marginBottom: 30 }}>Join the millions of companies of all sizes that use Stripe to accept payments online and in person, embed financial services.</p>
+      </div>
+
+      <div>
+      
+      </div>
+      </div>
+      <div style={{ marginBottom: 90 }}>
+      <button className="button button-medium bg-black">
                 Documentation
               </button>
-              <button className="button button-medium light-purple">
-                Documentation
-              </button>
+              
               </div>
               <div className="flex">
         <div className="purple-bg test shadow-black card is-flex-grow-4 flex is-flex-direction-column is-justify-content-space-between">
@@ -49,7 +53,7 @@ const App = () => {
               <div className="label green-bg white-text label-rounded">MEMBERSHIP</div>
             </div>
             <div className="card-content">
-              <h1 className="black-text">Video Lessons</h1>
+              <h1 className="black-text ">Video Lessons</h1>
             </div>
           </div>
           <div className="white-bg test shadow-black card flex is-flex-direction-column is-justify-content-space-between">
@@ -64,7 +68,7 @@ const App = () => {
       </div>
               
       <Routes>
-        <Route path="/home" element={<Home />} />
+        
         <Route path="/overview/*" element={<ButtonsPage />} />
       </Routes>
       <Footer/>
