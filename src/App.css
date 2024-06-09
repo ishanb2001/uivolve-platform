@@ -4,10 +4,7 @@ body {
 
 @font-face {
   font-family: 'Inter';
-  src: url('inter.woff2') format('woff2'),
-       url('inter.woff') format('woff'),
-       url('inter.ttf') format('truetype'),
-       url('inter.eot') format('embedded-opentype');
+  src: url('Inter-Medium.ttf') format('woff2'),
 }
 
 
