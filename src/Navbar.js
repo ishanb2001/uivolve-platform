@@ -101,7 +101,7 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="menu-container">
-                <button className="button bg-purple" onClick={() => toggleDropdown(4)}>Contact</button>
+                <button className="button button-medium bg-black" onClick={() => toggleDropdown(4)}>Contact</button>
                 <div className={`dropdown ${visibleDropdown === 4 ? 'show' : ''}`}>
                   <a href="#" className="dropdown-item">Profile</a>
                   <a href="#" className="dropdown-item">Settings</a>

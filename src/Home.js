@@ -3,15 +3,20 @@ import { Link } from 'react-router-dom';
 import './Custom.css'; 
 import './App.css'; 
 import Navbar from './Navbar';
+import GradientImage from './images/gradient-image-1.png';
+import GradientImage2 from './images/gradient-image-2.png';
+import GradientImage3 from './images/gradient-image-3.png';
+import GradientImage4 from './images/gradient-image-4.png';
+import TabUIElementOne from './TabUIElementOne.js';
 
 const Home = () => {
 
   useEffect(() => {
-    // Add fade-up class to all elements on initial load
+    
     const elements = document.querySelectorAll('.fade-element');
     elements.forEach(el => el.classList.add('fade-up'));
 
-    // Handle scroll events for wiggle animation
+    
     const handleScroll = () => {
       const elements = document.querySelectorAll('.scroll-element');
       elements.forEach(el => {
@@ -21,7 +26,7 @@ const Home = () => {
       });
     };
 
-    // Check if element is in viewport
+    
     const isElementInViewport = (el) => {
       const rect = el.getBoundingClientRect();
       return (
@@ -32,10 +37,10 @@ const Home = () => {
       );
     };
 
-    // Add scroll event listener
+    
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup scroll event listener on component unmount
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -50,9 +55,9 @@ const Home = () => {
             <h1 style={{ marginBottom: 30 }} className="font-giant shiny-text fade-element">Frontend Boost with Snippets and Docs</h1>
             <p style={{ marginBottom: 30 }} className="fade-element">We are dedicated to empowering developers and designers by providing a comprehensive, modern, and trendy library of frontend UI code snippets and detailed documentation.</p>
           </div>
-
-          
-          
+          <div>
+          <TabUIElementOne/>
+          </div>
         </div>
         <div style={{ marginBottom: 90 }}>
           <button className="button button-medium bg-black fade-element">
@@ -60,17 +65,18 @@ const Home = () => {
           </button>
         </div>
         <div className="homepage-cards">
-          <div className="purple-bg test shadow-black card is-flex-grow-4 flex is-flex-direction-column is-justify-content-space-between scroll-element">
+          <div className="test white-bg shadow-black card is-flex-grow-4 flex is-flex-direction-column is-justify-content-space-between scroll-element">
             <div className="card-content">
-              <div className="label white-bg black-text label-rounded">MEMBERSHIP</div>
+              <div className="label black-bg white-text label-rounded">MEMBERSHIP</div>
             </div>
             <div className="card-content">
               <h1 className="white-text">EvoCSS</h1>
             </div>
           </div>
-          <div className="green-bg test shadow-black card is-flex-grow-4 flex is-flex-direction-column is-justify-content-space-between scroll-element">
+
+          <div className="test white-bg shadow-black card is-flex-grow-4 flex is-flex-direction-column is-justify-content-space-between scroll-element">
             <div className="card-content">
-              <div className="label white-bg black-text label-rounded">MEMBERSHIP</div>
+              <div className="label black-bg white-text label-rounded">MEMBERSHIP</div>
             </div>
             <div className="card-content">
               <h1 className="white-text">EvoMail</h1>

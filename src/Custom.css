@@ -15,6 +15,10 @@
   background-color: rgb(228, 228, 228); /* Default background is transparent */
 }
 
+body {
+  font-family: "Inter", sans-serif; /* Corrected font family name */
+}
+
 
 
 .line {
@@ -65,7 +69,9 @@
 
 
 .purple-bg {
-  background-color: #5F7DFC;
+  
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgb(84 125 255) 0%, rgb(123 161 255) 100%);
 }
 
 .purple-bg:hover {
@@ -401,7 +407,7 @@ p {
   letter-spacing: -0.02em;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #454545;
+  color: #848484;
 }
 
 /* Link Styling */
@@ -451,15 +457,19 @@ em {
 
 /* Base styles for cards */
 .card {
-  border-radius: 30px; 
+  border-radius: 20px; 
   transition: box-shadow 0.3s, border-color 0.3s;
   overflow: hidden;
   color: #333;
 }
 
+.grey-bg {
+  background-color: #F4F4F4;
+}
+
 /* Hover effect for cards */
 .card:hover {
-  border-color: #ccc; /* Darker border on hover */
+  border-color: #000000; /* Darker border on hover */
 }
 
 /* Themed cards */
@@ -1613,6 +1623,285 @@ em {
 .lift-effect:hover {
   transform: translateY(-5px);
 }
+
+/* Dropdown Type 1 */
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown1 button {
+  transition: background-color 0.3s;
+}
+
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.dropdown1:hover .dropdown-content1 {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content1 a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Dropdown Type 2 */
+.dropdown2 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown2 button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.dropdown2 button:hover {
+  background-color: #218838;
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.dropdown2:hover .dropdown-content2 {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-content2 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content2 a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Dropdown Type 3 */
+.dropdown3 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown3 button {
+  background-color: #17a2b8;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.dropdown3 button:hover {
+  background-color: #117a8b;
+}
+
+.dropdown-content3 {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.dropdown3:hover .dropdown-content3 {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-content3 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content3 a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Tab 1 */
+
+.tab-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  font-family: "Inter", sans-serif; /* Corrected font family name */
+  border-radius: 25px;
+  padding: 5px;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-family: "Inter", sans-serif; /* Corrected font family name */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  z-index: 1;  /* Ensure the buttons are above the indicator */
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  height: calc(100% - 10px);  /* Adjust the height of the indicator */
+  background-color: white;
+  border-radius: 25px;
+  transition: left 0.3s ease, width 0.3s ease;
+  z-index: 0;  /* Ensure the indicator is below the buttons */
+}
+
+.tab:hover {
+  color: gray;
+}
+
+/* Tab 2 */
+
+.custom-tab-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: "Inter", sans-serif; /* Corrected font family name */
+  border-bottom: 2px solid #e0e0e0;
+  background-color: #f9f9f9;
+}
+
+.custom-tab {
+  flex: 1;
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  font-family: "Inter", sans-serif; /* Corrected font family name */
+  color: #b3b3b3;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  outline: none;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.custom-tab-active {
+  color: #000000;
+}
+
+.custom-tab:hover {
+  color: #000000;
+}
+
+.custom-tab-indicator {
+  position: absolute;
+  bottom: -2px;
+  height: 2px;
+  background: #000000;
+  transition: width 0.3s, left 0.3s;
+}
+
+/* Three Avatar */
+
+.avatar-container {
+  position: relative;
+  width: 300px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+}
+
+.avatar {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid white; /* White border around each image */
+}
+
+#avatar1 {
+  background-color: #e0ffe0;
+  left: 0;
+  z-index: 3;
+}
+
+#avatar2 {
+  background-color: #e0e0ff;
+  left: 80px; /* Adjust for overlap */
+  z-index: 2;
+}
+
+#avatar3 {
+  background-color: #ffe0ff;
+  left: 150px; /* Adjust for overlap */
+  z-index: 1;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
 
 
 

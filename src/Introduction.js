@@ -6,9 +6,7 @@ const Introduction = () => {
   return (
     <div>
       
-      <div className="label black-bg white-text label-rounded">
-        <strong>INTRODUCTION</strong>
-      </div>
+      
       <h1 style={{paddingTop: 30}}>What Is It?</h1>
       <p style={{marginTop: '1.25rem'}}>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
