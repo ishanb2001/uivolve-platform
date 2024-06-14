@@ -56,9 +56,7 @@ const Home = () => {
             <h1 style={{ marginBottom: 30 }} className="font-giant shiny-text fade-element">Frontend Boost with Snippets and Docs</h1>
             <p style={{ marginBottom: 30 }} className="fade-element">We are dedicated to empowering developers and designers by providing a comprehensive, modern, and trendy library of frontend UI code snippets and detailed documentation.</p>
           </div>
-          <div>
-          <TabUIElementOne/>
-          </div>
+          
         </div>
         <div style={{ marginBottom: 90 }}>
           <button className="button button-medium bg-black fade-element">

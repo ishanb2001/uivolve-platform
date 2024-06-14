@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaGithub, FaTwitter, FaBars, FaTimes } from 'react-icons/fa'; 
 import Logo from './images/uivolve-logo.png';
+import ThreeAvatar from './ThreeAvatar';
+import AvatarWithStatus from './AvatarWithStatus';
 
 const Navbar = () => {
   const [visibleDropdown, setVisibleDropdown] = useState(null);
@@ -97,7 +99,8 @@ const Navbar = () => {
                 
               </div>
               <div className="menu-container">
-                <button className="button button-medium bg-black" onClick={() => toggleDropdown(4)}>Contact</button>
+                
+                <AvatarWithStatus/>
                 
               </div>
             </div>

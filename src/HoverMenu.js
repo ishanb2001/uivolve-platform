@@ -43,14 +43,12 @@ const reverseBounce = keyframes`
 // Styled components
 const Container = styled.div`
   font-family: "Inter", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f9;
   margin: 0;
   padding: 0;
   font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 `;
 
 const Nav = styled.ul`

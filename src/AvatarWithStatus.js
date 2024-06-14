@@ -6,26 +6,23 @@ const Body = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 15vh;
   margin: 0;
 `;
 
 const AvatarContainer = styled.div`
   position: relative;
-  width: 100px;
-  height: 100px;
 `;
 
 const Avatar = styled.div`
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 40px;  // Reduced from 100px
+  height: 40px; // Reduced from 100px
   border-radius: 50%;
   overflow: visible;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid white;
+  border: 1px solid white;  // Reduced from 2px
   background-color: #e0ffe0;
 `;
 
@@ -38,12 +35,12 @@ const AvatarImage = styled.img`
 
 const StatusIndicator = styled.div`
   position: absolute;
-  bottom: -5px;
-  right: 3px;
-  width: 20px;
-  height: 20px;
+  bottom: -2.5px; // Adjusted for smaller size
+  right: 1.5px;   // Adjusted for smaller size
+  width: 10px;  // Reduced from 20px
+  height: 10px; // Reduced from 20px
   background-color: green;
-  border: 2px solid white;
+  border: 1px solid white;  // Reduced from 2px
   border-radius: 50%;
   z-index: 2;
 `;

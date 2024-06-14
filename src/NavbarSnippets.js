@@ -54,7 +54,6 @@ const NavbarSnippets = () => {
 <div class="flex-container">
 <div className='comp-card'><ButtonBox/>
 <DropdownMenu/>
-<DropdownMenu/>
 
       
 </div>
