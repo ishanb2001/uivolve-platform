@@ -94,19 +94,11 @@ const Navbar = () => {
               </div>
               <div className="menu-container">
                 <button className="button black-text border-grey" onClick={() => toggleDropdown(3)}>Blog</button>
-                <div className={`dropdown ${visibleDropdown === 3 ? 'show' : ''}`}>
-                  <a href="#" className="dropdown-item">Profile</a>
-                  <a href="#" className="dropdown-item">Settings</a>
-                  <a href="#" className="dropdown-item">Logout</a>
-                </div>
+                
               </div>
               <div className="menu-container">
                 <button className="button button-medium bg-black" onClick={() => toggleDropdown(4)}>Contact</button>
-                <div className={`dropdown ${visibleDropdown === 4 ? 'show' : ''}`}>
-                  <a href="#" className="dropdown-item">Profile</a>
-                  <a href="#" className="dropdown-item">Settings</a>
-                  <a href="#" className="dropdown-item">Logout</a>
-                </div>
+                
               </div>
             </div>
           </div>

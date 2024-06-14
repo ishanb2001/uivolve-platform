@@ -5,6 +5,10 @@ import TabUIElementTwo from './TabUIElementTwo'
 import TabUIElementOne from './TabUIElementOne';
 import AvatarCircles from './ThreeAvatar';
 import AvatarWithStatus from './AvatarWithStatus';
+import Checkboxes from './Checkboxes';
+import HoverMenu from './HoverMenu';
+import DropdownMenu from './HoverMenu';
+
 
 const NavbarSnippets = () => {
 
@@ -12,6 +16,9 @@ const NavbarSnippets = () => {
 
   return (
     <div>
+      
+        
+        <HoverMenu/>
     <div class="flex-container">
         <div className='comp-card'><ButtonBox/>
         <TabUIElementTwo/>
@@ -39,6 +46,15 @@ const NavbarSnippets = () => {
 <div class="flex-container">
 <div className='comp-card'><ButtonBox/>
 <AvatarWithStatus/>
+
+      
+</div>
+</div>
+
+<div class="flex-container">
+<div className='comp-card'><ButtonBox/>
+<DropdownMenu/>
+<DropdownMenu/>
 
       
 </div>

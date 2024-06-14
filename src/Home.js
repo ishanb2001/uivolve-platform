@@ -8,6 +8,7 @@ import GradientImage2 from './images/gradient-image-2.png';
 import GradientImage3 from './images/gradient-image-3.png';
 import GradientImage4 from './images/gradient-image-4.png';
 import TabUIElementOne from './TabUIElementOne.js';
+import HoverMenuExample from './HoverMenuExample.js';
 
 const Home = () => {
 
@@ -63,6 +64,7 @@ const Home = () => {
           <button className="button button-medium bg-black fade-element">
             Documentation
           </button>
+          <HoverMenuExample/>
         </div>
         <div className="homepage-cards">
           <div className="test white-bg shadow-black card is-flex-grow-4 flex is-flex-direction-column is-justify-content-space-between scroll-element">
