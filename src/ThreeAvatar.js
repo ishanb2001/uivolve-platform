@@ -3,7 +3,7 @@ import React from 'react';
 const AvatarCircles = () => {
     const avatarContainerStyle = {
         display: 'flex',
-        
+        justifyContent: 'center'
     };
 
     const avatarStyle = {

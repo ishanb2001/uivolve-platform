@@ -10,30 +10,32 @@ import HoverMenu from './HoverMenu';
 import DropdownMenu from './HoverMenu';
 
 
-const NavbarSnippets = () => {
+const TabSlidePage = () => {
 
     
 
   return (
     <div>
+      
+    <div class="flex-container">
+        <div className='comp-card'><ButtonBox/>
+        <TabUIElementTwo/>
+       
+        </div>
+
+  </div>
 
 <div class="flex-container">
 <div className='comp-card'><ButtonBox/>
-<AvatarWithStatus/>
+<TabUIElementOne/>
 
       
 </div>
 </div>
 
-<div class="flex-container">
-<div className='comp-card'><ButtonBox/>
-<AvatarCircles/>
-      
-</div>
-</div>
-<button>hi</button>
+
 </div>
   );
 };
 
-export default NavbarSnippets;
+export default TabSlidePage;

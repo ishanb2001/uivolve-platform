@@ -10,30 +10,24 @@ import HoverMenu from './HoverMenu';
 import DropdownMenu from './HoverMenu';
 
 
-const NavbarSnippets = () => {
+const DropDownPage = () => {
 
     
 
   return (
     <div>
+      
 
 <div class="flex-container">
 <div className='comp-card'><ButtonBox/>
-<AvatarWithStatus/>
+<DropdownMenu/>
 
       
 </div>
 </div>
 
-<div class="flex-container">
-<div className='comp-card'><ButtonBox/>
-<AvatarCircles/>
-      
-</div>
-</div>
-<button>hi</button>
 </div>
   );
 };
 
-export default NavbarSnippets;
+export default DropDownPage;

@@ -6,7 +6,6 @@
   cursor: pointer;
   border-radius: 10px;
   transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
-  position: relative;
   overflow: hidden;
   white-space: nowrap;
   margin: 5px;
@@ -1069,7 +1068,6 @@ em {
   cursor: pointer;
   border-radius: 10px;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-  position: relative;
   overflow: hidden;
   white-space: nowrap;
   margin: 5px;

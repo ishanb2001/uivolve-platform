@@ -31,6 +31,8 @@ const LeftSidebar = () => {
           <li className="dropdown-item" onClick={() => navigateToPage('buttons-library')}>Buttons</li>
           <li className="dropdown-item" onClick={() => navigateToPage('cards-library')}>Sidebar</li>
           <li className="dropdown-item" onClick={() => navigateToPage('navbar-library')}>Main Content</li>
+          <li className="dropdown-item" onClick={() => navigateToPage('dropdown-page')}>Sidebar</li>
+          <li className="dropdown-item" onClick={() => navigateToPage('tab-slider')}>Main Content</li>
         </ul>
       </div>
 

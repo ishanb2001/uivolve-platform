@@ -8,6 +8,8 @@ import Buttons from './Buttons';
 import Cards from './Cards';
 import NavbarSnippets from './NavbarSnippets';
 import Navbar from './Navbar';
+import DropDownPage from './DropDownPage';
+import TabSlidePage from './TabSlidePage';
 
 const ButtonsPage = () => {
   const navigate = useNavigate();
@@ -74,6 +76,8 @@ const ButtonsPage = () => {
           <li className="dropdown-item" onClick={() => navigateToPage('buttons-library')}>Buttons</li>
           <li className="dropdown-item" onClick={() => navigateToPage('cards-library')}>Sidebar</li>
           <li className="dropdown-item" onClick={() => navigateToPage('navbar-library')}>Main Content</li>
+          <li className="dropdown-item" onClick={() => navigateToPage('dropdown-page')}>Dropdown</li>
+          <li className="dropdown-item" onClick={() => navigateToPage('tab-slider')}>Tab Slider</li>
         </ul>
       </div>
           </div>
@@ -85,6 +89,8 @@ const ButtonsPage = () => {
           <Route path="buttons-library" element={<Buttons />} />
           <Route path="cards-library" element={<Cards />} />
           <Route path="navbar-library" element={<NavbarSnippets />} />
+          <Route path="dropdown-page" element={<DropDownPage />} />
+          <Route path="tab-slider" element={<TabSlidePage />} />
         </Routes>
       </div>
     </div>
