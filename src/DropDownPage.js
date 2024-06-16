@@ -11,23 +11,17 @@ import DropdownMenu from './HoverMenu';
 
 
 const DropDownPage = () => {
-
-    
-
-  return (
-    <div>
-      
-
-<div class="flex-container">
-<div className='comp-card'><ButtonBox/>
-<DropdownMenu/>
-
-      
-</div>
-</div>
-
-</div>
-  );
-};
-
-export default DropDownPage;
+    return (
+      <div>
+        <div className="flex-container">
+          <div className="comp-card">
+            <ButtonBox>
+              <DropdownMenu />
+            </ButtonBox>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  
+  export default DropDownPage;
