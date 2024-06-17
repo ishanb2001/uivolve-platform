@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
+import Popup from './PopUp';
 import './App.css';
 
-const Popup = ({ closePopup }) => (
-  <div className="popup-overlay visible">
-    <div className="popup-content">
-      <h2>Popup Title</h2>
-      <p>This is the content of the popup.</p>
-      <button onClick={closePopup}>Close</button>
-    </div>
-  </div>
-);
-
-const ButtonBox = ({ children }) => {
+const ButtonBox = ({ children, popupContent }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const togglePopup = () => {
@@ -20,13 +11,13 @@ const ButtonBox = ({ children }) => {
 
   return (
     <div className="box">
-      <button className="internalButton" onClick={togglePopup}>Button</button>
+      <button className="internalButton" onClick={togglePopup}>View Code</button>
       <div className="content">
         <div style={{ marginTop: '30px', marginBottom: '30px' }}>
           {children}
         </div>
       </div>
-      {isPopupVisible && <Popup closePopup={togglePopup} />}
+      {isPopupVisible && <Popup closePopup={togglePopup}>{popupContent}</Popup>}
     </div>
   );
 };
