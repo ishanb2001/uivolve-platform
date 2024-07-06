@@ -4,6 +4,8 @@ import './App.css';
 import TabUIElementTwo from './TabUIElementTwo';
 import TabUIElementOne from './TabUIElementOne';
 
+const tabs = ["Screens", "UI Elements", "Flows"];
+
 const TabSlidePage = () => {
   return (
     <div>
@@ -17,7 +19,7 @@ const TabSlidePage = () => {
       <div className="flex-container">
         <div className="comp-card">
           <ButtonBox>
-            <TabUIElementOne />
+          <TabUIElementOne tabs={tabs} defaultActiveTab={2} />
           </ButtonBox>
         </div>
       </div>

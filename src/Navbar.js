@@ -42,8 +42,21 @@ const Navbar = () => {
     navigate('/overview');
   };
 
+  const AboutPage = () => {
+    navigate('/about');
+  };
+
+  const ContactPage = () => {
+    navigate('/contact');
+  };
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleButtonClick = (action) => {
+    setMenuOpen(false);
+    action();
   };
 
   return (
@@ -57,21 +70,12 @@ const Navbar = () => {
             </button>
             {menuOpen && (
               <div className="dropdown-menu">
-                <button style={{ width: '100%' }} className="button black-text border-grey" onClick={HomePage}>Home</button>
-                <button style={{ width: '100%' }} className="button black-text border-grey" onClick={Documentation}>Documentation</button>
-                <button style={{ width: '100%' }} className="button black-text border-grey" onClick={() => toggleDropdown(3)}>Blog</button>
-                <div className={`dropdown ${visibleDropdown === 3 ? 'show' : ''}`}>
-                  <a href="#" className="dropdown-item">Profile</a>
-                  <a href="#" className="dropdown-item">Settings</a>
-                  <a href="#" className="dropdown-item">Logout</a>
-                </div>
-                <button style={{width: '100%'}} className="button bg-purple" onClick={() => toggleDropdown(4)}>Contact</button>
-                <div className={`dropdown ${visibleDropdown === 4 ? 'show' : ''}`}>
-                  <a href="#" className="dropdown-item">Profile</a>
-                  <a href="#" className="dropdown-item">Settings</a>
-                  <a href="#" className="dropdown-item">Logout</a>
-                </div>
-                
+                <button className="button button-medium bg-black fade-element" onClick={() => handleButtonClick(Documentation)}>
+                  Documentation
+                </button>
+                <button className="button" onClick={() => handleButtonClick(HomePage)}>Home</button>
+                <button className="button" onClick={() => handleButtonClick(AboutPage)}>About</button>
+                <button className="button" onClick={() => handleButtonClick(ContactPage)}>Contact</button>
               </div>
             )}
           </div>
@@ -96,12 +100,9 @@ const Navbar = () => {
               </div>
               <div className="menu-container">
                 <button className="button black-text border-grey" onClick={() => toggleDropdown(3)}>Blog</button>
-                
               </div>
               <div className="menu-container">
-                
-                <AvatarWithStatus/>
-                
+                <AvatarWithStatus />
               </div>
             </div>
           </div>

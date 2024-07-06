@@ -80,6 +80,7 @@ body {
 
 .homepage-cards {
   gap: 20px;
+  justify-content: space-between
 }
 
 @media (min-width: 860px) {
@@ -214,6 +215,8 @@ body {
   justify-content: space-between;
   gap: 10px;
 }
+
+
 
 ul {
   padding: 0px;
@@ -876,12 +879,57 @@ li {
   border-radius: 10px;
   white-space: pre-wrap;
   font-size: 14px;
-  text-align: left;;
+  text-align: left;
+  max-height: 400px; /* or any height that fits your design */
+  height: 400px;
+  overflow: auto;
+  white-space: pre-wrap; /* This allows for long lines to wrap */
+  word-wrap: break-word; /* Ensures that long words break to fit */
 }
 
 .comment {
   color: #6a737d;
 }
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.card-text {
+  margin-top: 10px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 300px; /* Adjust width as needed */
+  margin: 20px;
+}
+
+.card {
+  height: 200px; /* Set a fixed height for the cards */
+  width: 100%; /* Ensure the card takes full width of the container */
+  background-size: cover; /* Ensure the background image covers the card without stretching */
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-text {
+  width: 100%; /* Ensure the text container takes full width of the card */
+  margin-top: 10px;
+}
+
+.card-text h1 {
+  text-align: left; /* Align text to the left */
+  font-size: 18px; /* Adjust font size as needed */
+}
+
 
 .keyword {
   color: #d73a49;
@@ -902,6 +950,48 @@ li {
 .number {
   color: #005cc5;
 }
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 350px; /* Adjust width as needed */
+  margin: 0px;
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.card-container:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.card-container:active {
+  transform: scale(0.95); /* Scale down on click */
+}
+
+.card {
+  height: 200px; /* Set a fixed height for the cards */
+  width: 100%; /* Ensure the card takes full width of the container */
+  background-size: cover; /* Ensure the background image covers the card without stretching */
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-text {
+  width: 100%; /* Ensure the text container takes full width of the card */
+  margin-top: 10px;
+}
+
+.card-text h1 {
+  text-align: left; /* Align text to the left */
+  font-size: 18px; /* Adjust font size as needed */
+  margin: 0; /* Remove default margin */
+  word-wrap: break-word; /* Ensure text wraps to the next line */
+}
+
+
+
 
 
 

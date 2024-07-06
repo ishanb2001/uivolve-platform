@@ -9,6 +9,10 @@ import GradientImage3 from './images/gradient-image-3.png';
 import GradientImage4 from './images/gradient-image-4.png';
 import TabUIElementOne from './TabUIElementOne.js';
 import HoverMenuExample from './HoverMenuExample.js';
+import ButtonsThumbnail from './images/button.png';
+import TabsThumbnail from './images/tab.png';
+import CardThumbnail from './images/card.png';
+import AvatarThumbnails from './images/avatar.png';
 
 const Home = () => {
 
@@ -65,41 +69,71 @@ const Home = () => {
           <HoverMenuExample/>
         </div>
         <div className="homepage-cards">
-          <div className="test white-bg shadow-black card is-flex-grow-4 flex is-flex-direction-column is-justify-content-space-between scroll-element">
-            <div className="card-content">
-              <div className="label black-bg white-text label-rounded">MEMBERSHIP</div>
+          <div className="card-container">
+            <div className="white-bg card scroll-element" style={{ backgroundImage: `url(${ButtonsThumbnail})` }}>
+              <div className="card-content"></div>
             </div>
-            <div className="card-content">
-              <h1 className="white-text">EvoCSS</h1>
+            <div className="card-text">
+              <h1 className="black-text">Buttons</h1>
             </div>
           </div>
 
-          <div className="test white-bg shadow-black card is-flex-grow-4 flex is-flex-direction-column is-justify-content-space-between scroll-element">
-            <div className="card-content">
-              <div className="label black-bg white-text label-rounded">MEMBERSHIP</div>
+          <div className="card-container">
+            <div className="white-bg card scroll-element" style={{ backgroundImage: `url(${TabsThumbnail})` }}>
+              <div className="card-content"></div>
             </div>
-            <div className="card-content">
-              <h1 className="white-text">EvoMail</h1>
-            </div>
-          </div>
-          <div className="flex is-flex-direction-column is-justify-content-space-between">
-            <div className="white-bg test shadow-black card is-flex-grow-1 flex is-flex-direction-column is-justify-content-space-between scroll-element">
-              <div className="card-content">
-                <div className="label green-bg white-text label-rounded">MEMBERSHIP</div>
-              </div>
-              <div className="card-content">
-                <h1 className="black-text ">Video Lessons</h1>
-              </div>
-            </div>
-            <div className="white-bg test shadow-black card flex is-flex-direction-column is-justify-content-space-between scroll-element">
-              <div className="card-content">
-                <div className="label purple-bg white-text label-rounded">MEMBERSHIP</div>
-              </div>
-              <div className="card-content">
-                <h1 className="black-text">GitHub</h1>
-              </div>
+            <div className="card-text">
+              <h1 className="black-text">Cards</h1>
             </div>
           </div>
+          
+          <div className="card-container">
+            <div className="white-bg card scroll-element" style={{ backgroundImage: `url(${CardThumbnail})` }}>
+              <div className="card-content"></div>
+            </div>
+            <div className="card-text">
+              <h1 className="black-text">Avatars</h1>
+            </div>
+          </div>
+
+          <div className="card-container">
+            <div className="white-bg card scroll-element" style={{ backgroundImage: `url(${AvatarThumbnails})` }}>
+              <div className="card-content"></div>
+            </div>
+            <div className="card-text">
+              <h1 className="black-text">Menu (Dropdown)</h1>
+            </div>
+          </div>
+          
+        </div>
+
+        <div className="homepage-cards">
+          <div className="card-container">
+            <div className="white-bg card scroll-element" style={{ backgroundImage: `url(${ButtonsThumbnail})` }}>
+              <div className="card-content"></div>
+            </div>
+            <div className="card-text">
+              <h1 className="black-text">Buttons</h1>
+            </div>
+          </div>
+
+          <div className="card-container">
+            <div className="white-bg card scroll-element" style={{ backgroundImage: `url(${TabsThumbnail})` }}>
+              <div className="card-content"></div>
+            </div>
+            <div className="card-text">
+              <h1 className="black-text">Cards</h1>
+            </div>
+          </div>
+          
+          <div className="card-container">
+            
+          </div>
+
+          <div className="card-container">
+            
+          </div>
+          
         </div>
       </div>
     </div>

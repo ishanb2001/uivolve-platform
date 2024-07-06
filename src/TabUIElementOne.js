@@ -1,26 +1,35 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
-function TabUIElementOne() {
-  const [activeTab, setActiveTab] = useState(3);
+function TabUIElementOne({ tabs, defaultActiveTab, setActiveTab }) {
+  const [activeTab, localSetActiveTab] = useState(defaultActiveTab || 0);
   const indicatorRef = useRef(null);
   const tabsRef = useRef([]);
 
   useEffect(() => {
     const tab = tabsRef.current[activeTab];
-    const tabWidth = tab.offsetWidth;
-    const tabLeft = tab.offsetLeft;
-    indicatorRef.current.style.width = `${tabWidth}px`;
-    indicatorRef.current.style.left = `${tabLeft}px`;
+    if (tab) {
+      const tabWidth = tab.offsetWidth;
+      const tabLeft = tab.offsetLeft;
+      indicatorRef.current.style.width = `${tabWidth}px`;
+      indicatorRef.current.style.left = `${tabLeft}px`;
+    }
   }, [activeTab]);
+
+  const handleTabClick = (index) => {
+    localSetActiveTab(index);
+    if (setActiveTab) {
+      setActiveTab(index);
+    }
+  };
 
   return (
     <div className="tab-container">
-      {["Screens", "UI Elements", "Flows", "Text in Screenshot"].map((tab, index) => (
+      {tabs.map((tab, index) => (
         <button
           key={index}
-          className="tab"
-          onClick={() => setActiveTab(index)}
+          className={`tab ${activeTab === index ? 'active' : ''}`}
+          onClick={() => handleTabClick(index)}
           ref={el => tabsRef.current[index] = el}
         >
           {tab}
