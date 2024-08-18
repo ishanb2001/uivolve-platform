@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleDropdown = (id) => {
@@ -13,60 +14,66 @@ const LeftSidebar = () => {
     navigate(path);
   };
 
+  const isActive = (path) => location.pathname === `/${path}`;
+
   return (
     <ul>
       <div className={`dropdown-container ${activeDropdown === 'dropdown2' ? 'active' : ''}`} id="dropdown2">
-        <div className="black-text dropdown-header" onClick={() => navigateToPage('introduction')}>
+        <div
+          className={`black-text dropdown-header ${isActive('introduction') ? 'bold' : ''}`}
+          onClick={() => navigateToPage('introduction')}
+        >
           Introduction
         </div>
-        <div className="black-text dropdown-header" onClick={() => toggleDropdown('dropdown2')}>
-          UI Elements
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 16L6 10H18L12 16Z" fill="currentColor"/>
-</svg>
-
+        <div
+          className={`black-text dropdown-header ${isActive('buttons-library') ? 'bold' : ''}`}
+          onClick={() => navigateToPage('buttons-library')}
+        >
+          Buttons
         </div>
+        <div
+          className={`black-text dropdown-header ${isActive('cards-library') ? 'bold' : ''}`}
+          onClick={() => navigateToPage('cards-library')}
+        >
+          Cards
+        </div>
+        <div
+          className={`black-text dropdown-header ${isActive('navbar-library') ? 'bold' : ''}`}
+          onClick={() => navigateToPage('navbar-library')}
+        >
+          Avatars
+        </div>
+        <div
+          className={`black-text dropdown-header ${isActive('dropdown-page') ? 'bold' : ''}`}
+          onClick={() => navigateToPage('dropdown-page')}
+        >
+          Dropdown
+        </div>
+        <div
+          className={`black-text dropdown-header ${isActive('dropdown-page') ? 'bold' : ''}`}
+          onClick={() => navigateToPage('tab-slider')}
+        >
+          Tabs
+        </div>
+        <div
+          className={`black-text dropdown-header ${isActive('dropdown-page') ? 'bold' : ''}`}
+          onClick={() => navigateToPage('tab-slider')}
+        >
+          Menu Library
+        </div>
+        
         <ul className="dropdown-content">
-          
-          <li className="dropdown-item" onClick={() => navigateToPage('buttons-library')}>Buttons</li>
-          <li className="dropdown-item" onClick={() => navigateToPage('cards-library')}>Sidebar</li>
-          <li className="dropdown-item" onClick={() => navigateToPage('navbar-library')}>Main Content</li>
-          <li className="dropdown-item" onClick={() => navigateToPage('dropdown-page')}>Sidebar</li>
-          <li className="dropdown-item" onClick={() => navigateToPage('tab-slider')}>Main Content</li>
+          <li className={`dropdown-item ${isActive('buttons-library') ? 'bold' : ''}`} onClick={() => navigateToPage('buttons-library')}>Buttons</li>
+          <li className={`dropdown-item ${isActive('cards-library') ? 'bold' : ''}`} onClick={() => navigateToPage('cards-library')}>Sidebar</li>
+          <li className={`dropdown-item ${isActive('navbar-library') ? 'bold' : ''}`} onClick={() => navigateToPage('navbar-library')}>Main Content</li>
+          <li className={`dropdown-item ${isActive('dropdown-page') ? 'bold' : ''}`} onClick={() => navigateToPage('dropdown-page')}>Sidebarr</li>
+          <li className={`dropdown-item ${isActive('tab-slider') ? 'bold' : ''}`} onClick={() => navigateToPage('tab-slider')}>Main Content</li>
         </ul>
       </div>
 
-      <div className={`dropdown-container ${activeDropdown === 'dropdown3' ? 'active' : ''}`} id="dropdown3">
-        <div className="black-text dropdown-header" onClick={() => toggleDropdown('dropdown3')}>
-          Tools
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 16L6 10H18L12 16Z" fill="currentColor"/>
-</svg>
+      
 
-        </div>
-        <ul className="dropdown-content">
-          <li className="dropdown-item">Editor</li>
-          <li className="dropdown-item">Terminal</li>
-          <li className="dropdown-item">Debugger</li>
-        </ul>
-      </div>
-
-      <div className={`dropdown-container ${activeDropdown === 'dropdown4' ? 'active' : ''}`} id="dropdown4">
-        <div className="black-text dropdown-header" onClick={() => toggleDropdown('dropdown4')}>
-          Settings
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 16L6 10H18L12 16Z" fill="currentColor"/>
-</svg>
-
-        </div>
-        <ul className="dropdown-content">
-          <li className="dropdown-item">Profile</li>
-          <li className="dropdown-item">Security</li>
-          <li className="dropdown-item">Notifications</li>
-          <li className="dropdown-item">Privacy</li>
-          <li className="dropdown-item">Account</li>
-        </ul>
-      </div>
+      
     </ul>
   );
 };

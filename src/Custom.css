@@ -62,7 +62,6 @@ body {
 
 .white-bg {
   background-color: #ffffff;
-  border: 1px solid rgb(243, 243, 243);
 
 }
 
@@ -186,19 +185,6 @@ body {
   background-color: #e0e0e0; /* Darker grey background when clicked */
 }
 
-/* Hover and active states for non-outline buttons */
-.button:hover::before,
-.button:active::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: background-color 0.3s;
-  mix-blend-mode: lighten;
-}
 
 .button:active::before {
   background-color: rgba(255, 255, 255, 0.3);
@@ -520,10 +506,6 @@ em {
     padding: 10px;
   }
 
-  .card {
-    margin-bottom: 20px;
-  }
-
 }
 
 /* Flex Container */
@@ -831,182 +813,6 @@ em {
 }
 
 
-/* Base styles for the navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  font-family: var(--font-family);
-  position: relative; /* Allows for fixed/sticky positioning */
-  z-index: 1000; /* Ensures navbar stays on top */
-}
-
-/* Dark theme styles */
-.navbar-dark {
-  background-color: #333; /* Dark background */
-  color: #fff; /* Light text */
-}
-
-.navbar-dark .navbar-link,
-.navbar-dark .navbar-button {
-  color: #fff;
-}
-
-.navbar-dark .navbar-link:hover,
-.navbar-dark .navbar-link:focus,
-.navbar-dark .navbar-button:hover,
-.navbar-dark .navbar-button:focus {
-  background-color: #555; /* Slightly lighter background on hover */
-}
-
-/* Light theme styles */
-.navbar-light {
-  background-color: #f8f8f8; /* Light background */
-  color: #333; /* Dark text */
-}
-
-.navbar-light .navbar-link,
-.navbar-light .navbar-button {
-  color: #333;
-}
-
-.navbar-light .navbar-link:hover,
-.navbar-light .navbar-link:focus,
-.navbar-light .navbar-button:hover,
-.navbar-light .navbar-button:focus {
-  background-color: #ddd; /* Light hover background */
-}
-
-/* Navbar positioning */
-.navbar-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.navbar-sticky {
-  position: sticky;
-  top: 0;
-}
-
-/* Navbar logo */
-.navbar-logo {
-  font-size: 1.5rem;
-  font-weight: var(--font-weight-bold);
-}
-
-/* Navbar menu */
-.navbar-menu {
-  display: flex;
-  gap: 20px;
-}
-
-.navbar-item {
-  list-style: none;
-}
-
-/* Responsive menu for small screens */
-@media (max-width: 768px) {
-  .navbar-menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: inherit; /* Matches navbar background */
-  }
-
-  .navbar-menu.active {
-    display: flex;
-  }
-
-  .navbar-link {
-    padding: 15px;
-    text-align: center;
-  }
-}
-
-.navbar-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.navbar-toggle span {
-  height: 3px;
-  width: 25px;
-  background-color: #fff;
-  margin: 4px 0;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-@media (max-width: 768px) {
-  .navbar-toggle {
-    display: flex;
-  }
-
-  .navbar-toggle.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  .navbar-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .navbar-toggle.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-}
-
-/* Dropdown menu styles */
-.navbar-dropdown {
-  position: relative;
-}
-
-.navbar-dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: inherit; /* Matches navbar background */
-  min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.navbar-dropdown-content a {
-  color: inherit; /* Matches text color */
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.navbar-dropdown-content a:hover {
-  background-color: #555;
-}
-
-.navbar-dropdown:hover .navbar-dropdown-content {
-  display: block;
-}
-
-/* Centered and right-aligned navbars */
-.navbar-centered {
-  justify-content: center;
-}
-
-.navbar-right {
-  justify-content: flex-end;
-}
-
-
-@media only screen and (max-width: 900px) {
-  
-
-  
-}
-
 
 
 
@@ -1127,7 +933,7 @@ em {
 }
 
 .bg-purple {
-  background-color: #5F7DFC;
+  background-color: #6d37ff;
   color: white;
 }
 
@@ -1605,8 +1411,8 @@ em {
 .button-medium {
   padding: 10px 20px; 
   font-size: 16px; 
-  font-family: "Plus Jakarta Sans", sans-serif; 
-  font-weight: 600;
+  font-family: "Inter", sans-serif; 
+  font-weight: 500;
 }
 
 .button-large {

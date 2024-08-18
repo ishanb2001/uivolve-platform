@@ -1,11 +1,12 @@
 import React from 'react';
 import { FaGithub, FaTwitter } from 'react-icons/fa'; // Import the icons
+import Logo from './images/uivolve-logo-full.png';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="logo-container">
-        <img src="/path/to/your/logo.png" alt="Logo" className="logo" />
+        <img src={Logo} alt="Logo" className="logo" />
       </div>
       <div className="social-icons">
         <a href="https://github.com/your-profile" target="_blank" rel="noopener noreferrer">

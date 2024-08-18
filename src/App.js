@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import ButtonsPage from './ButtonsPage';
 import Home from './Home';
 import Footer from './Footer';
-import Logo from './images/uivolve-logo.png';
+
 
 const App = () => {
   return (

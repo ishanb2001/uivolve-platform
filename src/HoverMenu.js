@@ -170,6 +170,7 @@ const DropdownMenu = () => {
   };
 
   return (
+    
     <Container>
       <Nav className="nav">
         <NavItem>
@@ -211,7 +212,9 @@ const DropdownMenu = () => {
           </DropdownMenuStyled>
         </NavItem>
       </Nav>
+      
     </Container>
+    
   );
 };
 

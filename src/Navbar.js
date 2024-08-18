@@ -39,7 +39,7 @@ const Navbar = () => {
   };
 
   const Documentation = () => {
-    navigate('/overview');
+    navigate('/overview/documentation');
   };
 
   const AboutPage = () => {
@@ -99,11 +99,9 @@ const Navbar = () => {
                 </a>
               </div>
               <div className="menu-container">
-                <button className="button black-text border-grey" onClick={() => toggleDropdown(3)}>Blog</button>
+                <button className="button button-medium bg-black" onClick={() => toggleDropdown(3)}>Join The Community</button>
               </div>
-              <div className="menu-container">
-                <AvatarWithStatus />
-              </div>
+              
             </div>
           </div>
         )}

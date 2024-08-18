@@ -4,7 +4,7 @@ import LeftSidebar from './LeftSidebar';
 import Introduction from './Introduction';
 import Overview from './Overview';
 import DrawerPage from './DrawerPage';
-import Buttons from './Buttons';
+import Buttons from './components/Buttons/Buttons';
 import Cards from './Cards';
 import NavbarSnippets from './NavbarSnippets';
 import Navbar from './Navbar';

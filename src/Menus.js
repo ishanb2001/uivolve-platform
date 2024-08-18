@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonBox from './ButtonBox';
 import './App.css';
 
-const Cards = () => {
+const Menus = () => {
   return (
     <div>
       <div className="flex-container">
@@ -82,4 +82,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default Menus;
