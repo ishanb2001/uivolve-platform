@@ -8,7 +8,7 @@
   transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
   overflow: hidden;
   white-space: nowrap;
-  margin: 5px;
+  margin: 0px;
   font-family: "Inter", sans-serif; /* Corrected font family name */
   color: #333; /* Default text color set to dark for visibility */
   background-color: rgb(228, 228, 228); /* Default background is transparent */
@@ -388,7 +388,7 @@ h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: -0.02em;
   line-height: 1.5rem;
   font-weight: 400;
@@ -876,12 +876,37 @@ em {
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   overflow: hidden;
   white-space: nowrap;
-  margin: 5px;
+  margin: 0px;
   font-family: "Inter", sans-serif;
   color: #333;
   background-color: transparent;
   font-weight: 500;
   border: none; /* Ensure no border by default */
+}
+
+.button-comp {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+ padding-top: 20px;
+ padding-bottom: 20px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0px;
+  font-family: "Inter", sans-serif;
+  color: #333;
+  background-color: transparent;
+  font-weight: 500;
+  border: none; /* Ensure no border by default */
+}
+
+.button-comp:hover {
+  background-color: rgb(241, 241, 241);;
+}
+
+.button-comp:active {
+  background-color: rgb(221, 221, 221);;
 }
 
 /* Background color styles */

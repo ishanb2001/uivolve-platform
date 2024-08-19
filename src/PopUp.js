@@ -26,7 +26,7 @@ const Popup = ({ closePopup, children }) => {
     <div className={`popup-overlay visible ${isClosing ? 'closing' : ''}`}>
       <div className={`popup-content ${isClosing ? 'closing' : ''}`} ref={popupRef}>
         {children}
-        <button className="button bg-purple" onClick={() => {
+        <button className="button bg-black" onClick={() => {
           setIsClosing(true);
           setTimeout(() => {
             closePopup();

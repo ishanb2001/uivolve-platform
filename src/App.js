@@ -10,13 +10,16 @@ import Footer from './Footer';
 
 const App = () => {
   return (
+    <div>
     <div className="App">
               
       <Routes>
       <Route path="/" element={<Home />} />
         <Route path="/overview/*" element={<ButtonsPage />} />
       </Routes>
-      <Footer/>
+      
+    </div>
+    <Footer/>
     </div>
   );
 };
