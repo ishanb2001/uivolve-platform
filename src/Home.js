@@ -58,7 +58,7 @@ const Home = () => {
         <div style={{ display: 'flex' }}>
           <div>
             <h1 style={{ marginBottom: 20 }} className="font-giant shiny-text fade-element">Frontend Boost with Snippets and Docs</h1>
-            <p style={{ marginBottom: 20 }} className="fade-element">We are dedicated to empowering developers and designers by providing a comprehensive, modern, and trendy library of frontend UI code snippets and detailed documentation.</p>
+            <p style={{ marginBottom: 20, fontSize: 18 }} className="fade-element">We are dedicated to empowering developers and designers by providing a comprehensive, modern, and trendy library of frontend UI code snippets and detailed documentation.</p>
           </div>
           
         </div>
