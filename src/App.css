@@ -848,14 +848,299 @@ li {
 }
 
 .code-block {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  padding: 20px;
+  line-height: 1.8;
+}
+
+/* Tree Styles */
+.tree {
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+.tree ul {
+  list-style-type: none;
+  padding-left: 15px;
+  position: relative;
+}
+
+.tree li {
+  position: relative;
+  padding-left: 25px;
   margin-bottom: 10px;
 }
+
+/* Arrow Indicators */
+.tree li.has-children::before {
+  content: '▼';
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+  font-size: 0.7em;
+  top: 5px;
+  z-index: 1;
+}
+
+.tree li.collapsed.has-children::before {
+  content: '▶';
+}
+
+.tree li.collapsed > ul {
+  display: none;
+}
+
+/* Lines connecting nodes */
+.tree ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 7px;
+  border-left: 1px solid #ccc;
+  height: 100%;
+}
+
+.tree li::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 7px;
+  border-top: 1px solid #ccc;
+  width: 18px;
+}
+
+.tree li:last-child::before {
+  background-color: #ffffff;
+}
+
+.tree li:last-child > ul::before {
+  height: calc(100% - 12px);
+}
+
+/* Span Styles */
+.tree span {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  width: auto;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.tree span:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Active state */
+.tree span:active {
+  background-color: #e0e0e0;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Background Colors for each type */
+.initialize {
+  background-color: #f2f7fc; /* Lighter blue */
+  color: #007bff;
+}
+
+.event {
+  background-color: #e6f4ea; /* Lighter green */
+  color: #28a745;
+}
+
+.condition {
+  background-color: #fff2e6; /* Lighter orange */
+  color: #fd7e14;
+}
+
+.function {
+  background-color: #f3e6ff; /* Lighter purple */
+  color: #6f42c1;
+}
+
+.action {
+  background-color: #e7f3f9; /* Lighter cyan */
+  color: #17a2b8;
+}
+
+/* Hover effects for each type */
+.initialize:hover {
+  background-color: #d9ebfc;
+}
+
+.event:hover {
+  background-color: #cfead5;
+}
+
+.condition:hover {
+  background-color: #ffdfcc;
+}
+
+.function:hover {
+  background-color: #e8d4ff;
+}
+
+.action:hover {
+  background-color: #d1eaf3;
+}
+
+/* Element Styles with Icons */
+.initialize::before {
+  content: '⚙️ '; /* Gear icon for initialize */
+}
+
+.event::before {
+  content: '⚡ '; /* Lightning bolt icon for event */
+}
+
+.condition::before {
+  content: '❓ '; /* Question mark for condition */
+}
+
+.function::before {
+  content: '🔧 '; /* Wrench icon for function */
+}
+
+.action::before {
+  content: '🚀 '; /* Rocket icon for action */
+}
+
+/* Arrow styles */
+.arrow {
+  margin-left: 10px;
+  transition: transform 0.2s ease;
+}
+
+.arrow.expanded {
+  transform: rotate(90deg);
+}
+
+/* Color Coding Explanation Styles */
+.color-coding-explanation {
+  margin-top: 30px;
+}
+
+.color-coding-explanation ul {
+  list-style: none;
+  padding: 0;
+}
+
+.color-coding-explanation li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.color-code {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
+.color-code.blue {
+  background-color: #007bff;
+}
+
+.color-code.green {
+  background-color: #28a745;
+}
+
+.color-code.orange {
+  background-color: #fd7e14;
+}
+
+.color-code.red {
+  background-color: #dc3545;
+}
+
+.color-code.purple {
+  background-color: #6f42c1;
+}
+
+/* Small Subtitle Style */
+.small-subtitle {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .code-line {
   border-radius: 5px;
   padding: 10px;
-  margin-bottom: 5px;
   color: white;
+  margin: 5px;
 }
 
 .nested-container {
@@ -886,6 +1171,34 @@ li {
 }
 
 
+
+/* Updated CSS for smooth transitions */
+.code-block {
+  max-height: 0; /* Start with height 0 */
+  overflow: hidden; /* Hide overflowing content */
+  transition: max-height 0.8s ease-out; /* Smooth transition for max-height */
+}
+
+.code-block.visible {
+  max-height: 1000px; /* Large enough to display content smoothly */
+}
+
+/* Updated CSS for arrows */
+.code-line {
+  display: flex;
+  justify-content: space-between; /* Align content and arrow to the sides */
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.arrow {
+  transition: transform 0.3s ease; /* Smooth transition for arrow rotation */
+}
+
+.arrow.expanded {
+  transform: rotate(90deg); /* Rotate arrow when expanded */
+}
 
 
 
@@ -1583,7 +1896,6 @@ li {
   font-family: "Inter", Courier, monospace;
   color: white;
   font-weight: 700;
-  margin-bottom: 10px; /* Add this line for spacing */
 }
 
 
@@ -1623,7 +1935,6 @@ li {
 
 .color-coding-explanation h3 {
   font-size: 1.5em;
-  margin-bottom: 15px;
   color: black;
 }
 
@@ -1633,7 +1944,6 @@ li {
 }
 
 .color-coding-explanation li {
-  margin-bottom: 10px;
   font-size: 1.1em;
   display: flex;
   align-items: center;
