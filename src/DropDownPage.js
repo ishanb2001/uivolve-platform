@@ -9,7 +9,7 @@ import TabUIElementOne from './TabUIElementOne';
 const DropDownPage = () => {
   const tabs = ["HTML", "CSS"];
   const [activeTab, setActiveTab] = useState(0);
-  
+
   const [activeDropdown, setActiveDropdown] = useState(null); // To manage the active dropdown index
   const [collapsed, setCollapsed] = useState({}); // To manage collapsed/expanded state of tree nodes
 
@@ -51,7 +51,43 @@ const DropDownPage = () => {
           </ButtonBox>
         </div>
       </div>
-      <div className="tree">
+
+
+      {/* Pseudo Code Section */}
+      <div style={{ marginBottom: 20, marginTop: 30 }} className="">
+        <div className="psudo-area">
+          <h1 style={{ marginBottom: 20, marginTop: 30, fontWeight: 600 }} className="subtitle">
+            Lets Break It Down For You
+          </h1>
+          <h4 style={{ marginBottom: 30,fontWeight: 400 }}>
+            We are using four javascript condusters for this UI element
+          </h4>
+          <div class="legend">
+        <div class="legend-card-condition">
+            <h4>🚀 Condition</h4>
+            <p style={{ fontSize: 14, color: '#fd7e14' }}>with 64GB<sup>1</sup> storage</p>
+            
+        </div>
+
+        <div class="legend-card-function">
+        <h4>❓ Function</h4>
+        <p style={{ fontSize: 14, color: '#007bff' }}>with 64GB<sup>1</sup> storage</p>
+            
+        </div>
+        <div class="legend-card-action">
+        <h4>Action</h4>
+        <p style={{ fontSize: 14, color: '#6f42c1' }}>with 64GB<sup>1</sup> storage</p>
+            
+        </div>
+        <div class="legend-card-strike">
+        <h4>Wi-Fi</h4>
+        <p style={{ fontSize: 14, color: '#28a745' }}>with 64GB<sup>1</sup> storage</p>
+            
+        </div>
+    </div>
+          {/* Add your content here */}
+          
+          <div className="tree">
         <ul>
           <li>
             <span
@@ -192,43 +228,11 @@ const DropDownPage = () => {
           </li>
         </ul>
       </div>
-
-      {/* Pseudo Code Section */}
-      <div style={{ marginBottom: 20, marginTop: 30 }} className="psudo-area-outer">
-        <div className="psudo-area">
-          <h2 style={{ marginBottom: 20, marginTop: 30, textAlign: 'center' }} className="subtitle">
-            Pseudo Code with Color Coding and Labels
-          </h2>
-          <p style={{ marginBottom: 30, textAlign: 'center' }}>
-            We are dedicated to empowering developers and designers by providing a
-            comprehensive, modern, and trendy library of frontend UI code snippets
-            and detailed documentation.
-          </p>
-          {/* Add your content here */}
         </div>
       </div>
 
       {/* Color Coding Explanation */}
-      <div className="color-coding-explanation">
-        <h3 className="small-subtitle">Color Coding Guide</h3>
-        <ul>
-          <li>
-            <span className="color-code blue"></span> <strong>Blue</strong>: Variable initialization and resetting.
-          </li>
-          <li>
-            <span className="color-code green"></span> <strong>Green</strong>: Event handling and timers.
-          </li>
-          <li>
-            <span className="color-code orange"></span> <strong>Orange</strong>: Conditions and checks.
-          </li>
-          <li>
-            <span className="color-code red"></span> <strong>Red</strong>: Function calls and class manipulations.
-          </li>
-          <li>
-            <span className="color-code purple"></span> <strong>Purple</strong>: Labeling function definitions.
-          </li>
-        </ul>
-      </div>
+      
     </div>
   );
 };

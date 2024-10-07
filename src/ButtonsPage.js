@@ -60,7 +60,13 @@ const ButtonsPage = () => {
 
       <div className="main-content">
         <div className="list-container">
-          <button onClick={toggleFlyoutMenu}>hi</button>
+          <button class="popout-menu" onClick={toggleFlyoutMenu}>
+            
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 16 16">
+        <path stroke="currentColor" stroke-width="2" fill="none" d="M11.5 8h-9a.5.5 0 0 0 0 1h9l-3.5 3.5a.5.5 0 0 0 .707.707l4.5-4.5a.5.5 0 0 0 0-.707l-4.5-4.5a.5.5 0 1 0-.707.707L11.5 8z"/>
+    </svg>
+          </button>
           <div className={`flyout-menu ${isFlyoutVisible ? 'open' : ''}`}>
             <div className="close-button" onClick={closeFlyoutMenu}>×</div>
             <div className={`dropdown-container ${activeDropdown === 'dropdown2' ? 'active' : ''}`} id="dropdown2">
@@ -73,11 +79,9 @@ const ButtonsPage = () => {
         </div>
         <ul className="dropdown-content">
           
-          <li className="dropdown-item" onClick={() => navigateToPage('buttons-library')}>Buttons</li>
-          <li className="dropdown-item" onClick={() => navigateToPage('cards-library')}>Sidebar</li>
-          <li className="dropdown-item" onClick={() => navigateToPage('navbar-library')}>Main Content</li>
+          
           <li className="dropdown-item" onClick={() => navigateToPage('dropdown-page')}>Dropdown</li>
-          <li className="dropdown-item" onClick={() => navigateToPage('tab-slider')}>Tab Slider</li>
+
         </ul>
       </div>
           </div>

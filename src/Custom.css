@@ -331,9 +331,9 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-weight: var(--font-weight-normal);
+  font-weight: 600;
   line-height: 1.3;
-  color: #373737; /* Slightly darker than body text */
+  
 }
 
 .font-giant {
