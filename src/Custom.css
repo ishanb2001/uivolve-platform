@@ -62,7 +62,7 @@ body {
 
 .white-bg {
   background-color: #ffffff;
-
+  
 }
 
 
@@ -945,7 +945,7 @@ em {
 }
 
 .bg-blue {
-  background-color: #0000ff;
+  background-color: #255fff;
   color: white;
 }
 
@@ -1197,6 +1197,8 @@ em {
   transition: color 0.3s ease-in-out;
 }
 
+
+
 .hover-circle::before {
   content: "";
   position: absolute;
@@ -1434,10 +1436,11 @@ em {
 }
 
 .button-medium {
-  padding: 10px 20px; 
+  padding: 15px 20px; 
   font-size: 16px; 
   font-family: "Inter", sans-serif; 
   font-weight: 500;
+  border-radius: 10px;
 }
 
 .button-large {
@@ -1607,18 +1610,19 @@ em {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #f1f1f1;
+  background-color: rgb(241, 241, 241);
   font-family: "Inter", sans-serif; /* Corrected font family name */
-  border-radius: 25px;
+  border-radius: 15px;
   padding: 5px;
   font-weight: 500;
+  
   width: fit-content;
 }
 
 .tab {
   background: none;
   border: none;
-  padding: 10px 20px;
+  padding: 15px 20px;
   font-family: "Inter", sans-serif; /* Corrected font family name */
   cursor: pointer;
   font-size: 16px;
@@ -1633,7 +1637,7 @@ em {
   left: 0;
   height: calc(100% - 10px);  /* Adjust the height of the indicator */
   background-color: white;
-  border-radius: 25px;
+  border-radius: 15px;
   transition: left 0.3s ease, width 0.3s ease;
   z-index: 0;  /* Ensure the indicator is below the buttons */
 }

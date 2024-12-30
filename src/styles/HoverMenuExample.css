@@ -1,0 +1,66 @@
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* Fixed width for consistency */
+  height: 100vh;
+  background-color: #fff;
+  border-right: 1px solid #e6e6e6;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  transition: width 0.3s ease; /* Smooth transition for width */
+}
+
+.main-content {
+  margin-left: 250px; /* Match the side-menu width */
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in width */
+  overflow: hidden; /* Prevent content overflow */
+  transition: margin-left 0.3s ease; /* Smooth transition for content shift */
+}
+
+@media (max-width: 768px) {
+  .side-menu {
+    width: 200px; /* Adjust width for smaller screens */
+  }
+
+  .main-content {
+    margin-left: 200px; /* Adjust margin for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .side-menu {
+    width: 150px; /* Further adjust for very small screens */
+  }
+
+  .main-content {
+    margin-left: 150px; /* Further adjust margin */
+  }
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu li {
+  margin-bottom: 20px;
+}
+
+.side-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+  background-color: #f5f5f5;
+}

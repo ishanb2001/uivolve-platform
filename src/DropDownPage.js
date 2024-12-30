@@ -1,240 +1,224 @@
 import React, { useState } from 'react';
-import './App.css'; // Assuming App.css contains relevant styling
-import ButtonBox from './ButtonBox';
-import './App.css';
-import DropdownMenu from './HoverMenu';
-import DropdownSimple from './DropDownSimple';
-import TabUIElementOne from './TabUIElementOne';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const DropDownPage = () => {
-  const tabs = ["HTML", "CSS"];
-  const [activeTab, setActiveTab] = useState(0);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [isDropdownEnabled, setIsDropdownEnabled] = useState(false);
+  const [showPseudoCode, setShowPseudoCode] = useState(false);
+  const [showImage, setShowImage] = useState(false);
+  const [loopImages, setLoopImages] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const [activeDropdown, setActiveDropdown] = useState(null); // To manage the active dropdown index
-  const [collapsed, setCollapsed] = useState({}); // To manage collapsed/expanded state of tree nodes
+  const images = [
+    'https://via.placeholder.com/150/0000FF/808080?text=Image+1',
+    'https://via.placeholder.com/150/FF0000/FFFFFF?text=Image+2',
+    'https://via.placeholder.com/150/00FF00/000000?text=Image+3',
+  ];
 
-  // Toggles the collapsed state of a specific tree node
-  const toggleCollapse = (key) => {
-    setCollapsed((prevCollapsed) => ({
-      ...prevCollapsed,
-      [key]: !prevCollapsed[key],
-    }));
+  const handleButtonClick = () => {
+    if (isDropdownEnabled) {
+      setShowDropdown((prevShowDropdown) => !prevShowDropdown);
+    }
+    if (loopImages) {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }
   };
 
-  // Toggles the dropdown
-  const toggleDropdown = (event, index) => {
-    event.preventDefault();
-    if (activeDropdown === index) {
-      setActiveDropdown(null); // Close the current dropdown
+  const toggleDropdownFunctionality = () => {
+    setIsDropdownEnabled((prevIsDropdownEnabled) => !prevIsDropdownEnabled);
+    setShowDropdown(false); // Ensure dropdown is closed when toggling functionality
+  };
+
+  const toggleCodeView = () => {
+    setShowPseudoCode((prevShowPseudoCode) => !prevShowPseudoCode);
+  };
+
+  const addImage = () => {
+    setShowImage(true);
+  };
+
+  const toggleImageLoop = () => {
+    setLoopImages((prevLoopImages) => !prevLoopImages);
+  };
+
+  const generateCodePreview = () => {
+    if (showPseudoCode) {
+      return `
+        // Select the button element
+        let button = document.querySelector('.button');
+        ${isDropdownEnabled ? `
+        // Add click event listener to button
+        on button click:
+          toggle dropdown visibility
+        ` : `
+        // Dropdown functionality is disabled
+        `}
+        ${showImage ? `
+        // Display an image
+        let image = document.querySelector('.image');
+        ${loopImages ? `
+        // Loop through multiple images
+        on button click:
+          change image source
+        ` : `
+        // Single image displayed
+        `}
+        ` : `
+        // No image displayed
+        `}
+      `;
     } else {
-      setActiveDropdown(index); // Open a new dropdown
+      return `
+        const button = document.querySelector('.button');
+        ${isDropdownEnabled ? `
+        button.addEventListener('click', () => {
+          const dropdown = document.querySelector('.dropdown-menu');
+          dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+        ` : `
+        // Dropdown functionality is disabled
+        `}
+        ${showImage ? `
+        const image = document.querySelector('.image');
+        ${loopImages ? `
+        let currentIndex = 0;
+        const images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
+        button.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % images.length;
+          image.src = images[currentIndex];
+        });
+        ` : `
+        // Single image displayed
+        `}
+        ` : `
+        // No image displayed
+        `}
+      `;
     }
   };
 
   return (
     <div>
-      <h1 style={{ marginBottom: 20 }}>Dropdown Menu</h1>
-      <p style={{ marginBottom: 30 }}>
-        We are dedicated to empowering developers and designers by providing a
-        comprehensive, modern, and trendy library of frontend UI code snippets
-        and detailed documentation.
+      <h1 style={{ marginBottom: 20 }}>Interactive Learning Platform</h1>
+      <p style={{ marginBottom: 30, fontSize: 20, lineHeight: '2rem' }}>
+        Learn JavaScript and UI creation interactively.
       </p>
-      <div className="flex-container">
-        <div className="comp-card">
-          <ButtonBox popupContent={
-            <div>
-              <TabUIElementOne tabs={tabs} defaultActiveTab={activeTab} setActiveTab={setActiveTab} />
-              {/* Your buttons here */}
-            </div>
-          }>
-            <DropdownSimple />
-          </ButtonBox>
-        </div>
-      </div>
-
-
-      {/* Pseudo Code Section */}
-      <div style={{ marginBottom: 20, marginTop: 30 }} className="">
-        <div className="psudo-area">
-          <h1 style={{ marginBottom: 20, marginTop: 30, fontWeight: 600 }} className="subtitle">
-            Lets Break It Down For You
-          </h1>
-          <h4 style={{ marginBottom: 30,fontWeight: 400 }}>
-            We are using four javascript condusters for this UI element
-          </h4>
-          <div class="legend">
-        <div class="legend-card-condition">
-            <h4>🚀 Condition</h4>
-            <p style={{ fontSize: 14, color: '#fd7e14' }}>with 64GB<sup>1</sup> storage</p>
-            
-        </div>
-
-        <div class="legend-card-function">
-        <h4>❓ Function</h4>
-        <p style={{ fontSize: 14, color: '#007bff' }}>with 64GB<sup>1</sup> storage</p>
-            
-        </div>
-        <div class="legend-card-action">
-        <h4>Action</h4>
-        <p style={{ fontSize: 14, color: '#6f42c1' }}>with 64GB<sup>1</sup> storage</p>
-            
-        </div>
-        <div class="legend-card-strike">
-        <h4>Wi-Fi</h4>
-        <p style={{ fontSize: 14, color: '#28a745' }}>with 64GB<sup>1</sup> storage</p>
-            
-        </div>
-    </div>
-          {/* Add your content here */}
-          
-          <div className="tree">
-        <ul>
-          <li>
-            <span
-              className="initialize"
-              onClick={() => toggleCollapse('initializeVariables')}
-            >
-              Initialize activeDropdown to null
-              <span className={`arrow ${collapsed.initializeVariables ? 'expanded' : ''}`}>
-                &#9654;
-              </span>
-            </span>
-            {collapsed.initializeVariables && (
-              <ul>
-                <li>
-                  <span
-                    className="event"
-                    onClick={() => toggleCollapse('addEventListener')}
-                  >
-                    On document click event
-                    <span className={`arrow ${collapsed.addEventListener ? 'expanded' : ''}`}>
-                      &#9654;
-                    </span>
-                  </span>
-                  {collapsed.addEventListener && (
-                    <ul>
-                      <li>
-                        <span
-                          className="condition"
-                          onClick={() => toggleCollapse('nestedAddEventListener')}
-                        >
-                          If activeDropdown is not null and click is outside of
-                          .nav element
-                          <span className={`arrow ${collapsed.nestedAddEventListener ? 'expanded' : ''}`}>
-                            &#9654;
-                          </span>
-                        </span>
-                        {collapsed.nestedAddEventListener && (
-                          <ul>
-                            <li>
-                              <span className="function">
-                                Call closeDropdown function
-                              </span>
-                            </li>
-                          </ul>
-                        )}
-                      </li>
-                    </ul>
-                  )}
-                </li>
-                <li>
-                  <span
-                    className="function"
-                    onClick={() => toggleCollapse('toggleDropdown')}
-                  >
-                    Function: toggleDropdown
-                    <span className={`arrow ${collapsed.toggleDropdown ? 'expanded' : ''}`}>
-                      &#9654;
-                    </span>
-                  </span>
-                  {collapsed.toggleDropdown && (
-                    <ul>
-                      <li>
-                        <span className="action">Prevent default action of event</span>
-                      </li>
-                      <li>
-                        <span className="action">Get dropdown element by id 'dropdown-${'{index}'}</span>
-                      </li>
-                      <li>
-                        <span
-                          className="condition"
-                          onClick={() => toggleCollapse('nestedToggleDropdownIf')}
-                        >
-                          If activeDropdown is equal to index
-                          <span className={`arrow ${collapsed.nestedToggleDropdownIf ? 'expanded' : ''}`}>
-                            &#9654;
-                          </span>
-                        </span>
-                        {collapsed.nestedToggleDropdownIf && (
-                          <ul>
-                            <li>
-                              <span className="function">
-                                Call closeDropdown function
-                              </span>
-                            </li>
-                          </ul>
-                        )}
-                      </li>
-                      <li>
-                        <span
-                          className="condition"
-                          onClick={() => toggleCollapse('nestedToggleDropdownElse')}
-                        >
-                          Else
-                          <span className={`arrow ${collapsed.nestedToggleDropdownElse ? 'expanded' : ''}`}>
-                            &#9654;
-                          </span>
-                        </span>
-                        {collapsed.nestedToggleDropdownElse && (
-                          <ul>
-                            <li>
-                              <span
-                                className="condition"
-                                onClick={() => toggleCollapse('nestedAddEventListenerLast')}
-                              >
-                                If activeDropdown is not null
-                                <span className={`arrow ${collapsed.nestedAddEventListenerLast ? 'expanded' : ''}`}>
-                                  &#9654;
-                                </span>
-                              </span>
-                              {collapsed.nestedAddEventListenerLast && (
-                                <ul>
-                                  <li>
-                                    <span className="function">
-                                      Call closeDropdown function
-                                    </span>
-                                  </li>
-                                </ul>
-                              )}
-                            </li>
-                            <li>
-                              <span className="action">
-                                Add "active" class to dropdown element
-                              </span>
-                            </li>
-                            <li>
-                              <span className="action">
-                                Set activeDropdown to index
-                              </span>
-                            </li>
-                          </ul>
-                        )}
-                      </li>
-                    </ul>
-                  )}
-                </li>
-              </ul>
-            )}
-          </li>
-        </ul>
-      </div>
-        </div>
-      </div>
-
-      {/* Color Coding Explanation */}
       
+      {/* Button with styling */}
+      <button className="button" onClick={handleButtonClick} style={styles.button}>
+        Click Me
+      </button>
+
+      {/* Dropdown menu */}
+      {showDropdown && (
+        <div style={styles.dropdownMenu}>
+          <a href="#" style={styles.dropdownItem}>Option 1</a>
+          <a href="#" style={styles.dropdownItem}>Option 2</a>
+          <a href="#" style={styles.dropdownItem}>Option 3</a>
+        </div>
+      )}
+
+      {/* Toggle Dropdown Functionality Button */}
+      <button
+        className="button"
+        onClick={toggleDropdownFunctionality}
+        style={{ ...styles.button, marginTop: '20px' }}
+      >
+        {isDropdownEnabled ? 'Remove Dropdown' : 'Add Dropdown'}
+      </button>
+
+      {/* Toggle Code View Button */}
+      <button
+        className="button"
+        onClick={toggleCodeView}
+        style={{ ...styles.button, marginTop: '20px' }}
+      >
+        {showPseudoCode ? 'Show Actual Code' : 'Show Pseudo-Code'}
+      </button>
+
+      {/* Add Image Button */}
+      <button
+        className="button"
+        onClick={addImage}
+        style={{ ...styles.button, marginTop: '20px' }}
+      >
+        Add Image
+      </button>
+
+      {/* Image Display */}
+      {showImage && (
+        <div>
+          <img
+            className="image"
+            src={images[currentImageIndex]}
+            alt="Placeholder"
+            style={styles.image}
+          />
+          <button
+            className="button"
+            onClick={toggleImageLoop}
+            style={{ ...styles.button, marginTop: '20px' }}
+          >
+            {loopImages ? 'Stop Image Loop' : 'Loop Images'}
+          </button>
+        </div>
+      )}
+
+      {/* JavaScript Code Preview */}
+      <div style={styles.codePreview}>
+        <SyntaxHighlighter language="javascript" style={solarizedlight}>
+          {generateCodePreview()}
+        </SyntaxHighlighter>
+      </div>
     </div>
   );
+};
+
+const styles = {
+  button: {
+    padding: '10px 20px',
+    border: '1px solid transparent',
+    fontSize: '16px',
+    cursor: 'pointer',
+    borderRadius: '10px',
+    transition: 'background-color 0.3s, border-color 0.3s, box-shadow 0.3s',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    margin: '0px',
+    fontFamily: '"Inter", sans-serif',
+    color: '#fff',
+    backgroundColor: '#0e74f6', // Blue background
+  },
+  dropdownMenu: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    marginTop: '10px',
+    padding: '10px',
+  },
+  dropdownItem: {
+    padding: '10px',
+    textDecoration: 'none',
+    color: '#333',
+    display: 'block',
+    transition: 'background-color 0.3s',
+  },
+  image: {
+    display: 'block',
+    marginTop: '20px',
+    borderRadius: '5px',
+  },
+  codePreview: {
+    marginTop: '30px',
+    padding: '10px',
+    backgroundColor: '#f4f4f4',
+    borderRadius: '5px',
+    fontFamily: 'monospace',
+    whiteSpace: 'pre-wrap',
+  },
 };
 
 export default DropDownPage;

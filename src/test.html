@@ -1,0 +1,1341 @@
+<!--
+
+  templateType: "page"
+
+  isAvailableForNewContent: true
+
+-->
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    {% if content.html_title %}<title>{{ content.html_title }}</title>{% endif %}
+
+    <meta name="description" content="{{ content.meta_description }}">
+
+    {% if brand_settings.primaryFavicon.src %}
+
+        <link rel="shortcut icon" href="{{ brand_settings.primaryFavicon.src }}" />
+
+    {% endif %}
+
+    {{ standard_header_includes }}
+
+    <style>
+
+        body, table, td, p { mso-line-height-rule: exactly; }
+
+        .container-fluid {
+
+            background: none;
+
+        }
+
+        .preview-text { display: none !important; }
+
+        #btnCopy, #btnFooter, #btnBanner, #btnText, #btnButton, #twoColumns {
+
+            font-family: 'Source Sans Pro';
+
+            font-weight: 600;
+
+            margin: 5px;
+
+            padding: 10px 20px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            border: none;
+
+            background-color: white;
+
+            color: black;
+
+            border-radius: 14px;
+
+        }
+
+        img {
+
+            border: 0;
+
+            height: auto !important;
+
+            max-width: 100%;
+
+            vertical-align: middle;
+
+            width: auto\9;
+
+            -ms-interpolation-mode: bicubic;
+
+        }
+
+        .upload-message { display: none; }
+
+        button, input, select, textarea {
+
+            font-family: 'Source Sans Pro';
+
+            font-weight: 600;
+
+            margin: 5px;
+
+            padding: 10px 20px;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            border: none;
+
+            background-color: white;
+
+            color: black;
+
+        }
+
+        input {
+
+            appearance: auto;
+
+            background-color: #f4f4f4;
+
+            font-family: 'Source Sans Pro';
+
+            color: black;
+
+            border: initial;
+
+            box-sizing: border-box;
+
+            cursor: default;
+
+            margin: 3px 3px 3px 4px;
+
+            padding: initial;
+
+        }
+
+        .section {
+
+            border: 1px solid #ddd;
+
+            margin: 10px 0;
+
+            padding: 10px;
+
+         
+
+        }
+
+        .section-label {
+
+           
+
+          font-weight: 600;
+
+    color: black;
+
+    font-size: 19px;
+
+        }
+
+        .menu-item {
+
+            padding: 8px;
+
+            margin-bottom: 5px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background-color: white;
+
+            border-radius: 20px;
+
+            margin: auto;
+
+            max-width: 640px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #e2e2e2;
+
+        }
+
+        .menu-item button {
+
+            background: none;
+
+            border: none;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+        }
+
+        .menu-item .remove-section {
+
+            font-size: 15px;
+
+        }
+
+        .image-preview img {
+
+            border: 2px solid #0078d4;
+
+        }
+
+       
+
+        /* Flexbox Layout for Side-by-Side Display */
+
+        .container {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 20px;
+
+        }
+
+       
+
+        #email-preview {
+
+            flex: 3; /* Takes up 3 parts of the space */
+
+            max-width: 640px;
+
+            background-color: white;
+
+            padding: 0px;
+
+           
+
+        }
+
+       
+
+        #menu {
+
+            flex: 1; /* Takes up 1 part of the space */
+
+            background-color: white;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 3px 6px rgba(0,0,0,.1607843137);
+
+        }
+
+ 
+
+        #menu button {
+
+           
+
+            margin: 5px 0;
+
+         
+
+              /* width: 100%; */
+
+    margin: 5px 0;
+
+    border: none;
+
+    cursor: pointer;
+
+    display: inline-block;
+
+    font-family: "Source Sans Pro", sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    line-height: 16px;
+
+   
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    background: #150404;
+
+    color: #fff;
+
+    /* margin: 10px 0; */
+
+}
+
+        }
+
+ 
+
+        #sectionList {
+
+           
+
+            overflow-y: auto;
+
+        }
+
+     
+
+      /* Style for the custom file input button */
+
+.file-input {
+
+    display: none; /* Hide the default file input */
+
+}
+
+ 
+
+/* Style for the label to look like a button */
+
+.upload-message {
+
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    background-color: #0078d4;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    transition: background-color 0.3s ease;
+
+}
+
+ 
+
+/* Hover effect for the custom button */
+
+.upload-message:hover {
+
+    background-color: #005fa3;
+
+}
+
+ 
+
+/* Optional style for the image preview */
+
+.image-preview img {
+
+    border: 2px solid #0078d4;
+
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    margin-top: 10px;
+
+}
+
+ 
+
+    </style>
+
+</head>
+
+<body style="font-family: Source Sans Pro, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+
+    <h1 style="margin: 0; padding: 0; font-size: 24px; text-align: center; font-size: 40px; color: black;margin-top: 50px;">Marketing Email Builder</h1>
+
+ 
+
+    <!-- Flex Container for Menu and Email Preview -->
+
+    <div class="container">
+
+        <!-- Email Preview Section -->
+
+        <div id="email-preview">
+
+           
+
+            <div id="canvas" style="background-color: white; width: 100%; max-width: 640px; margin: auto;">
+
+                <table align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" width="100%">
+
+                    <tbody>
+
+                        <tr>
+
+                            <td align="center" style="padding: 15px 0;">
+
+                                <table cellpadding="0" cellspacing="0" width="90%">
+
+                                    <tr>
+
+                                        <td align="left" style="text-align: left;">
+
+                                            <a href="link" style="text-decoration: none; outline: none; border: none;" target="_blank">
+
+                                                <img alt="alt" height="54" src="link" style="display: block; margin-top: 20px; padding-bottom: 0;" width="100" />
+
+                                            </a>
+
+                                        </td>
+
+                                        <td align="right" style="text-align: right;">&nbsp;</td>
+
+                                    </tr>
+
+                                </table>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <div id="content"></div>
+
+            </div>
+
+        </div>
+
+ 
+
+        <!-- Section Menu -->
+
+        <div id="menu">
+
+            <h2 style="color: black;">Sections</h2>
+
+            <div id="options">
+
+                <!-- Banner Upload Section -->
+
+                <label class="upload-message" for="imageUpload">Upload a Banner Image:</label>
+
+                <input style="display: none;" type="file" id="imageUpload" accept="image/*" />
+
+                <div class="image-preview" id="imagePreview" style="display: none; margin: 10px 0;"></div>
+
+                <button id="btnBanner" disabled>Add Banner</button>
+
+ 
+
+                <!-- Other Section Buttons -->
+
+                <button id="btnText">Add Text</button>
+
+                <button id="btnButton">Add Button</button>
+
+             
+
+              <!--
+
+              <div>
+
+        <button onclick="changeAlignmentToCenter()">Align Center</button>
+
+        <button onclick="changeAlignmentToLeft()">Align Left</button>
+
+    </div>
+
+ 
+
+-->
+
+                <button id="twoColumns">Add Two Columns</button>
+
+                <button id="btnFooter">Add Footer</button>
+
+                <button style="background-color: #c00000;" id="btnCopy">&#10003; Copy Format</button>
+
+            </div>
+
+ 
+
+            <div id="sectionList" style="margin-top: 20px; text-align: left;"></div>
+
+        </div>
+
+    </div>
+
+ 
+
+    <script>
+
+        const contentDiv = document.getElementById("content");
+
+        const sectionListDiv = document.getElementById("sectionList");
+
+        const imageUpload = document.getElementById("imageUpload");
+
+        const imagePreviewDiv = document.getElementById("imagePreview");
+
+        const btnBanner = document.getElementById("btnBanner");
+
+      const btnButton = document.getElementById("btnButton");
+
+        let selectedImage = ""; // Store selected image URL
+
+        let sections = [];
+
+ 
+
+        // Banner upload event listener
+
+        imageUpload.addEventListener("change", (event) => {
+
+            const file = event.target.files[0];
+
+            if (file) {
+
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    selectedImage = e.target.result;
+
+                    imagePreviewDiv.innerHTML = `<img src="${selectedImage}" width="640" alt="Preview" style="max-width: 100%; height: auto; border: 2px solid #0078d4;">`;
+
+                    imagePreviewDiv.style.display = "block";
+
+                    btnBanner.disabled = false;
+
+                };
+
+                reader.readAsDataURL(file);
+
+            }
+
+        });
+
+ 
+
+        // Add Banner to content
+
+        btnBanner.addEventListener("click", () => {
+
+            const bannerHTML = `
+
+                <tr>
+
+                <td align="center">
+
+                    <img alt="banner-image" class="banner" src="${selectedImage}" width="640" style="max-width: 100%; height: auto !important;" />
+
+                </td>
+
+            </tr>`;
+
+            sections.push({ type: 'banner', content: bannerHTML, label: 'Banner Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+            btnBanner.disabled = true;
+
+            selectedImage = "";
+
+            imagePreviewDiv.innerHTML = "";
+
+            imagePreviewDiv.style.display = "none";
+
+        });
+
+ 
+
+        // Function to add a text section
+
+        function addText() {
+
+            const sectionHTML = `
+
+                <tr>
+
+                <td align="center">
+
+                    <table align="center" cellpadding="0" cellspacing="0" width="90%">
+
+                        <tbody>
+
+                        <tr>
+
+                                    <td class="stylingblock-content-wrapper camarker-inner">
+
+                                    <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td align="center" class="mob-spacer-40" height="40" style="height:40px; font-size:0;">&nbsp;</td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                    </td>
+
+                                </tr>
+
+                            <tr>
+
+                                <td align="left" style="font-family: Calibri, Trebuchet MS, Arial, sans-serif; color: #c00000; font-size: 36px; line-height: 1.2;">
+
+                                    <b>Title</b>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td align="left" style="font-family: Calibri, Trebuchet MS, Arial, sans-serif; font-size: 18px; line-height: 1.7;" contenteditable="true">
+
+                                    text<br />
+
+                                    text
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                           
+
+                            
+
+                                    <td class="stylingblock-content-wrapper camarker-inner">
+
+                                    <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td align="center" class="mob-spacer-40" height="20" style="height:18px; font-size:0;">&nbsp;</td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                    </td>
+
+                                </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </td>
+
+            </tr>`;
+
+            sections.push({ type: 'text', content: sectionHTML, label: 'Text Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+ 
+
+        // Function to add a button section
+
+              function addButton() {
+
+    const buttonText = prompt("Enter button text:", "Button");
+
+    const buttonLink = prompt("Enter button URL:", "https://example.com");
+
+               
+
+                                // Global variable to track the alignment
+
+let currentAlignment = "left"; // default alignment is "left", not "center"
+
+ 
+
+function changeAlignmentToCenter() {
+
+    // Check if the current alignment is not already "center"
+
+    if (currentAlignment !== "center") {
+
+        currentAlignment = "center";
+
+    }
+
+}
+
+ 
+
+function changeAlignmentToLeft() {
+
+    // Check if the current alignment is not already "left"
+
+    if (currentAlignment !== "left") {
+
+        currentAlignment = "left";
+
+    }
+
+}
+
+               
+
+                
+
+ 
+
+    if (buttonText && buttonLink) {
+
+        // Create the button HTML dynamically using backticks
+
+        const buttonHTML = `
+
+           
+
+                <tr>
+
+                                    <td align="center">
+
+                                    <table align="center" cellpadding="0" cellspacing="0" class="mobile-width-85" width="90%">
+
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td>
+
+                                                <table align="${currentAlignment}" cellpadding="0" cellspacing="0" style="background-color:#CC0000; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif;">
+
+                                                    <tbody>
+
+                                                        <tr>
+
+                                                            <td align="center" style="padding:16px 21px; color:#FFFFFF;font-size:16px; text-align:center;">
+
+                                <a href="${buttonLink}" style="color:#FFFFFF !important; text-decoration:none; font-size:16px; font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif; white-space:nowrap; word-break:keep-all; font-weight: bold; border-radius: 8px;" target="_blank">${buttonText}</a></td>
+
+                                                        </tr>
+
+                                                    </tbody>
+
+                                                </table>
+
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                    </td>
+
+                                </tr>
+
+               
+
+                <tr>
+
+                                    <td class="stylingblock-content-wrapper camarker-inner">
+
+                                    <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td align="center" class="mob-spacer-40" height="60" style="height:60px; font-size:0;">&nbsp;</td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                    </td>
+
+                                </tr>
+
+        `;
+
+ 
+
+        sections.push({ type: 'button', content: buttonHTML, label: 'Button Section' });
+
+ 
+
+        // Re-render content and update the section list
+
+        renderContent();
+
+        updateSectionList();
+
+    } else {
+
+        alert("Button text and URL are required!");
+
+    }
+
+}
+
+ 
+
+        // Function to add a footer section
+
+        function addFooter() {
+
+            const sectionHTML = `
+
+                <tr>
+                    footer
+                    <tr>`;
+
+            sections.push({ type: 'footer', content: sectionHTML, label: 'Footer Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+ 
+
+        // Function to add a two-column section
+
+        function addTwoColumns() {
+
+            const sectionHTML = `
+
+                <tr>
+
+  <td valign="top">
+
+    <table width="90%" class="mobile-width-85" cellspacing="0" cellpadding="0" border="0" align="center">
+
+      <tr>
+
+    <td align="left" valign="top" class="cell-stack">
+
+      <table width="263" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+        <tr>
+
+          <td>
+
+          <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td style="font-size:24px; font-weight:normal; line-height:30px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color: black; padding-bottom:0px; mso-hyphenate: none; font-weight: bold;" align="left">
+
+       <p style="font-size: 20px; margin: 0px; margin-top: 30px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><span style="font-size: 25px;"><strong>Header 1</strong></span></p>
+
+          </td>
+
+            </tr>
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td>
+
+              <table width="100%" class="mobile-width-80" cellspacing="0" cellpadding="0" border="0" align="left">
+
+                <tr>
+
+                <td style="font-size:16px; font-weight:normal; line-height:23px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color:#150404; padding-bottom:0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+       
+
+ 
+
+<span style="font-size: 16px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+
+ 
+
+          </td>
+
+                </tr>
+
+                <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+                <tr>
+
+            <td>
+
+              <img src="https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/unavailable.png" alt="New Hire" width="70" style="width: 70px; height: auto; margin: 0 !important;">
+
+              </td>
+
+            </tr>
+
+              </table>
+
+              </td>
+
+            </tr>
+
+            </table>
+
+          </td>
+
+         
+
+        </tr>
+
+      </table>
+
+    </td>
+
+       
+
+    <td width="50" class="cell-stack mob-spacer-40">&nbsp;</td>
+
+    <td align="left" valign="top" class="cell-stack">
+
+      <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+        <tr>
+
+          <td>
+
+          <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td style="font-size:24px; font-weight:normal; line-height:30px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color: black; padding-bottom:0px; mso-hyphenate: none; font-weight: bold;" align="left">
+
+       <p style="font-size: 20px; margin: 0px; margin-top: 30px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><span style="font-size: 25px;"><strong>Header 2</strong></span></p>
+
+          </td>
+
+            </tr>
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td>
+
+              <table width="100%" class="mobile-width-80" cellspacing="0" cellpadding="0" border="0" align="left">
+
+                <tr>
+
+                <td style="font-size:16px; font-weight:normal; line-height:23px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color:#150404; padding-bottom:0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+       
+
+ 
+
+<span style="font-size: 16px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+
+ 
+
+          </td>
+
+                </tr>
+
+                <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+                <tr>
+
+            <td>
+
+              <img src="https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/unavailable.png" alt="New Hire" width="70" style="width: 70px; height: auto; margin: 0 !important;">
+
+              </td>
+
+            </tr>
+
+              </table>
+
+              </td>
+
+            </tr>
+
+            </table>
+
+          </td>
+
+         
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+    </table>
+
+    </td>
+
+                         </tr>`;
+
+            sections.push({ type: 'twoColumns', content: sectionHTML, label: 'Two Columns Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+ 
+
+        // Function to apply formatting
+
+        function formatText(command) {
+
+            document.execCommand(command, false, null);
+
+        }
+
+ 
+
+        // Function to save the current state of all sections
+
+        function saveAllSections() {
+
+            const sectionElements = contentDiv.querySelectorAll('tr');
+
+            sectionElements.forEach((element, index) => {
+
+                if (sections[index]) {
+
+                    sections[index].content = element.outerHTML;
+
+                }
+
+            });
+
+        }
+
+ 
+
+        // Function to enable editing of a section
+
+        function enableEditing(index) {
+
+            saveAllSections(); // Save current state before enabling editing
+
+            const section = sections[index];
+
+            const tempDiv = document.createElement('div');
+
+            tempDiv.innerHTML = section.content;
+
+            const editableElements = tempDiv.querySelectorAll('td[align="left"]');
+
+            
+
+            editableElements.forEach(element => {
+
+                element.setAttribute('contenteditable', 'true');
+
+                element.classList.add('rich-text-editor');
+
+            });
+
+ 
+
+            section.content = tempDiv.innerHTML;
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+ 
+
+        // Function to save edited content
+
+        function saveEditedContent(index) {
+
+            saveAllSections(); // Save current state before saving
+
+            const section = sections[index];
+
+            const tempDiv = document.createElement('div');
+
+            tempDiv.innerHTML = section.content;
+
+            const editableElements = tempDiv.querySelectorAll('td[align="left"]');
+
+            
+
+            editableElements.forEach(element => {
+
+                element.removeAttribute('contenteditable');
+
+                element.classList.remove('rich-text-editor');
+
+            });
+
+ 
+
+            section.content = tempDiv.innerHTML;
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+ 
+
+        // Re-render sections content in canvas
+
+        function renderContent() {
+
+            contentDiv.innerHTML = '';
+
+            sections.forEach(section => {
+
+                contentDiv.innerHTML += section.content;
+
+            });
+
+        }
+
+ 
+
+        // Move section up
+
+        function moveSectionUp(index) {
+
+            saveAllSections(); // Save current state before moving
+
+            if (index > 0) {
+
+                const temp = sections[index];
+
+                sections[index] = sections[index - 1];
+
+                sections[index - 1] = temp;
+
+                renderContent();
+
+                updateSectionList();
+
+            }
+
+        }
+
+ 
+
+        // Move section down
+
+        function moveSectionDown(index) {
+
+            saveAllSections(); // Save current state before moving
+
+            if (index < sections.length - 1) {
+
+                const temp = sections[index];
+
+                sections[index] = sections[index + 1];
+
+                sections[index + 1] = temp;
+
+                renderContent();
+
+                updateSectionList();
+
+            }
+
+        }
+
+ 
+
+        // Function to copy the current email preview to clipboard
+
+        function copyToClipboard() {
+
+            saveAllSections(); // Ensure all edits are saved
+
+            const emailPreviewHTML = document.getElementById('email-preview').innerHTML; // Capture the current state of the email preview
+
+            const blob = new Blob([emailPreviewHTML], { type: 'text/html' });
+
+            const data = [new ClipboardItem({ 'text/html': blob })];
+
+ 
+
+            navigator.clipboard.write(data)
+
+                .then(() => {
+
+                    alert("Format Copied!");
+
+                })
+
+                .catch((err) => {
+
+                    console.error("Error copying to clipboard: ", err);
+
+                });
+
+        }
+
+ 
+
+        // Update section list in the menu (with reordering buttons and labels)
+
+        function updateSectionList() {
+
+            sectionListDiv.innerHTML = "";
+
+            sections.forEach((section, index) => {
+
+                sectionListDiv.innerHTML += `
+
+                    <div class="menu-item">
+
+                        <div class="section-label">${section.label}</div>
+
+                        <div class="toolbar">
+
+                            <button type="button" onclick="formatText('bold')">Bold</button>
+
+                            <button type="button" onclick="formatText('italic')">Italic</button>
+
+                            <button type="button" onclick="formatText('underline')">Underline</button>
+
+                        </div>
+
+                        <div style="display: flex;">
+
+                            <button type="button" style="background-color: white; color: black" onclick="moveSectionUp(${index})">↑</button>
+
+                            <button type="button" style="background-color: white; color: black" onclick="moveSectionDown(${index})">↓</button>
+
+                            <button type="button" style="background-color: white; color: #cc0000" class="remove-section" onclick="removeSection(${index})">Remove</button>
+
+                            <button type="button" style="background-color: white; color: black" onclick="enableEditing(${index})">Edit</button>
+
+                            <button type="button" style="background-color: white; color: black" onclick="saveEditedContent(${index})">Save</button>
+
+                        </div>
+
+                    </div>`;
+
+            });
+
+        }
+
+ 
+
+        // Remove section
+
+        function removeSection(index) {
+
+            sections.splice(index, 1);
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+ 
+
+        // Event listeners for adding sections
+
+        document.getElementById("btnText").addEventListener("click", () => addNewSection('text'));
+
+        document.getElementById("btnCopy").addEventListener('click', copyToClipboard);
+
+     
+
+        document.getElementById("btnFooter").addEventListener("click", addFooter);
+
+        document.getElementById("twoColumns").addEventListener("click", addTwoColumns);
+
+    </script>
+
+ 
+
+    {% dnd_area "dnd_area" label="Main section" %}
+
+    {% end_dnd_area %}
+
+    {{ standard_footer_includes }}
+
+</body>
+
+</html>

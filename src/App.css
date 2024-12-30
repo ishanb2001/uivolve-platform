@@ -6,7 +6,7 @@ body {
 
 .App {
   font-family: "Inter", sans-serif;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -140,7 +140,7 @@ body {
 }
 
 .navbar {
-  border: 1px solid rgb(234, 234, 234);
+  
 }
 
 /* Add this CSS to your styles */
@@ -155,6 +155,10 @@ body {
   cursor: pointer;
 }
 
+.mobile-menu {
+  background-color: white;
+}
+
 .mobile-menu .dropdown-menu {
   display: flex;
   flex-direction: column;
@@ -166,11 +170,21 @@ body {
   width: 100%;
   z-index: 1000;
   padding: 10px 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+.mobile-menu .dropdown-menu.open {
+  max-height: 300px; /* Adjust this value based on your content */
+  opacity: 1;
 }
 
 @media (min-width: 860px) {
   .mobile-menu {
     display: none;
+    
   }
 }
 
@@ -185,7 +199,7 @@ body {
 
 
 .navbar-inner {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: auto;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -196,6 +210,7 @@ body {
   .navbar {
     flex-direction: column;
     align-items: center;
+    background-color: white;
   }
 
   .menu-first, .menu {
@@ -246,58 +261,58 @@ li {
 .legend-card {
   background-color: white;
   border-radius: 20px;
-  padding: 30px;
-  border: 2px solid transparent; /* Transparent border initially */
+  padding: 20px;
+  border: 2px solid transparent;
   box-sizing: border-box;
-}
-
-.legend-card-action {
-  background-color: #f3e6ff;
-  border-radius: 20px;
-  padding: 30px;
-  border: 2px solid transparent; /* Transparent border initially */
-  box-sizing: border-box;
-  color: #6f42c1;
-}
-
-.legend-card-function {
-  background-color: #f2f7fc;
-  border-radius: 20px;
-  padding: 30px;
-  border: 2px solid transparent; /* Transparent border initially */
-  box-sizing: border-box;
-  color: #007bff;
-}
-
-.legend-card-condition {
-  background-color: #fff2e6;
-  border-radius: 20px;
-  padding: 30px;
-  border: 2px solid transparent; /* Transparent border initially */
-  box-sizing: border-box;
-  color: #fd7e14;
-}
-
-.legend-card-strike {
-  background-color: #e6f4ea;
-  border-radius: 20px;
-  padding: 30px;
-  border: 2px solid transparent; /* Transparent border initially */
-  box-sizing: border-box;
-  color: #28a745;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  
+  text-align: center;
+  width: 200px;
 }
 
 .legend-card:hover {
-  border: 2px solid blue;
-  box-sizing: border-box; 
+  border-color: blue;
+  box-shadow: 0 4px 12px rgba(0, 0, 255, 0.2);
 }
 
+.legend-card-starting-value {
+  background-color: #fff4e6;
+  color: #fd7e14;
+}
+
+.legend-card-user-click,
+.legend-card-check-condition {
+  background-color: #fffbe6;
+  color: #ffd700;
+}
+
+.legend-card-do-something,
+.legend-card-stop-default-behavior,
+.legend-card-change-appearance {
+  background-color: #e6f0ff;
+  color: #1e90ff;
+}
+
+.legend-card-custom-action {
+  background-color: #ffe6e6;
+  color: #ff4500;
+}
+
+.legend-card-find-dropdown,
+.legend-card-update-value {
+  background-color: #fff4e6;
+  color: #fd7e14;
+}
 
 .legend {
   display: flex;
-  gap: 30px;
-  font-size: 10px;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  justify-content: space-around;
 }
+
 
 
 .large-button {
@@ -546,6 +561,10 @@ li {
   border: 1px solid rgb(238, 238, 238);
 }
 
+.legend-wrapper-mobile {
+  display: none;
+}
+
 .function-block {
   background-color: rgba(230, 230, 250, 0.5);
   border: 1px solid rgb(238, 238, 238);
@@ -571,6 +590,15 @@ li {
 .event-block {
   background-color: #9c27b0;
   border: 1px solid rgb(238, 238, 238);
+}
+
+.tree span {
+  font-size: 18px;
+}
+
+.legend-wrapper2 {
+  display: flex;
+  gap: 5px;
 }
 
 .flex-container {
@@ -708,6 +736,8 @@ li {
     padding: 0px;
   }
 
+ 
+
   .main-content {
     padding: 0px;
   }
@@ -729,6 +759,14 @@ li {
   .container {
     width: 100%;
     padding: 10px;
+  }
+
+
+  .legend-wrapper-mobile {
+    display: block;
+    font-size: 12px;
+    gap: 5px;
+    margin: 5px;
   }
 
   .block {
@@ -815,6 +853,30 @@ li {
   flex-wrap: nowrap;
 }
 
+@media only screen and (max-width: 1200px) {
+  .legend-wrapper2 {
+    display: none;
+  }
+
+  .legend-wrapper-mobile {
+    display: block;
+    font-size: 12px;
+      gap: 5px;
+      margin: 5px;
+    }
+  
+
+  .tree span {
+    font-size: 10px;
+  }
+
+  .tree li {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 0px;
+}
+}
+
 @media only screen and (max-width: 860px) {
   .flex-container {
     display: flex;
@@ -842,7 +904,7 @@ li {
   font-size: 30px;
   width: 100%;
   border-radius: 10px;
-  background-color: rgb(251, 251, 251);
+  background-color: rgb(84 125 255);
 }
 
 .preview-box {
@@ -950,7 +1012,17 @@ li {
 
 
 
-
+.banner-message{
+  
+  bottom: 0;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  /* -webkit-mask-image: radial-gradient(circle at center, #000 40%, transparent 80%); */
+  /* mask-image: radial-gradient(circle at center, #000 40%, transparent 80%); */
+}
 
 
 
@@ -970,22 +1042,70 @@ body {
 /* Tree Styles */
 .tree {
   line-height: 1.8;
-  margin-top: 50px;
+  margin-top: 0px;
   padding: 0;
   
 }
 
+.legend-label {
+  background-color: rgb(248, 248, 248);
+  padding: 4px 10px 4px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.legend-label-initial {
+  background-color: #f2f7fc;
+  padding: 4px 10px 4px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  color: #007bff;
+}
+
+.legend-label-event {
+  background-color: #e6f4ea;
+  padding: 4px 10px 4px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  color: #28a745;
+}
+
+.legend-label-condition {
+  background-color: #fff2e6;
+  padding: 4px 10px 4px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  color: #fd7e14;
+}
+
+.legend-label-function {
+  background-color: #f3e6ff;
+  padding: 4px 10px 4px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  color: #6f42c1;
+}
+
+.legend-label-action {
+  background-color: #e7f3f9;
+  padding: 4px 10px 4px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  color: #17a2b8;
+}
+
+.legend-wrapper {
+  gap: 4px;
+}
+
 .tree ul {
   list-style-type: none;
-  padding-left: 15px;
+  padding-left: 10px;
   position: relative;
 }
 
-.tree li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 0px;
-}
 
 /* Arrow Indicators */
 .tree li.has-children::before {
@@ -1004,6 +1124,12 @@ body {
 
 .tree li.collapsed > ul {
   display: none;
+}
+
+.tree li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 0px;
 }
 
 /* Lines connecting nodes */
@@ -1048,7 +1174,6 @@ body {
 /* Hover effect */
 .tree span:hover {
   background-color: #f0f0f0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Active state */
@@ -1761,7 +1886,7 @@ body {
   left: 1px;
   font-weight: 500;
   background-color: white;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
   border-radius: 10px;
   overflow: hidden;
   z-index: 1;

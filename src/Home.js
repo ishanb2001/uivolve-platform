@@ -55,18 +55,22 @@ const Home = () => {
     <div>
       <div style={{ marginTop: 170, marginBottom: 30 }} className="App">
         <Navbar />
-        <div style={{ display: 'flex' }}>
+        <div className="banner-message" style={{ display: 'flex' }}>
           <div>
-            <h1 style={{ marginBottom: 20 }} className="font-giant shiny-text fade-element">Frontend Boost with Snippets and Docs</h1>
-            <p style={{ marginBottom: 20, fontSize: 18 }} className="fade-element">We are dedicated to empowering developers and designers by providing a comprehensive, modern, and trendy library of frontend UI code snippets and detailed documentation.</p>
+            <h1 style={{ marginBottom: 20, textAlign: "left" }} className="font-giant shiny-text fade-element">Frontend Boost with Snippets and Docs</h1>
+            <p style={{ marginBottom: 30, fontSize: 25, textAlign: "left", lineHeight: 1.3, color: "grey", fontWeight: 400 }} className="fade-element">We are dedicated to empowering developers and designers by providing a comprehensive, modern, and trendy library of frontend UI code snippets and detailed documentation.</p>
+            
           </div>
           
         </div>
-        <div style={{ marginBottom: 90 }}>
-          <button className="button button-medium bg-black fade-element">
-            Documentation
-          </button>
-          <HoverMenuExample/>
+        <div style={{ marginBottom: 90, textAlign: "left", display: "flex", justifyContent: "flex-start", gap: 10 }}>
+          <button className="button button-medium bg-blue fade-element">
+            Get Started
+          </button> 
+          <button style={{ border: "1px solid #255fff", color: "#255fff" }} className="button button-medium fade-element">
+            How It Works?
+          </button> 
+          
         </div>
         <div className="homepage-cards">
           <div className="card-container">

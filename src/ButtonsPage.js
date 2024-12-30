@@ -97,6 +97,7 @@ const ButtonsPage = () => {
           <Route path="tab-slider" element={<TabSlidePage />} />
         </Routes>
       </div>
+      
     </div>
   );
 };

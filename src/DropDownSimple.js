@@ -51,10 +51,11 @@ const DropdownSimple = () => {
     padding: '10px 20px',
     display: 'block',
     color: '#333',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
+    borderRadius: '30px',
     cursor: 'pointer',
     fontSize: '18px',
+    backgroundColor: 'white',
+    fontWeight: '600'
   };
 
   const dropdownMenuStyle = {
