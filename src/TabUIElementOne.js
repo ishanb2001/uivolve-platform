@@ -1,25 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
 
-function TabUIElementOne({ tabs }) {
+function TabUIElementOne({ tabs, defaultActiveTab, setActiveTab }) {
+  const [activeTab, localSetActiveTab] = useState(defaultActiveTab || 0);
   const indicatorRef = useRef(null);
   const tabsRef = useRef([]);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const tabRoutes = [
-    '/overview/documentation', // Screens tab
-    '/',           // UI Elements tab
-    '/flows'                  // Flows tab
-  ];
-
-  const getActiveTab = () => {
-    const currentPath = location.pathname;
-    return tabRoutes.indexOf(currentPath);
-  };
-
-  const [activeTab, setActiveTab] = useState(getActiveTab());
 
   useEffect(() => {
     const tab = tabsRef.current[activeTab];
@@ -31,13 +16,11 @@ function TabUIElementOne({ tabs }) {
     }
   }, [activeTab]);
 
-  useEffect(() => {
-    setActiveTab(getActiveTab());
-  }, [location]);
-
   const handleTabClick = (index) => {
-    setActiveTab(index);
-    navigate(tabRoutes[index]); // Navigate to the route corresponding to the clicked tab
+    localSetActiveTab(index);
+    if (setActiveTab) {
+      setActiveTab(index);
+    }
   };
 
   return (

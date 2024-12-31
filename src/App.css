@@ -160,25 +160,17 @@ body {
 }
 
 .mobile-menu .dropdown-menu {
+  position: absolute;
+  top: 60px; /* Adjust based on your navbar height */
+  right: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
-  position: absolute;
-  top: 80px; /* Adjust based on your navbar height */
-  right: 0;
-  width: 100%;
-  z-index: 1000;
   padding: 10px 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-  opacity: 0;
-}
-
-.mobile-menu .dropdown-menu.open {
-  max-height: 300px; /* Adjust this value based on your content */
-  opacity: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 860px) {
@@ -1012,17 +1004,27 @@ li {
 
 
 
-.banner-message{
-  
+.banner-message {
+  position: relative; /* Ensure the pseudo-element is positioned relative to this element */
+}
+
+.banner-message::after {
+  position: absolute; /* Position the pseudo-element absolutely within the .banner-message */
   bottom: 0;
   content: "";
   left: 0;
   right: 0;
   top: 0;
-  z-index: -1;
-  /* -webkit-mask-image: radial-gradient(circle at center, #000 40%, transparent 80%); */
-  /* mask-image: radial-gradient(circle at center, #000 40%, transparent 80%); */
+  z-index: -1; /* Ensure it is behind the content */
+
+  background-image: 
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 2px, transparent 1px, transparent 29px),
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 2px, transparent 1px, transparent 29px);
+    
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
 }
+
 
 
 
@@ -1890,7 +1892,6 @@ body {
   border-radius: 10px;
   overflow: hidden;
   z-index: 1;
-  min-width: 200px;
   transform-origin: top;
 }
 
@@ -2212,6 +2213,201 @@ ul {
 }
 ul li {
   margin-bottom: 10px;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes reverseBounce {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+body,
+html {
+  font-family: "Inter", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  color: rgb(93, 93, 93);
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.3s;
+  height: 20px;
+}
+
+.nav-link:hover {
+  color: rgb(0, 0, 0);
+}
+
+/* Add this to your CSS */
+.arrow-icon {
+  transition: transform 0.3s ease; /* Smooth transition for rotation */
+}
+
+.nav-item:hover .arrow-icon {
+  transform: rotate(180deg); /* Rotate 180 degrees on hover */
+}
+
+
+/* Hide the dropdown menu initially with opacity and visibility */
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 1px;
+  font-weight: 500;
+  background-color: white;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+
+  opacity: 0; /* Make invisible */
+  visibility: hidden; /* Prevents interaction */
+  transform: scale(0.5); /* Start small */
+  transition: opacity 0.19s ease, transform 0.5s ease, visibility 0s 0.9s; /* Smooth transition */
+  transform-origin: top;
+}
+
+/* Show the dropdown menu on hover */
+.nav-item:hover .dropdown-menu {
+  opacity: 1; /* Make visible */
+  visibility: visible; /* Allow interaction */
+  transform: scale(1); /* Scale to normal size */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-link {
+  padding: 10px 2px 2px 10px;
+  margin: 5px;
+  font-size: 14px;
+  border-radius: 10px;
+  display: block;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.3s;
+}
+
+.dropdown-link:hover {
+  background-color: #f1f1f1;
+}
+
+.paragraph {
+  margin-top: 0;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  line-height: 1.3rem;
+  font-weight: 400;
+  color: #848484;
+}
+
+.button {
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 5px;
+  font-family: "Inter", sans-serif;
+  color: #333;
+  background-color: rgb(255, 255, 255);
+}
+
+.border-grey {
+  border: 1px solid rgb(238, 238, 238);
+  color: #000000;
+}
+
+.border-grey:hover {
+  border: 1px solid #dadada;
+  color: #000000;
+  background-color: #d9d9d961;
+}
+
+.border-grey:active {
+  border: 1px solid #b0b0b0;
+  color: #000000;
+  background-color: #c0c0c061;
+}
+
+.ui-card {
+  border-radius: 20px;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ui-card-label {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  align-self: flex-start;
+}
+
+.ui-card-text {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 

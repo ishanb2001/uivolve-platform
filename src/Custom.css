@@ -14,6 +14,8 @@
   background-color: rgb(228, 228, 228); /* Default background is transparent */
 }
 
+
+
 body {
   font-family: "Inter", sans-serif; /* Corrected font family name */
 }
@@ -197,7 +199,7 @@ body {
 }
 
 .button-medium {
-  padding: 7px 30px; /* Medium padding, same as default */
+  padding: 7px 20px; /* Medium padding, same as default */
   font-size: 16px; /* Medium font size, same as default */
   font-family: "Inter", sans-serif; /* Corrected font family name */
   font-weight: 500;
@@ -337,8 +339,8 @@ h6 {
 }
 
 .font-giant {
-  font-size: 4.5rem;
-  letter-spacing: -0.3rem;
+  font-size: 3.5rem;
+  letter-spacing: -0.2rem;
   line-height: 5rem;
   font-weight: 600;
 }
@@ -1436,7 +1438,7 @@ em {
 }
 
 .button-medium {
-  padding: 15px 20px; 
+  padding: 7px 20px; 
   font-size: 16px; 
   font-family: "Inter", sans-serif; 
   font-weight: 500;
