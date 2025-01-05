@@ -2410,6 +2410,86 @@ html {
   font-weight: bold;
 }
 
+.editor {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 10px;
+  background-color: #f5f7fa;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tablinks {
+  background-color: #e0e4e8;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.content-section {
+  margin-top: 20px;
+}
+
+.content-options, .layout-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.content-item, .layout-item {
+  width: 80px;
+  height: 50px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.page {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f0f4f8;
+}
+
+.page-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 150px;
+  background-color: #d9e2ec;
+  margin-bottom: 20px;
+}
+
+.text-placeholder {
+  background-color: #f8d7da;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.text-line {
+  height: 10px;
+  background-color: #d9e2ec;
+  margin-bottom: 10px;
+}
+
+/* Add this CSS to override the max-width for a specific page */
+.wide-page {
+  max-width: 1900px;
+  margin: auto; /* Center the page */
+}
+
 
 
 

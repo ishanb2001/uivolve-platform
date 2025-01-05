@@ -70,6 +70,10 @@ const Navbar = () => {
     action();
   };
 
+  const navigateToTabSlidePage = () => {
+    navigate('/tab-slider');
+  };
+
   return (
     <div className="navbar navbar-fixed white-bg">
       
@@ -197,7 +201,9 @@ const Navbar = () => {
                 </a>
               </div>
               <div className="menu-container">
-                <button className="button button-medium bg-black" onClick={() => toggleDropdown(3)}>Join The Community</button>
+                <button onClick={navigateToTabSlidePage} className="button nav-link">
+                  Join The Community
+                </button>
               </div>
               
             </div>

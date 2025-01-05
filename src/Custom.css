@@ -1624,10 +1624,10 @@ em {
 .tab {
   background: none;
   border: none;
-  padding: 15px 20px;
+  padding: 8px 10px;
   font-family: "Inter", sans-serif; /* Corrected font family name */
   cursor: pointer;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   transition: color 0.3s ease;
   z-index: 1;  /* Ensure the buttons are above the indicator */
