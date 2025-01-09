@@ -1,0 +1,5076 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 
+
+    <meta charset="utf-8">
+
+    {% if content.html_title %}<title>{{ content.html_title }}</title>{% endif %}
+
+    <meta name="description" content="{{ content.meta_description }}">
+
+  <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css>
+
+    {% if brand_settings.primaryFavicon.src %}
+
+        <link rel="shortcut icon" href="{{ brand_settings.primaryFavicon.src }}" />
+
+    {% endif %}
+
+    {{ standard_header_includes }}
+
+    <style>
+
+        body, table, td, p { mso-line-height-rule: exactly; }
+
+        .container-fluid {
+
+            background: none;
+
+        }
+
+        .preview-text { display: none !important; }
+
+        button {
+
+            font-family: 'Source Sans Pro';
+
+            font-weight: 600;
+
+            margin: 5px;
+
+            padding: 10px 20px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            border: none;
+
+            background-color: white;
+
+            color: black;
+
+            border-radius: 10px;
+
+        }
+
+        img {
+
+            border: 0;
+
+            height: auto !important;
+
+            max-width: 100%;
+
+            vertical-align: middle;
+
+            width: auto\9;
+
+            -ms-interpolation-mode: bicubic;
+
+        }
+
+        .upload-message { display: none; }
+
+        button, input, select, textarea {
+
+            font-family: 'Source Sans Pro';
+
+            font-weight: 600;
+
+            margin: 5px;
+
+            padding: 12px 20px;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            border: black 8px;
+
+            background-color: white;
+
+            color: black;
+
+        }
+
+        input {
+
+            appearance: auto;
+
+            background-color: #f4f4f4;
+
+            font-family: 'Source Sans Pro';
+
+            color: black;
+
+            border: initial;
+
+            box-sizing: border-box;
+
+            cursor: default;
+
+            margin: 3px 3px 3px 4px;
+
+            padding: initial;
+
+        }
+
+        .section {
+
+            border: 1px solid #ddd;
+
+            margin: 10px 0;
+
+            padding: 10px;
+
+         
+
+        }
+
+        .section-label {
+
+           
+
+          font-weight: 600;
+
+    color: black;
+
+    font-size: 19px;
+
+        }
+
+        .menu-item {
+
+            padding: 8px;
+
+            margin-bottom: 5px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background-color: white;
+
+            border-radius: 10px;
+
+            margin: auto;
+
+            max-width: 640px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #e2e2e2;
+
+        }
+
+        .menu-item button {
+
+            background: none;
+
+            border: none;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+        }
+
+        .menu-item .remove-section {
+
+            font-size: 15px;
+
+        }
+
+     
+
+      
+
+        .image-preview img {
+
+            border: 2px solid #0078d4;
+
+        }
+
+       
+
+        
+
+        .container {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 20px;
+
+        }
+
+       
+
+        #email-preview {
+
+            flex: 3;
+
+            max-width: 640px;
+
+            background-color: white;
+
+            padding: 0px;
+
+           
+
+        }
+
+       
+
+        #menu {
+
+            flex: 1;
+
+            background-color: white;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 3px 6px rgba(0,0,0,.1607843137);
+
+        }
+
+ 
+
+button {
+
+    margin: 5px 0;
+
+    border: none;
+
+    cursor: pointer;
+
+    display: inline-block;
+
+    font-family: "Source Sans Pro", sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    line-height: 16px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    background: #150404;
+
+    color: #fff;
+
+    transition: background-color 0.3s ease;
+
+}
+
+ 
+
+button:active {
+
+   
+
+    
+
+    transform: scale(0.98);
+
+}
+
+ 
+
+button:hover {
+
+    background: #514747;
+
+}
+
+ 
+
+ 
+
+ 
+
+        #sectionList {
+
+           
+
+            overflow-y: auto;
+
+        }
+
+     
+
+      
+
+.file-input {
+
+    display: none;
+
+}
+
+ 
+
+ 
+
+.upload-message {
+
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    background-color: #0078d4;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    transition: background-color 0.3s ease;
+
+}
+
+ 
+
+ 
+
+.upload-message:hover {
+
+    background-color: #005fa3;
+
+}
+
+ 
+
+ 
+
+.image-preview img {
+
+    border: 2px solid #0078d4;
+
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    margin-top: 10px;
+
+}
+
+     
+
+      .button {
+
+  padding: 10px 20px;
+
+  border: 1px solid transparent;
+
+ 
+
+  cursor: pointer;
+
+  border-radius: 10px;
+
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  margin: 5px;
+
+  color: #333;
+
+  background-color: #c00000;
+
+}
+
+.button.bg-purple {
+
+  background-color: #6d37ff;
+
+  color: white;
+
+}
+
+.button.bg-purple:hover {
+
+  background-color: #5c30e5;
+
+}
+
+.button.bg-purple:active {
+
+  background-color: #7e4fff;
+
+}
+
+.test {
+
+  transition: box-shadow 0.3s ease;
+
+  box-shadow: 0px 0px 0 0 var(--btn-color);
+
+  position: relative;
+
+}
+
+.test.shadow-black {
+
+  --btn-color: black;
+
+}
+
+     
+
+      
+
+.test {
+
+  transition: box-shadow 0.3s ease;
+
+  box-shadow: 0px 0px 0 0 var(--btn-color);
+
+  position: relative;
+
+}
+
+ 
+
+.test::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 50px;
+
+  left: 50px;
+
+  width: 0;
+
+  height: 0;
+
+  background-color: black;
+
+  transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+
+  z-index: 0;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+}
+
+ 
+
+.test:active {
+
+  transition: box-shadow 0.1s ease-in-out;
+
+}
+
+ 
+
+.test:hover {
+
+  transition: box-shadow 0.1s ease-in-out;
+
+}
+
+ 
+
+.test span {
+
+  position: relative;
+
+  z-index: 1;
+
+}
+
+ 
+
+.test:hover {
+
+  box-shadow: 7px 7px 0 0 var(--btn-color);
+
+}
+
+ 
+
+.test:active {
+
+  box-shadow: 3px 3px 0 0 var(--btn-color);
+
+}
+
+ 
+
+.shadow-red {
+
+  --btn-color: red;
+
+}
+
+ 
+
+.shadow-blue {
+
+  --btn-color: blue;
+
+}
+
+ 
+
+.shadow-purple {
+
+  --btn-color: #6d37ff;
+
+}
+
+ 
+
+.shadow-green {
+
+  --btn-color: #44d375;
+
+}
+
+ 
+
+.shadow-black {
+
+  --btn-color: black;
+
+}
+
+ 
+
+     
+
+ 
+
+.popup-overlay {
+
+  display: none;
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 9999;
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out;
+
+}
+
+ 
+
+ 
+
+.popup-content {
+
+  background-color: white;
+
+  padding: 30px;
+
+  border-radius: 8px;
+
+  width: 800px;
+
+  text-align: left;
+
+  position: relative;
+
+  color: black;
+
+}
+
+ 
+
+ 
+
+.close-btn {
+
+  position: absolute;
+
+  top: 10px;
+
+  right: 10px;
+
+  font-size: 24px;
+
+  color: black;
+
+  cursor: pointer;
+
+}
+
+     
+
+      ol, ul {
+
+    display: block;
+
+    list-style-type: ;
+
+    padding-left: 40px;
+
+}
+
+ 
+
+.close-btn:hover {
+
+  color: red;
+
+}
+
+ 
+
+ 
+
+.popup-overlay.show {
+
+  display: flex;
+
+  opacity: 1;
+
+}
+
+     
+
+      h3, ol, p, ul {
+
+    margin: 0.5em 0;
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+    </style>
+
+</head>
+
+<body style="font-family: Source Sans Pro, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+
+ 
+
+    <h1 style="margin: 0; padding: 0; font-size: 24px; text-align: center; font-size: 40px; color: black;margin-top: 50px;">Coworker Email Builder</h1>
+
+ 
+
+   
+
+    <div class="container">
+
+       
+
+        <div id="email-preview">
+
+           
+
+            <div id="canvas" style="background-color: white; width: 100%; max-width: 640px; margin: auto;">
+
+               
+
+                <div id="content"></div>
+
+            </div>
+
+        </div>
+
+ 
+
+      
+
+        <div id="menu">
+
+            <h2 style="color: black;">Sections</h2>
+
+            <div id="options">
+
+               
+
+                <label class="upload-message" for="imageUpload">Upload a Banner Image:</label>
+
+              <input type="text" id="imageURL" placeholder="Or enter image URL here" />
+
+                <input style="display: none;" type="file" id="imageUpload" accept="image/*" />
+
+                <div class="image-preview" id="imagePreview" style="display: none; margin: 10px 0;"></div>
+
+                <button id="btnBanner" disabled>Add Banner</button>
+
+              <button id="btnLogo">Add Logo</button>
+
+              <button id="SmallerLeftColumn">1/3 Column</button>
+
+              <button id="LargerLeftColumn">3/1 Column</button>
+
+              <button id="Schedule">Schedule</button>
+
+              <button id="addTwoLogos">Add Two Logos</button>
+
+              <button id="addOneLogos">Add Once Logo</button>
+
+              <button id="addThreeLogos">Add Three Logos</button>
+
+              <button id="addFourLogos">Add Four Logos</button>
+
+              <button id="addFiveLogos">Add Five Logos</button>
+
+              <button id="addSixLogos">Add Six Logos</button>
+
+              <button id="Partner">Add Logo + Partner</button>
+
+ 
+
+               
+
+                <button id="btnText">Add Text</button>
+
+                <button id="btnButton">Left Button</button>
+
+              <button id="btnButtonCenter">Centered Button</button>
+
+             
+
+              
+
+              <!--
+
+              <div>
+
+        <button onclick="changeAlignmentToCenter()">Align Center</button>
+
+        <button onclick="changeAlignmentToLeft()">Align Left</button>
+
+    </div>
+
+ 
+
+-->
+
+                <button id="twoColumns">Add Two Columns</button>
+
+                <button id="btnFooter"><span>Add Footer</span></button>
+
+             
+
+              
+
+                <button style="background-color: #c00000;" class="button bg-purple test shadow-black" id="btnCopy">
+
+                 
+
+                  <span><i class="fa fa-copy"></i> Copy Format</span>
+
+             
+
+              </button>
+
+             
+
+              
+
+              <button style="background-color: #c00000;" class="button bg-purple test shadow-black" id="btnCopyRaw">
+
+                 
+
+                  <span><i class="fa fa-copy"></i> Copy HTML</span>
+
+             
+
+              </button>
+
+            </div>
+
+ 
+
+            <div id="sectionList" style="margin-top: 20px; text-align: left;"></div>
+
+        
+
+ 
+
+<a href="#" id="openPopup" style="font-size: 14px; line-height: 20px; font-weight: 400; text-decoration: underline; color: black;">How To Use It?</a>
+
+          <p style="font-size: 14px; line-height: 20px; font-weight: 400; color: grey; font-style:italic;">
+
+            After pasting into Outlook, select 'Keep Source Formatting' to retain the original formatting.
+
+          </p>
+
+ 
+
+ 
+
+<div id="popupOverlay" class="popup-overlay">
+
+  <div class="popup-content">
+
+   
+
+    <span id="closePopup" class="close-btn">&times;</span>
+
+    <h2>How to Use the Email Builder</h2>
+
+ 
+
+    <p>Welcome to the Email Builder! This tool helps you easily create and customize emails. You can add various sections, reorder them, and copy the layout to use in Outlook. Follow these instructions for a smooth experience:</p>
+
+ 
+
+    <h3>1. Adding Sections to Your Email</h3>
+
+    <p>To add sections to your email:</p>
+
+    <ul>
+
+      <li>On the right-hand side, you'll see a list of available sections (like text, images, buttons, etc.).</li>
+
+      <li>Each option is labeled clearly (e.g., "Add Text," "Add Banner," "Add Footer") and will be added if you click on them.</li>
+
+      <li>Each added section will appear in the email preview and will also be listed in the right menu in the order they were added.</li>
+
+    </ul>
+
+ 
+
+    <h3>2. Rearranging Sections</h3>
+
+    <p>You can reorder the sections in your email at any time:</p>
+
+    <ul>
+
+      <li>In the right menu, you'll see arrows next to each section label (Up and Down arrows).</li>
+
+      <li>Click the up or down arrows to move the section up or down in the list.</li>
+
+      <li>The changes will be reflected in the email preview on the left, so the sections will be reordered accordingly.</li>
+
+    </ul>
+
+ 
+
+    <h3>3. Deleting Sections</h3>
+
+    <p>If you want to remove a section from your email:</p>
+
+    <ul>
+
+      <li>In the right menu, click the "Delete" button next to the section you want to remove.</li>
+
+      <li>The section will be deleted from both the email preview and the right menu list.</li>
+
+    </ul>
+
+ 
+
+    <h3>4. Copying the Email Format</h3>
+
+    <p>Once you are happy with your email layout, you can copy the email to paste it into Outlook:</p>
+
+    <ul>
+
+      <li>Click the <strong>Copy Format</strong> button to copy the email content and format</li>
+
+      <li>The email sections will be copied, maintaining the layout you’ve designed.</li>
+
+    </ul>
+
+    <p>To paste the email into Outlook:</p>
+
+    <ul>
+
+  <li>On a Mac, press <code>Command + V</code> to paste the copied content, then click the <strong>Paste Options</strong> icon (the clipboard) that appears and select <strong>Keep Source Formatting</strong>.</li>
+
+  <li>On Windows, press <code>Ctrl + V</code> to paste the copied content, then click the <strong>Paste Options</strong> icon (the clipboard) that appears and choose <strong>Keep Source Formatting</strong>.</li>
+
+</ul>
+
+ 
+
+ 
+
+    <h3>5. Finalizing Your Email</h3>
+
+    <p>After pasting the email into Outlook, you can continue to make the appropriate adjustments. You can further customize the email by editing the content directly in Outlook (adding content, hyperlinks,etc)</p>
+
+   
+
+ 
+
+    <p>If you need any help or have questions, feel free to reach out to <strong>me</strong></p>
+
+  </div>
+
+</div>
+
+ 
+
+ 
+
+ 
+
+ 
+
+        </div>
+
+     
+
+    </div>
+
+ 
+
+    <script>
+
+     
+
+ 
+
+const openPopup = document.getElementById("openPopup");
+
+ 
+
+ 
+
+const popupOverlay = document.getElementById("popupOverlay");
+
+ 
+
+ 
+
+const closePopup = document.getElementById("closePopup");
+
+ 
+
+ 
+
+openPopup.onclick = function (e) {
+
+  e.preventDefault();
+
+  popupOverlay.classList.add('show');
+
+};
+
+ 
+
+ 
+
+closePopup.onclick = function () {
+
+  popupOverlay.classList.remove('show');
+
+};
+
+ 
+
+ 
+
+popupOverlay.onclick = function (e) {
+
+  if (e.target === popupOverlay) {
+
+    popupOverlay.classList.remove('show');
+
+  }
+
+};
+
+ 
+
+ 
+
+     
+
+      
+
+        const contentDiv = document.getElementById("content");
+
+        const sectionListDiv = document.getElementById("sectionList");
+
+        const imageUpload = document.getElementById("imageUpload");
+
+        const imagePreviewDiv = document.getElementById("imagePreview");
+
+        const btnBanner = document.getElementById("btnBanner");
+
+      const btnButton = document.getElementById("btnButton");
+
+        let selectedImage = "";
+
+        let sections = [];
+
+      const imageURL = document.getElementById('imageURL');
+
+ 
+
+       
+
+        imageUpload.addEventListener("change", (event) => {
+
+            const file = event.target.files[0];
+
+            if (file) {
+
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    selectedImage = e.target.result;
+
+                    imagePreviewDiv.innerHTML = `<img src="${selectedImage}" width="640" alt="Preview" style="max-width: 100%; height: auto; border: 2px solid #0078d4;">`;
+
+                    imagePreviewDiv.style.display = "block";
+
+                    btnBanner.disabled = false;
+
+                };
+
+                reader.readAsDataURL(file);
+
+            }
+
+        });
+
+     
+
+      // Handle URL input change
+
+imageURL.addEventListener("input", () => {
+
+    const url = imageURL.value.trim();
+
+    if (url && isValidImageUrl(url)) {
+
+        selectedImage = url;
+
+        imagePreviewDiv.innerHTML = `<img src="${selectedImage}" width="640" alt="Preview" style="max-width: 100%; height: auto; border: 2px solid #0078d4;">`;
+
+        imagePreviewDiv.style.display = "block";
+
+        btnBanner.disabled = false;
+
+    } else {
+
+        imagePreviewDiv.style.display = "none";
+
+        btnBanner.disabled = true;
+
+    }
+
+});
+
+     
+
+      // Check if the entered URL is a valid image URL
+
+function isValidImageUrl(url) {
+
+    return /\.(jpeg|jpg|gif|png|bmp|svg)$/i.test(url);
+
+}
+
+ 
+
+       
+
+        btnBanner.addEventListener("click", () => {
+
+            const bannerHTML = `
+
+                <tr>
+
+                <td align="center">
+
+                    <img alt="banner-image" class="banner" src="${selectedImage}" width="640" style="max-width: 100%; height: auto !important;" />
+
+                </td>
+
+            </tr>`;
+
+            sections.push({ type: 'banner', content: bannerHTML, label: 'Banner Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+            btnBanner.disabled = true;
+
+            selectedImage = "";
+
+            imagePreviewDiv.innerHTML = "";
+
+          imageURL.value = "";  // Clear URL input
+
+            imagePreviewDiv.style.display = "none";
+
+        });
+
+ 
+
+       
+
+        function addText() {
+
+            const sectionHTML = `
+
+           
+
+            <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="40" style="height:40px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+               
+
+                <tr>
+
+  <td valign="top">
+
+    <table width="90%" class="mobile-width-85" cellspacing="0" cellpadding="0" border="0" align="center">
+
+      <tr>
+
+   
+
+        
+
+    
+
+    <td align="left" valign="top" class="cell-stack">
+
+      <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+        <tr>
+
+          <td>
+
+          <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td style="font-size:24px; font-weight:normal; line-height:30px; font-family:'Calibri', 'Trebuchet MS', Arial, sans-serif; color: black; padding-bottom:0px; mso-hyphenate: none; font-weight: bold;" align="left">
+
+       <p style="font-size: 20px; margin: 0px; font-family:'Calibri', 'Trebuchet MS', Arial, sans-serif;"><span style="font-size: 38px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><strong>Header 2</strong></span></p>
+
+          </td>
+
+            </tr>
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td>
+
+              <table width="100%" class="mobile-width-80" cellspacing="0" cellpadding="0" border="0" align="left">
+
+                <tr>
+
+                <td style="font-size:16px; font-weight:normal; line-height:23px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color:#150404; padding-bottom:0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+       
+
+ 
+
+ 
+
+<span style="font-size: 16px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+
+ 
+
+          </td>
+
+                </tr>
+
+               
+
+                
+
+              </table>
+
+              </td>
+
+            </tr>
+
+            </table>
+
+          </td>
+
+         
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+    </table>
+
+    </td>
+
+                         </tr>`;
+
+            sections.push({ type: 'text', content: sectionHTML, label: 'Text Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      
+
+      
+
+      function addTwoLogos() {
+
+            const sectionHTML = `
+
+           
+
+          <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr> 
+
+        <tr>
+
+    <td class="stylingblock-content-wrapper camarker-inner" style="padding: 0 10px;">
+
+        <!-- Main Table: Centered Table with 2 Columns -->
+
+        <table align="center" cellpadding="0" cellspacing="0" style="width: 600px; border-collapse: collapse;">
+
+            <tbody>
+
+                <tr>
+
+                    <!-- Column 1 -->
+
+                    <td style="width: 45%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row (for narrower spacing between columns) -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" colspan="3" style="height: 40px; width: 5%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 10%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 2 -->
+
+                    <td style="width: 45%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </td>
+
+</tr>
+
+<tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+       
+
+    `;
+
+            sections.push({ type: 'text', content: sectionHTML, label: 'Text Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      
+
+      function addOneLogo() {
+
+            const sectionHTML = `
+
+           
+
+          <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr> 
+
+        <tr>
+
+    <td class="stylingblock-content-wrapper camarker-inner" style="padding: 0 10px;">
+
+        <!-- Main Table: Centered Table with 2 Columns -->
+
+        <table align="center" cellpadding="0" cellspacing="0" style="width: 100px; border-collapse: collapse;">
+
+            <tbody>
+
+                <tr>
+
+                    <!-- Column 1 -->
+
+                    <td style="width: 45%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="margin: auto; width: 60%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row (for narrower spacing between columns) -->
+
+                   
+
+ 
+
+                    <!-- Column 2 -->
+
+                   
+
+                                                                                                                                </tr>
+
+       
+
+    `;
+
+            sections.push({ type: 'text', content: sectionHTML, label: 'Text Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      function addThreeLogos() {
+
+            const sectionHTML = `
+
+           
+
+     <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>      
+
+        
+
+<tr>
+
+    <td class="stylingblock-content-wrapper camarker-inner" style="padding: 0 10px;">
+
+        <!-- Main Table: Centered Table with 3 Columns -->
+
+        <table align="center" cellpadding="0" cellspacing="0" style="width: 600px; border-collapse: collapse;">
+
+            <tbody>
+
+                <tr>
+
+                    <!-- Column 1 -->
+
+                    <td style="width: 20%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row (for narrower spacing between columns) -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" colspan="3" style="height: 40px; width: 3%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 60%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 2 -->
+
+                    <td style="width: 20%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" colspan="3" style="height: 40px; width: 3%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 60%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 3 -->
+
+                    <td style="width: 20%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </td>
+
+</tr>
+
+<tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+ 
+
+ 
+
+ 
+
+ 
+
+       
+
+    `;
+
+            sections.push({ type: 'text', content: sectionHTML, label: 'Text Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      
+
+      function addFourLogos() {
+
+            const sectionHTML = `
+
+           
+
+  <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>         
+
+        
+
+<tr>
+
+    <td class="stylingblock-content-wrapper camarker-inner" style="padding: 0 10px;">
+
+        <!-- Main Table: Centered Table with 4 Columns -->
+
+        <table align="center" cellpadding="0" cellspacing="0" style="width: 600px; border-collapse: collapse;">
+
+            <tbody>
+
+                <tr>
+
+                    <!-- Column 1 -->
+
+                    <td style="width: 23%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 3%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 2 -->
+
+                    <td style="width: 23%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 3%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 3 -->
+
+                    <td style="width: 23%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 3%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 4 -->
+
+                    <td style="width: 23%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </td>
+
+</tr>
+
+ 
+
+<tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+       
+
+    `;
+
+            sections.push({ type: 'text', content: sectionHTML, label: 'Text Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      function addFiveLogos() {
+
+            const sectionHTML = `
+
+           
+
+ <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>          
+
+        
+
+<tr>
+
+    <td class="stylingblock-content-wrapper camarker-inner" style="padding: 0 10px;">
+
+        <!-- Main Table: Centered Table with 5 Columns -->
+
+        <table align="center" cellpadding="0" cellspacing="0" style="width: 600px; border-collapse: collapse;">
+
+            <tbody>
+
+                <tr>
+
+                    <!-- Column 1 -->
+
+                    <td style="width: 15%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 5%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 2 -->
+
+                    <td style="width: 15%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 5%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 3 -->
+
+                    <td style="width: 15%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 5%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 4 -->
+
+                    <td style="width: 15%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 5%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 5 -->
+
+                    <td style="width: 15%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </td>
+
+</tr>
+
+ 
+
+ 
+
+<tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+       
+
+    `;
+
+            sections.push({ type: 'text', content: sectionHTML, label: 'Text Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      function addSixLogos() {
+
+            const sectionHTML = `
+
+           
+
+   <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>        
+
+        
+
+<tr>
+
+    <td class="stylingblock-content-wrapper camarker-inner" style="padding: 0 10px;">
+
+        <!-- Main Table: Centered Table with 6 Columns -->
+
+        <table align="center" cellpadding="0" cellspacing="0" style="width: 600px; border-collapse: collapse;">
+
+            <tbody>
+
+                <tr>
+
+                    <!-- Column 1 -->
+
+                    <td style="width: 13.33%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 3.33%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 2 -->
+
+                    <td style="width: 13.33%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 3.33%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 3 -->
+
+                    <td style="width: 13.33%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 3.33%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 4 -->
+
+                    <td style="width: 13.33%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 3.33%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 5 -->
+
+                    <td style="width: 13.33%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Spacer Row -->
+
+                    <td class="stylingblock-content-wrapper camarker-inner" style="height: 40px; width: 3.33%; padding: 0;">
+
+                        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%;">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td align="center" style="height: 40px; font-size: 0; width: 100%;">&nbsp;</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+ 
+
+                    <!-- Column 6 -->
+
+                    <td style="width: 13.33%; box-sizing: border-box;">
+
+                        <table cellpadding="0" cellspacing="0" style="width: 100%; border: 1px solid #ddd; border-collapse: collapse;">
+
+                            <tr>
+
+                                <td style="text-align: center; padding: 5px;">
+
+                                    <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/placeholder.png alt="Placeholder Image"
+
+                                         style="display: block; margin: 0 auto; width: 100px; height: auto;">
+
+                                   
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </td>
+
+</tr>
+
+ 
+
+ 
+
+<tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+       
+
+    `;
+
+            sections.push({ type: 'text', content: sectionHTML, label: 'Text Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+              function btnLogo() {
+
+            const sectionHTML = `
+
+           
+
+            
+
+                        
+
+                            <tr>
+
+                                <td>
+
+                                    <table align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" width="640">
+
+                                        <tbody>
+
+                                       
+
+                                           <tr>
+
+                    <td align="center" style="padding: 15px 0;">
+
+                        <table cellpadding="0" cellspacing="0" width="90%">
+
+                            <tr>
+
+                                <td align="left" style="text-align: left;">
+
+                                    <a style="text-decoration: none; outline: none; border: none;" target="_blank">
+
+                                        <img alt="alt" height="54" src=logo.png style="display: block; margin-top: 20px; padding-bottom: 0;" width="100" />
+
+                                    </a>
+
+                                </td>
+
+                                <td align="right" style="text-align: right;">&nbsp;</td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+                                        </tbody> 
+
+                                    </table>
+
+                                </td>
+
+                            </tr>
+
+                       
+
+                    
+
+                `;
+
+            sections.push({ type: 'text', content: sectionHTML, label: 'Logo' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      
+
+      
+
+      
+
+      function Partner() {
+
+            const sectionHTML = `
+
+           
+
+            
+
+                        
+
+                            <tr>
+
+    <td>
+
+        <table align="center" width="90%" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" width="640">
+
+            <tbody>
+
+                <tr>
+
+                    <td align="left" style="padding: 15px 0;">
+
+                        <table cellpadding="0" cellspacing="0" width="40%">
+
+                            <tr>
+
+                                <td align="center" style="text-align: left;">
+
+                                    <a style="text-decoration: none; outline: none; border: none;" target="_blank">
+
+                                        <img alt="alt" height="54" src=logo style="display: block; margin-top: 20px; padding-bottom: 0;" width="100" />
+
+                                    </a>
+
+                                </td>
+
+                                <!-- Add Divider (Vertical Line) -->
+
+                                <td align="center" style="width: 10px; font-size: 20px; line-height: 54px;">|</td>
+
+                                <td align="right" style="text-align: right;">
+
+                                    <a style="text-decoration: none; outline: none; border: none;" target="_blank">
+
+                                        <img alt="alt" height="54" src=https://via.placeholder.com/150 style="display: block; margin-top: 20px; padding-bottom: 0;" width="100" />
+
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+            </tbody> 
+
+        </table>
+
+    </td>
+
+</tr>
+
+                       
+
+                    
+
+                `;
+
+            sections.push({ type: 'text', content: sectionHTML, label: 'Logo' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+ 
+
+       
+
+              function addButton() {
+
+    const buttonText = prompt("Enter button text:", "Button");
+
+   
+
+                
+
+                                
+
+let currentAlignment = "left";
+
+ 
+
+function changeAlignmentToCenter() {
+
+   
+
+    if (currentAlignment !== "center") {
+
+        currentAlignment = "center";
+
+    }
+
+}
+
+ 
+
+function changeAlignmentToLeft() {
+
+   
+
+    if (currentAlignment !== "left") {
+
+        currentAlignment = "left";
+
+    }
+
+}
+
+               
+
+                
+
+ 
+
+    if (buttonText) {
+
+       
+
+        const buttonHTML = `
+
+       
+
+        <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+           
+
+                <tr>
+
+                                                                                                                                                <td align="center">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" class="mobile-width-85" width="90%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td>
+
+                                                                                                                                                                                                <table align="${currentAlignment}" cellpadding="0" cellspacing="0" style=" background-color:#CC0000; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif;">
+
+                                                                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                                                                <td align="left" style="padding:16px 21px; color:#FFFFFF;font-size:16px;">
+
+                                <a href="" style="color:#FFFFFF !important; text-decoration:none; font-size:16px; font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif; white-space:nowrap; word-break:keep-all; font-weight: bold; border-radius: 8px;" target="_blank">${buttonText}</a></td>
+
+                                                                                                                                                                                                                                </tr>
+
+                                                                                                                                                                                                                </tbody>
+
+                                                                                                                                                                                                </table>
+
+                                                                                                                                                                                                </td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+               
+
+                <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+        `;
+
+ 
+
+        sections.push({ type: 'button', content: buttonHTML, label: 'Button Section' });
+
+ 
+
+       
+
+        renderContent();
+
+        updateSectionList();
+
+    } else {
+
+        alert("Button text is required!");
+
+    }
+
+}
+
+     
+
+      
+
+      function addButtonCenter() {
+
+    const buttonText = prompt("Enter button text:", "Button");
+
+   
+
+                
+
+                                
+
+let currentAlignment = "left";
+
+ 
+
+function changeAlignmentToCenter() {
+
+   
+
+    if (currentAlignment !== "center") {
+
+        currentAlignment = "center";
+
+    }
+
+}
+
+ 
+
+function changeAlignmentToLeft() {
+
+   
+
+    if (currentAlignment !== "left") {
+
+        currentAlignment = "left";
+
+    }
+
+}
+
+               
+
+                
+
+ 
+
+    if (buttonText) {
+
+       
+
+        const buttonHTML = `
+
+       
+
+        <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+           
+
+                <tr>
+
+                                                                                                                                                <td align="center">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" class="mobile-width-85" width="90%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td>
+
+                                                                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style=" background-color:#CC0000; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif;">
+
+                                                                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                                                                <td align="left" style="padding:16px 21px; color:#FFFFFF;font-size:16px;">
+
+                                <a href="" style="color:#FFFFFF !important; text-decoration:none; font-size:16px; font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif; white-space:nowrap; word-break:keep-all; font-weight: bold; border-radius: 8px;" target="_blank">${buttonText}</a></td>
+
+                                                                                                                                                                                                                                </tr>
+
+                                                                                                                                                                                                                </tbody>
+
+                                                                                                                                                                                                </table>
+
+                                                                                                                                                                                                </td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+               
+
+                <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+        `;
+
+ 
+
+        sections.push({ type: 'button', content: buttonHTML, label: 'Button Section' });
+
+ 
+
+       
+
+        renderContent();
+
+        updateSectionList();
+
+    } else {
+
+        alert("Button text is required!");
+
+    }
+
+}
+
+ 
+
+ 
+
+       
+
+        function addFooter() {
+
+            const sectionHTML = `
+
+           
+
+            <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+               
+
+                
+
+                                <tr>
+
+                                                <td>
+
+                                                <table align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" class="fluid" width="640">
+
+                                                                <tbody>
+
+            <tr>
+
+                                                                                                <td bgcolor="#150404"  align="center" style="padding:15px 15px 15px 15px; ">
+
+          <table   class="fluid" align="center" width="100%" cellpadding="0" cellspacing="0" border="0" style="">
+
+            
+
+     
+
+     <tr>
+
+        <td   align="center" style="padding-bottom:15px;">
+
+          <table align="center" cellpadding="0" cellspacing="0" border="0" style="width:100%;"  >
+
+            <tr>
+
+  <td align="center" class="colsplit" width="135" valign="middle" style="font-size:11px; font-weight:normal; line-height: 11px; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif; color:white; line-height:13px; font-weight:normal; text-align:center; text-decoration:none; ">
+
+              
+
+                <a href= style="font-size:11px; line-height: 11px;color:white; text-decoration:none; font-weight:bold;" target="_blank" alias="Footer: Privacy Policy">Privacy Policy</a> |
+
+                <a href= style="font-size:11px; line-height: 11px;color:white; text-decoration:none; font-weight:bold;" target="_blank" alias="Footer: Terms & Conditions">Terms &amp; Conditions</a>
+
+                </td>
+
+
+    
+
+    
+
+    
+
+            </tr>
+
+          </table>
+
+        </td>
+
+      </tr>
+
+    
+
+     <tr>
+
+              <td   border="0" align="center" class="" valign="top" style="font-size:10px;  font-weight:normal; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif; color:white; line-height:13px; font-weight:normal; text-align:center; text-decoration:none; padding:0px 10px 15px 10px; display:block;">        
+
+     <strong>{{ site_settings.company_name }}</strong> |
+
+                <span class="aplpelinksblack">{{ site_settings.company_street_address_1 }}</span> |
+
+                <span class="aplpelinksblack">{{ site_settings.company_state }}</span> |
+
+                <span class="aplpelinksblack">{{ site_settings.company_city }}</span> |
+
+                <a class="applelinksblack" style="font-size:10px; line-height: 13px; font-weight:normal; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif; color:white; font-weight:normal; text-decoration:none;" alias="Footer: Phone Number">800.972.3922</a>
+
+                   </td>
+
+      </tr>
+
+    
+
+     
+
+     
+
+     
+
+     
+
+     
+
+            
+
+            
+
+            
+
+            
+
+ 
+
+ 
+
+         
+
+     
+
+     
+
+     
+
+     
+
+         <tr>
+
+              <td align="center" class="" border="0" valign="top" style="font-size:10px; line-height: 10px; font-weight:normal; font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif; color:white; line-height:13px; font-weight:normal; text-align:center; text-decoration:none;">
+
+        © 2024 Canada Corp.
+
+              </td>
+
+            </tr>
+
+          </table>
+
+        </td>
+
+                                                                                </tr>`;
+
+            sections.push({ type: 'footer', content: sectionHTML, label: 'Footer Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+ 
+
+       
+
+        function addTwoColumns() {
+
+            const sectionHTML = `
+
+           
+
+            <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+           
+
+            <tr>
+
+  <td valign="top">
+
+    <table width="90%" class="mobile-width-85" cellspacing="0" cellpadding="0" border="0" align="center">
+
+      <tr>
+
+    <td align="left" valign="top" class="cell-stack">
+
+      <table width="263" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+        <tr>
+
+          <td>
+
+          <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td style="font-size:24px; font-weight:normal; line-height:30px; font-family:Calibri, Verdana, Geneva, sans-serif; color: black; padding-bottom:0px; mso-hyphenate: none; font-weight: bold;" align="left">
+
+       <p style="font-size: 20px; margin: 0px;font-family:Calibri, Verdana, Geneva, sans-serif;"><span style="font-size: 25px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><strong>Header 1</strong></span></p>
+
+          </td>
+
+            </tr>
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td>
+
+              <table width="100%" class="mobile-width-80" cellspacing="0" cellpadding="0" border="0" align="left">
+
+                <tr>
+
+                <td style="font-size:16px; font-weight:normal; line-height:23px; font-family:Calibri, Verdana, Geneva, sans-serif; color:#150404; padding-bottom:0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+       
+
+ 
+
+ 
+
+<span style="font-size: 16px;font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+
+ 
+
+          </td>
+
+                </tr>
+
+                <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+                <tr>
+
+            <td>
+
+              <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/Image-Placeholder.png alt="New Hire" width="280" style="width: 280px; height: auto; margin: 0 !important;">
+
+              </td>
+
+            </tr>
+
+           
+
+            <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+               
+
+              </table>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                                                                                                                                                <td align="center">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" class="mobile-width-85" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td>
+
+                                                                                                                                                                                                <table align="left" cellpadding="0" cellspacing="0" style="background-color:#CC0000; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif;">
+
+                                                                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                                                                <td align="left" style="padding:16px 21px; color:#FFFFFF;font-size:16px;"><a href="link" style="color:#FFFFFF !important; text-decoration:none; font-size:16px; font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif; white-space:nowrap; word-break:keep-all; font-weight: bold; border-radius: 8px;" target="_blank">Button</a></td>
+
+                                                                                                                                                                                                                                </tr>
+
+                                                                                                                                                                                                                </tbody>
+
+                                                                                                                                                                                                </table>
+
+                                                                                                                                                                                                </td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+            </table>
+
+          </td>
+
+         
+
+        </tr>
+
+      </table>
+
+    </td>
+
+       
+
+    <td width="50" class="cell-stack mob-spacer-40">&nbsp;</td>
+
+    <td align="left" valign="top" class="cell-stack">
+
+      <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+        <tr>
+
+          <td>
+
+          <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td style="font-size:24px; font-weight:normal; line-height:30px; font-family:Calibri, Verdana, Geneva, sans-serif; color: black; padding-bottom:0px; mso-hyphenate: none; font-weight: bold;" align="left">
+
+       <p style="font-size: 20px; margin: 0px;font-family:Calibri, Verdana, Geneva, sans-serif;"><span style="font-size: 25px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><strong>Header 2</strong></span></p>
+
+          </td>
+
+            </tr>
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td>
+
+              <table width="100%" class="mobile-width-80" cellspacing="0" cellpadding="0" border="0" align="left">
+
+                <tr>
+
+                <td style="font-size:16px; font-weight:normal; line-height:23px; font-family:Calibri, Verdana, Geneva, sans-serif; color:#150404; padding-bottom:0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+       
+
+ 
+
+ 
+
+<span style="font-size: 16px;font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+
+ 
+
+          </td>
+
+                </tr>
+
+                <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+                <tr>
+
+            <td>
+
+              <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/Image-Placeholder.png alt="New Hire" width="280" style="width: 280px; height: auto; margin: 0 !important;">
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+              </table>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                                                                                                                                                <td align="center">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" class="mobile-width-85" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td>
+
+                                                                                                                                                                                                <table align="left" cellpadding="0" cellspacing="0" style="background-color:#CC0000; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif;">
+
+                                                                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                                                                <td align="left" style="padding:16px 21px; color:#FFFFFF;font-size:16px;"><a href="link" style="color:#FFFFFF !important; text-decoration:none; font-size:16px; font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif; white-space:nowrap; word-break:keep-all; font-weight: bold; border-radius: 8px;" target="_blank">Button</a></td>
+
+                                                                                                                                                                                                                                </tr>
+
+                                                                                                                                                                                                                </tbody>
+
+                                                                                                                                                                                                </table>
+
+                                                                                                                                                                                                </td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+            </table>
+
+          </td>
+
+         
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+    </table>
+
+    </td>
+
+                         </tr>
+
+                        
+
+                         <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>`;
+
+            sections.push({ type: 'twoColumns', content: sectionHTML, label: 'Two Columns Section' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      
+
+      function Schedule() {
+
+            const sectionHTML = `
+
+           
+
+ 
+
+<!-- Example section update with inline styles -->
+
+ 
+
+<tr>
+
+    <td class="stylingblock-content-wrapper camarker-inner">
+
+        <table align="center" cellpadding="0" cellspacing="0" style="width: 100%; table-layout: fixed;" width="100%">
+
+            <tbody>
+
+                <tr>
+
+                    <td align="center" class="mob-spacer-40" height="20" style="height: 20px; font-size: 0; padding-top: 20px; padding-bottom: 20px;">&nbsp;</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </td>
+
+</tr>
+
+ 
+
+<tr>
+
+    <td valign="top">
+
+        <table width="90%" class="mobile-width-85" cellspacing="0" cellpadding="0" border="0" align="center" style="max-width: 640px;">
+
+            <tr>
+
+                <td align="left" valign="top" class="cell-stack" style="width: 50%; padding-right: 10px;">
+
+                    <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+                        <tr>
+
+                            <td>
+
+                                <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+                                    <tr>
+
+                                        <td style="font-size: 24px; font-weight: normal; line-height: 30px; font-family: Calibri, Trebuchet MS, Arial, sans-serif; color: black; padding-bottom: 0px; mso-hyphenate: none; font-weight: bold;" align="left">
+
+                                            <p style="font-size: 20px; margin: 0px; font-family: Calibri, Trebuchet MS, Arial, sans-serif; text-align: center;">
+
+                                                <span style="font-size: 25px; font-family: Calibri, Trebuchet MS, Arial, sans-serif;">
+
+                                                    <strong>Header 2</strong>
+
+                                                </span>
+
+                                            </p>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td class="stylingblock-content-wrapper camarker-inner">
+
+                                            <table align="center" cellpadding="0" cellspacing="0" style="width: 100%; table-layout: fixed;" width="100%">
+
+                                                <tbody>
+
+                                                    <tr>
+
+                                                        <td align="center" class="mob-spacer-40" height="20" style="height: 20px; font-size: 0; padding-top: 20px; padding-bottom: 20px;">&nbsp;</td>
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+
+                                            <table width="100%" class="mobile-width-80" cellspacing="0" cellpadding="0" border="0" align="left" style="max-width: 640px;">
+
+                                            </table>
+
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td valign="top">
+
+                    <table width="70%" class="mobile-width-85" cellspacing="0" cellpadding="0" border="0" align="center" style="max-width: 640px;">
+
+                        <tr>
+
+                            <!-- Left Column -->
+
+                            <td align="left" valign="top" class="cell-stack" style="width: 50%; padding-right: 10px;">
+
+                                <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+                                    <tr>
+
+                                        <td>
+
+                                            <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+                                                <tr>
+
+                                                    <td style="font-size: 16px; font-weight: normal; line-height: 23px; font-family: Calibri, Verdana, Geneva, sans-serif; text-align: center; color: #150404; padding-bottom: 0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+                                                        <span style="font-size: 16px; font-family: Calibri, Trebuchet MS, Verdana, Geneva, sans-serif;">
+
+                                                            Time
+
+                                                        </span>
+
+                                                    </td>
+
+                                                </tr>
+
+                                            </table>
+
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+
+                            </td>
+
+ 
+
+                            <!-- Spacer between columns -->
+
+                            <td width="20" style="border-right: 1px solid black;" class="cell-stack mob-spacer-40">&nbsp;</td>
+
+ 
+
+                            <!-- Right Column -->
+
+                            <td align="left" valign="top" class="cell-stack" style="width: 50%; padding-left: 10px;">
+
+                                <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+                                    <tr>
+
+                                        <td>
+
+                                            <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+                                                <tr>
+
+                                                    <td style="font-size: 16px; font-weight: normal; line-height: 23px; font-family: Calibri, Verdana, Geneva, sans-serif; color: #150404; text-align: center; padding-bottom: 0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+                                                        <span style="font-size: 16px; font-family: Calibri, Trebuchet MS, Verdana, Geneva, sans-serif;">
+
+                                                            Event
+
+                                                        </span>
+
+                                                    </td>
+
+                                                </tr>
+
+                                            </table>
+
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td class="stylingblock-content-wrapper camarker-inner">
+
+                    <table align="center" cellpadding="0" cellspacing="0" style="width: 100%; table-layout: fixed;" width="100%">
+
+                        <tbody>
+
+                            <tr>
+
+                                <td align="center" class="mob-spacer-40" height="20" style="height: 20px; font-size: 0; padding-top: 20px; padding-bottom: 20px;">&nbsp;</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </td>
+
+            </tr>
+
+</tbody>
+
+ 
+
+ 
+
+`;
+
+            sections.push({ type: 'twoColumns', content: sectionHTML, label: 'Schedule' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      
+
+      
+
+      function LargerLeftColumn() {
+
+            const sectionHTML = `
+
+            <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+               
+
+                <tr>
+
+  <td valign="top">
+
+    <table width="90%" class="mobile-width-85" cellspacing="0" cellpadding="0" border="0" align="center">
+
+      <tr>
+
+    <td align="left" valign="top" class="cell-stack">
+
+      <table width="310" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+        <tr>
+
+          <td>
+
+          <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td style="font-size:24px; font-weight:normal; line-height:30px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color: black; padding-bottom:0px; mso-hyphenate: none; font-weight: bold;" align="left">
+
+       <p style="font-size: 20px; margin: 0px; font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><span style="font-size: 25px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><strong>Header 1</strong></span></p>
+
+          </td>
+
+            </tr>
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td>
+
+              <table width="100%" class="mobile-width-80" cellspacing="0" cellpadding="0" border="0" align="left">
+
+                <tr>
+
+                <td style="font-size:16px; font-weight:normal; line-height:23px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color:#150404; padding-bottom:0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+       
+
+ 
+
+ 
+
+<span style="font-size: 16px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+
+ 
+
+          </td>
+
+                </tr>
+
+                <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+                <tr>
+
+            <td>
+
+              <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/Image-Placeholder.png alt="New Hire" width="280" style="width: 280px; height: auto; margin: 0 !important;">
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+              </table>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                                                                                                                                                <td align="center">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" class="mobile-width-85" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td>
+
+                                                                                                                                                                                                <table align="left" cellpadding="0" cellspacing="0" style="background-color:#CC0000; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif;">
+
+                                                                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                                                                <td align="left" style="padding:16px 21px; color:#FFFFFF;font-size:16px;"><a href="link" style="color:#FFFFFF !important; text-decoration:none; font-size:16px; font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif; white-space:nowrap; word-break:keep-all; font-weight: bold; border-radius: 8px;" target="_blank">Button</a></td>
+
+                                                                                                                                                                                                                                </tr>
+
+                                                                                                                                                                                                                </tbody>
+
+                                                                                                                                                                                                </table>
+
+                                                                                                                                                                                                </td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+            </table>
+
+          </td>
+
+         
+
+        </tr>
+
+      </table>
+
+    </td>
+
+       
+
+    <td width="50" class="cell-stack mob-spacer-40">&nbsp;</td>
+
+    <td align="left" valign="top" class="cell-stack">
+
+      <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+        <tr>
+
+          <td>
+
+          <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td style="font-size:24px; font-weight:normal; line-height:30px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color: black; padding-bottom:0px; mso-hyphenate: none; font-weight: bold;" align="left">
+
+       <p style="font-size: 20px; margin: 0px; font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><span style="font-size: 25px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><strong>Header 2</strong></span></p>
+
+          </td>
+
+            </tr>
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td>
+
+              <table width="100%" class="mobile-width-80" cellspacing="0" cellpadding="0" border="0" align="left">
+
+                <tr>
+
+                <td style="font-size:16px; font-weight:normal; line-height:23px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color:#150404; padding-bottom:0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+       
+
+ 
+
+ 
+
+<span style="font-size: 16px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+
+ 
+
+          </td>
+
+                </tr>
+
+                <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+                <tr>
+
+            <td>
+
+              <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/Image-Placeholder.png alt="New Hire" width="180" style="width: 180px; height: auto; margin: 0 !important;">
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+              </table>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                                                                                                                                                <td align="center">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" class="mobile-width-85" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td>
+
+                                                                                                                                                                                                <table align="left" cellpadding="0" cellspacing="0" style="background-color:#CC0000; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif;">
+
+                                                                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                                                                <td align="left" style="padding:16px 21px; color:#FFFFFF;font-size:16px;"><a href="link" style="color:#FFFFFF !important; text-decoration:none; font-size:16px; font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif; white-space:nowrap; word-break:keep-all; font-weight: bold; border-radius: 8px;" target="_blank">Button</a></td>
+
+                                                                                                                                                                                                                                </tr>
+
+                                                                                                                                                                                                                </tbody>
+
+                                                                                                                                                                                                </table>
+
+                                                                                                                                                                                                </td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+            </table>
+
+          </td>
+
+         
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+    </table>
+
+    </td>
+
+                         </tr>
+
+                        
+
+                         <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>`;
+
+            sections.push({ type: 'twoColumns', content: sectionHTML, label: '3/1 Column' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+     
+
+      function SmallerLeftColumn() {
+
+            const sectionHTML = `
+
+            <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+               
+
+                <tr>
+
+  <td valign="top">
+
+    <table width="90%" class="mobile-width-85" cellspacing="0" cellpadding="0" border="0" align="center">
+
+      <tr>
+
+    <td align="left" valign="top" class="cell-stack">
+
+      <table width="230" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+        <tr>
+
+          <td>
+
+          <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td style="font-size:24px; font-weight:normal; line-height:30px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color: black; padding-bottom:0px; mso-hyphenate: none; font-weight: bold;" align="left">
+
+       <p style="font-size: 20px; margin: 0px; font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><span style="font-size: 25px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><strong>Header 1</strong></span></p>
+
+          </td>
+
+            </tr>
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td>
+
+              <table width="100%" class="mobile-width-80" cellspacing="0" cellpadding="0" border="0" align="left">
+
+                <tr>
+
+                <td style="font-size:16px; font-weight:normal; line-height:23px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color:#150404; padding-bottom:0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+       
+
+ 
+
+ 
+
+<span style="font-size: 16px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+
+ 
+
+          </td>
+
+                </tr>
+
+                <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+                <tr>
+
+            <td>
+
+              <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/Image-Placeholder.png alt="New Hire" width="180" style="width: 180px; height: auto; margin: 0 !important;">
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+              </table>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                                                                                                                                                <td align="center">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" class="mobile-width-85" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td>
+
+                                                                                                                                                                                                <table align="left" cellpadding="0" cellspacing="0" style="background-color:#CC0000; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif;">
+
+                                                                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                                                                <td align="left" style="padding:16px 21px; color:#FFFFFF;font-size:16px;"><a href="link" style="color:#FFFFFF !important; text-decoration:none; font-size:16px; font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif; white-space:nowrap; word-break:keep-all; font-weight: bold; border-radius: 8px;" target="_blank">Button</a></td>
+
+                                                                                                                                                                                                                                </tr>
+
+                                                                                                                                                                                                                </tbody>
+
+                                                                                                                                                                                                </table>
+
+                                                                                                                                                                                                </td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+            </table>
+
+          </td>
+
+         
+
+        </tr>
+
+      </table>
+
+    </td>
+
+       
+
+    <td width="50" class="cell-stack mob-spacer-40">&nbsp;</td>
+
+    <td align="left" valign="top" class="cell-stack">
+
+      <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" border="0" align="center">
+
+        <tr>
+
+          <td>
+
+          <table width="100%" class="mobile-width-100" valign="top" cellspacing="0" cellpadding="0" align="left">
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td style="font-size:24px; font-weight:normal; line-height:30px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color: black; padding-bottom:0px; mso-hyphenate: none; font-weight: bold;" align="left">
+
+       <p style="font-size: 20px; margin: 0px; font-family:Calibri, Trebuchet MS, Arial, sans-serif;"><span style="font-family:Calibri, Trebuchet MS, Arial, sans-serif;font-size: 25px;"><strong>Header 2</strong></span></p>
+
+          </td>
+
+            </tr>
+
+           
+
+            <!-- SPACER -->
+
+                   
+
+            <tr>
+
+            <td>
+
+              <table width="100%" class="mobile-width-80" cellspacing="0" cellpadding="0" border="0" align="left">
+
+                <tr>
+
+                <td style="font-size:16px; font-weight:normal; line-height:23px; font-family:Calibri, Trebuchet MS, Arial, sans-serif; color:#150404; padding-bottom:0px; mso-hyphenate: none;" align="left" height="65" class="mob-height-0" valign="top">
+
+       
+
+ 
+
+ 
+
+<span style="font-size: 16px;font-family:Calibri, Trebuchet MS, Arial, sans-serif;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+
+ 
+
+          </td>
+
+                </tr>
+
+                <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+                <tr>
+
+            <td>
+
+              <img src=https://74388.fs1.hubspotusercontent-na1.net/hubfs/74388/Image-Placeholder.png alt="New Hire" width="280" style="width: 280px; height: auto; margin: 0 !important;">
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                        <td style="mso-line-height-rule:exactly;line-height:10px;font-size:1px;">&nbsp;</td>
+
+                      </tr>
+
+              </table>
+
+              </td>
+
+            </tr>
+
+            <tr>
+
+                                                                                                                                                <td align="center">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" class="mobile-width-85" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td>
+
+                                                                                                                                                                                                <table align="left" cellpadding="0" cellspacing="0" style="background-color:#CC0000; font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif;">
+
+                                                                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                                                                <td align="left" style="padding:16px 21px; color:#FFFFFF;font-size:16px;"><a href="link" style="color:#FFFFFF !important; text-decoration:none; font-size:16px; font-family:Calibri, Trebuchet MS, Verdana, Geneva, sans-serif; white-space:nowrap; word-break:keep-all; font-weight: bold; border-radius: 8px;" target="_blank">Button</a></td>
+
+                                                                                                                                                                                                                                </tr>
+
+                                                                                                                                                                                                                </tbody>
+
+                                                                                                                                                                                                </table>
+
+                                                                                                                                                                                                </td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>
+
+            </table>
+
+          </td>
+
+         
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+    </table>
+
+    </td>
+
+                         </tr>
+
+                        
+
+                         <tr>
+
+                                                                                                                                                <td class="stylingblock-content-wrapper camarker-inner">
+
+                                                                                                                                                <table align="center" cellpadding="0" cellspacing="0" style="" width="100%">
+
+                                                                                                                                                                <tbody>
+
+                                                                                                                                                                                <tr>
+
+                                                                                                                                                                                                <td align="center" class="mob-spacer-40" height="20" style="height:20px; font-size:0;">&nbsp;</td>
+
+                                                                                                                                                                                </tr>
+
+                                                                                                                                                                </tbody>
+
+                                                                                                                                                </table>
+
+                                                                                                                                                </td>
+
+                                                                                                                                </tr>`;
+
+            sections.push({ type: 'twoColumns', content: sectionHTML, label: '1/3 Column' });
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+ 
+
+        // Re-render sections content in canvas
+
+        function renderContent() {
+
+            contentDiv.innerHTML = '';
+
+            sections.forEach(section => {
+
+                contentDiv.innerHTML += section.content;
+
+            });
+
+        }
+
+ 
+
+        // Update section list in the menu (with reordering buttons and labels)
+
+        function updateSectionList() {
+
+            sectionListDiv.innerHTML = "";
+
+            sections.forEach((section, index) => {
+
+                sectionListDiv.innerHTML += `
+
+                    <div class="menu-item">
+
+                        <div class="section-label">${section.label}</div>
+
+                        <div style="display: flex;">
+
+                            <button style="background-color: white; color: black" onclick="moveSectionUp(${index})">↑</button>
+
+                            <button style="background-color: white; color: black" onclick="moveSectionDown(${index})">↓</button>
+
+                            <button id="removebutton" class="remove-section" onclick="removeSection(${index})">Remove</button>
+
+                        </div>
+
+                    </div>
+
+                   
+
+                    <style>
+
+                   
+
+                    
+
+                    
+
+                    #removebutton {
+
+                    color: #c00000;
+
+                    }
+
+                   
+
+                    #removebutton:hover {
+
+                    color: #c00000;
+
+                    background-color: #ffe9e9;
+
+                    }
+
+                   
+
+                    #removebutton:active {
+
+                    color: #c00000;
+
+                    background-color: #ffdede;
+
+                    }
+
+                   
+
+                    </style>`;
+
+            });
+
+        }
+
+ 
+
+        // Move section up
+
+        function moveSectionUp(index) {
+
+            if (index > 0) {
+
+                const temp = sections[index];
+
+                sections[index] = sections[index - 1];
+
+                sections[index - 1] = temp;
+
+                renderContent();
+
+                updateSectionList();
+
+            }
+
+        }
+
+ 
+
+        // Move section down
+
+        function moveSectionDown(index) {
+
+            if (index < sections.length - 1) {
+
+                const temp = sections[index];
+
+                sections[index] = sections[index + 1];
+
+                sections[index + 1] = temp;
+
+                renderContent();
+
+                updateSectionList();
+
+            }
+
+        }
+
+ 
+
+        // Remove section
+
+        function removeSection(index) {
+
+            sections.splice(index, 1);
+
+            renderContent();
+
+            updateSectionList();
+
+        }
+
+ 
+
+       
+
+        document.getElementById("btnText").addEventListener("click", addText);
+
+        document.getElementById("btnButton").addEventListener("click", addButton);
+
+     
+
+        document.getElementById("btnFooter").addEventListener("click", addFooter);
+
+        document.getElementById("twoColumns").addEventListener("click", addTwoColumns);
+
+     
+
+      document.getElementById("btnLogo").addEventListener("click", btnLogo);
+
+      document.getElementById("LargerLeftColumn").addEventListener("click", LargerLeftColumn);
+
+      document.getElementById("SmallerLeftColumn").addEventListener("click", SmallerLeftColumn);
+
+      document.getElementById("Schedule").addEventListener("click", Schedule);
+
+      document.getElementById("btnButtonCenter").addEventListener("click", addButtonCenter);
+
+      document.getElementById("addOneLogos").addEventListener("click", addOneLogo);
+
+      document.getElementById("addTwoLogos").addEventListener("click", addTwoLogos);
+
+      document.getElementById("addThreeLogos").addEventListener("click", addThreeLogos);
+
+      document.getElementById("addFourLogos").addEventListener("click", addFourLogos);
+
+      document.getElementById("addFiveLogos").addEventListener("click", addFiveLogos);
+
+      document.getElementById("addSixLogos").addEventListener("click", addSixLogos);
+
+      document.getElementById("Partner").addEventListener("click", Partner);
+
+     
+
+      
+
+      
+
+ 
+
+        // Copy the format to clipboard
+
+        function copyToClipboard() {
+
+         
+
+          
+
+            const htmlContent = `
+
+            <html style="overflow-y: hidden;">
+
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+
+    <body>
+
+        <table align="center" bgcolor="#F4F4F4" cellpadding="0" cellspacing="0" width="100%" style="max-width: 100%; margin: 0 auto;">
+
+            <tbody>
+
+                <tr>
+
+                    <td style="font-family:Calibri,Trebuchet MS, Arial, Verdana, Geneva, sans-serif;">
+
+                        <table align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" width="100%" style="max-width: 640px; margin: 0 auto; table-layout: fixed;">
+
+                            <tbody>
+
+                                ${sections.map(section => section.content).join("\n")}
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </body>
+
+</html>`;
+
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+
+            const data = [new ClipboardItem({ 'text/html': blob })];
+
+ 
+
+            navigator.clipboard.write(data)
+
+                .then(() => {
+
+                    alert("Format Copied!");
+
+                })
+
+                .catch((err) => {
+
+                    console.error("Error copying to clipboard: ", err);
+
+                });
+
+        }
+
+     
+
+      // Function to copy raw HTML content (without any extra formatting or style tags)
+
+        function copyToRawClipboard() {
+
+            // Only the raw HTML content of the table, no styles, no extra HTML tags
+
+            const rawHtmlContent = `
+
+                <table>
+
+                    <tbody>
+
+                        ${sections.map(section => section.content).join("\n")}
+
+                    </tbody>
+
+                </table>`;
+
+ 
+
+            // Use the Clipboard API to copy raw HTML as plain text (not as formatted HTML)
+
+            navigator.clipboard.writeText(rawHtmlContent)
+
+                .then(() => {
+
+                    alert("Raw HTML Copied!");
+
+                })
+
+                .catch((err) => {
+
+                    console.error("Error copying raw HTML to clipboard: ", err);
+
+                });
+
+        }
+
+ 
+
+        // Add event listeners to the buttons to trigger each function
+
+       
+
+        document.getElementById("btnCopyRaw").addEventListener('click', copyToRawClipboard);
+
+ 
+
+       
+
+        document.getElementById("btnCopy").addEventListener('click', copyToClipboard);
+
+    </script>
+
+ 
+
+    {% dnd_area "dnd_area" label="Main section" %}
+
+    {% end_dnd_area %}
+
+    {{ standard_footer_includes }}
+
+</body>
+
+</html>

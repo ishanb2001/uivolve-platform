@@ -1381,7 +1381,8 @@ body {
 .green { background-color: #4CAF50; }
 .orange { background-color: #FF9800; }
 .red { background-color: #F44336; }
-.purple { background-color: #9C27B0; }
+.purple { background-color: #9C27B0;}
+.grey { background-color: #9C27B0; }
 
 .color-coding-explanation {
   margin-top: 30px;
@@ -2154,6 +2155,9 @@ body {
 }
 .red {
   background: #dc3545;
+}
+.grey {
+  background: #6f98c1;
 }
 
 .color-coding-explanation {
