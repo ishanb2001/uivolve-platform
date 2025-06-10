@@ -31,10 +31,12 @@ const WebPrototypeBuilder = () => {
   const [isUndoRedo, setIsUndoRedo] = useState(false);
 
   const components = [
-    { type: 'button', label: 'Button' },
-    { type: 'text', label: 'Text Block' },
-    { type: 'navbar', label: 'Navigation Bar' },
-    { type: 'image', label: 'Image' }
+    { type: 'button', label: 'Button', icon: '⚡' },
+    { type: 'text', label: 'Text Block', icon: '📝' },
+    { type: 'navbar', label: 'Navigation Bar', icon: '🧭' },
+    { type: 'image', label: 'Image', icon: '🖼️' },
+    { type: 'footer', label: 'Footer', icon: '🔻' },
+    { type: 'cta', label: 'CTA with Banner', icon: '📢' },
   ];
 
   const syntaxHighlight = (code, language) => {
@@ -57,89 +59,253 @@ const WebPrototypeBuilder = () => {
   };
 
   const updateCode = (newItems) => {
-    const html = newItems.map((item) => {
+    // Generate HTML content for each item
+    const htmlContent = newItems.map(item => {
       switch (item.type) {
         case 'button':
+          // HTML for button component
           return `<button class="prototype-button">${item.content}</button>`;
         case 'text':
+          // HTML for text block component
           return `<div class="text-block">${item.content}</div>`;
         case 'navbar':
-          return `<nav class="nav-bar">${item.content}</nav>`;
+          // HTML for navbar component
+          return `
+            <nav class="nav-bar">
+              <img src="${logo}" alt="Logo" style="width: 50px;" />
+              <ul class="nav">
+                <li class="nav-item">
+                  <a href="#" class="button border-grey nav-link">Dropdownn</a>
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-link">
+                      Menu 1-1
+                      <p class="paragraph">Lorem Ipsum is simply dummy text of the printing.</p>
+                    </a>
+                    <a href="#" class="dropdown-link">
+                      Menu 1-2
+                      <p class="paragraph">Lorem Ipsum is simply dummy text of the printing.</p>
+                    </a>
+                    <a href="#" class="dropdown-link">
+                      Menu 1-3
+                      <p class="paragraph">Lorem Ipsum is simply dummy text of the printing.</p>
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="button border-grey nav-link">Dropdownn</a>
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-link">
+                      Menu 1-1
+                      <p class="paragraph">Lorem Ipsum is simply dummy text of the printing.</p>
+                    </a>
+                    <a href="#" class="dropdown-link">
+                      Menu 1-2
+                      <p class="paragraph">Lorem Ipsum is simply dummy text of the printing.</p>
+                    </a>
+                    <a href="#" class="dropdown-link">
+                      Menu 1-3
+                      <p class="paragraph">Lorem Ipsum is simply dummy text of the printing.</p>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          `;
         case 'image':
-          return `<img src="${item.content}" alt="Image" class="image" />`;
+          // HTML for image component
+          return `<img src="path/to/image.jpg" alt="${item.content}" />`;
+        case 'footer':
+          // HTML for footer component
+          return `<footer>${item.content}</footer>`;
+        case 'cta':
+          // HTML for CTA component
+          return `
+            <div class="cta-banner">
+              <div class="cta-text">${item.content}</div>
+              <img src="path/to/banner.jpg" alt="Banner" class="cta-image" />
+            </div>
+          `;
+        case 'three-card-row':
+          // HTML for three-card row component
+          return `
+            <div class="three-card-row">
+              <div class="card">
+                <h3>Card 1</h3>
+                <p>Some description for card 1.</p>
+              </div>
+              <div class="card">
+                <h3>Card 2</h3>
+                <p>Some description for card 2.</p>
+              </div>
+              <div class="card">
+                <h3>Card 3</h3>
+                <p>Some description for card 3.</p>
+              </div>
+            </div>
+          `;
         default:
           return '';
       }
     }).join('\n');
 
-    // Conditionally include CSS based on the presence of elements
+    // Conditionally build CSS based on the components present
     const cssParts = [];
     if (newItems.some(item => item.type === 'button')) {
+      // CSS for button component
       cssParts.push(`
-.prototype-button {
-  background: #2563eb;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.prototype-button:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
-}`);
+        .prototype-button {
+          background-color: #2563eb;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        .prototype-button:hover {
+          background-color: #1d4ed8;
+        }
+      `);
     }
     if (newItems.some(item => item.type === 'text')) {
+      // CSS for text block component
       cssParts.push(`
-.text-block {
-  color: #1f2937;
-  margin: 8px 0;
-  font-size: 16px;
-  line-height: 1.6;
-}`);
+        .text-block {
+          font-size: 16px;
+          color: #333;
+        }
+      `);
     }
     if (newItems.some(item => item.type === 'navbar')) {
+      // CSS for navbar component
       cssParts.push(`
-.nav-bar {
-  background: #f8fafc;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}`);
+        .nav-bar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px;
+        }
+        .nav {
+          list-style: none;
+          display: flex;
+          gap: 10px;
+        }
+        .nav-item {
+          position: relative;
+        }
+        .nav-link {
+          text-decoration: none;
+          color: #2563eb;
+        }
+        .dropdown-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: white;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+          border-radius: 8px;
+          padding: 10px;
+        }
+        .nav-item:hover .dropdown-menu {
+          display: block;
+        }
+        .dropdown-link {
+          display: block;
+          padding: 5px 10px;
+          text-decoration: none;
+          color: #333;
+        }
+        .paragraph {
+          margin: 0;
+          font-size: 12px;
+          color: #666;
+        }
+      `);
     }
-    const css = cssParts.join('\n');
-
-    // Conditionally include JavaScript based on the presence of elements
-    const jsParts = [];
-    if (newItems.some(item => item.type === 'button')) {
-      jsParts.push(`
-document.querySelectorAll('.prototype-button').forEach(button => {
-  button.addEventListener('click', () => alert('Button clicked!'));
-});
-`);
+    if (newItems.some(item => item.type === 'cta')) {
+      // CSS for CTA component
+      cssParts.push(`
+        .cta-banner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 20px;
+          background-color: #f0f0f0;
+          border-radius: 8px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .cta-text {
+          font-size: 18px;
+          color: #333;
+          flex: 1;
+        }
+        .cta-image {
+          width: 150px;
+          height: auto;
+          border-radius: 8px;
+        }
+      `);
     }
-    const js = jsParts.join('\n');
+    if (newItems.some(item => item.type === 'footer')) {
+      // CSS for footer component
+      cssParts.push(`
+        footer {
+          text-align: center;
+          padding: 10px;
+          background-color: #f8f8f8;
+          border-top: 1px solid #e2e8f0;
+        }
+      `);
+    }
+    if (newItems.some(item => item.type === 'three-card-row')) {
+      // CSS for three-card row component
+      cssParts.push(`
+        .three-card-row {
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          margin: 20px 0;
+        }
+        .card {
+          flex: 1;
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+          text-align: center;
+        }
+        .card h3 {
+          margin-bottom: 10px;
+          font-size: 20px;
+          color: #333;
+        }
+        .card p {
+          font-size: 14px;
+          color: #666;
+        }
+      `);
+    }
 
+    // Combine all CSS parts into a single string
+    const cssContent = cssParts.join('\n');
+
+    // Set the complete HTML and CSS code for the live preview
     setCode(`
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    ${css}
-  </style>
-</head>
-<body>
-  ${html}
-  <script>
-    ${js}
-  </script>
-</body>
-</html>
-`);
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          ${cssContent}
+        </style>
+      </head>
+      <body>
+        ${htmlContent}
+      </body>
+      </html>
+    `);
   };
 
   const parseHTMLToItems = (html) => {
@@ -204,10 +370,25 @@ document.querySelectorAll('.prototype-button').forEach(button => {
     const type = e.dataTransfer.getData('componentType');
     const label = e.dataTransfer.getData('componentLabel');
     
+    let content = label; // Default content is the label
+
+    // Provide default content for specific component types
+    if (type === 'cta') {
+      content = `
+        <h2>Join Us Today!</h2>
+        <p>Sign up now to get exclusive access to our latest updates and offers.</p>
+        <button class="cta-button">Sign Up</button>
+      `;
+    } else if (type === 'footer') {
+      content = `
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+      `;
+    }
+
     const newItem = {
       id: Date.now(),
       type,
-      content: label
+      content
     };
 
     const newItems = [...items];
@@ -236,40 +417,9 @@ document.querySelectorAll('.prototype-button').forEach(button => {
   const renderComponent = (item, index, isPreview) => {
     switch (item.type) {
       case 'button':
-        return (
-          <button
-            contentEditable={!isPreview}
-            suppressContentEditableWarning
-            onBlur={(e) => handleContentChange(index, e.target.innerText)}
-            style={{
-              backgroundColor: '#2563eb',
-              color: 'white',
-              padding: '8px 16px',
-              borderRadius: '8px',
-              border: 'none',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-            }}
-          >
-            {item.content}
-          </button>
-        );
+        return <button className="prototype-button">{item.content}</button>;
       case 'text':
-        return (
-          <div
-            contentEditable={!isPreview}
-            suppressContentEditableWarning
-            onBlur={(e) => handleContentChange(index, e.target.innerText)}
-            style={{
-              color: '#1f2937',
-              margin: '8px 0',
-              fontSize: '16px',
-              lineHeight: '1.6',
-            }}
-          >
-            {item.content}
-          </div>
-        );
+        return <div className="text-block">{item.content}</div>;
       case 'navbar':
         return (
           <nav
@@ -277,68 +427,82 @@ document.querySelectorAll('.prototype-button').forEach(button => {
             suppressContentEditableWarning
             onBlur={(e) => handleContentChange(index, e.target.innerText)}
             style={{
-              backgroundColor: '#f8fafc',
               padding: '16px',
-              borderRadius: '12px',
-              boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
             }}
           >
-            <div class="container">
-      <ul class="nav">
-        <li class="nav-item">
-          <a href="#" class="button border-grey nav-link">Dropdown</a>
-          <div class="dropdown-menu" id="dropdown-0">
-            <a href="#" class="dropdown-link">
-              Menu 1-1
-              <p class="paragraph">
-                Lorem Ipsum is simply dummy text of the printing.
-              </p>
-            </a>
-            <a href="#" class="dropdown-link">
-              Menu 1-2
-              <p class="paragraph">
-                Lorem Ipsum is simply dummy text of the printing.
-              </p>
-            </a>
-            <a href="#" class="dropdown-link">
-              Menu 1-3
-              <p class="paragraph">
-                Lorem Ipsum is simply dummy text of the printing.
-              </p>
-            </a>
-          </div>
-        </li>
-      </ul>
-    </div>
-            <img src={logo} alt="Logo" style={{ width: '50px', height: '24px' }} />
+            <img src={logo} alt="Logo" style={{ width: '50px' }} />
+            <ul className="nav">
+              <li className="nav-item">
+                <a href="#" className="button border-grey nav-link">Dropdownn</a>
+                <div className="dropdown-menu" id="dropdown-0">
+                  <a href="#" className="dropdown-link">
+                    Menu 1-1
+                    <p className="paragraph">
+                      Lorem Ipsum is simply dummy text of the printing.
+                    </p>
+                  </a>
+                  <a href="#" className="dropdown-link">
+                    Menu 1-2
+                    <p className="paragraph">
+                      Lorem Ipsum is simply dummy text of the printing.
+                    </p>
+                  </a>
+                  <a href="#" className="dropdown-link">
+                    Menu 1-3
+                    <p className="paragraph">
+                      Lorem Ipsum is simply dummy text of the printing.
+                    </p>
+                  </a>
+                </div>
+              </li>
+              <li className="nav-item">
+                <a href="#" className="button border-grey nav-link">Dropdownn</a>
+                <div className="dropdown-menu" id="dropdown-0">
+                  <a href="#" className="dropdown-link">
+                    Menu 1-1
+                    <p className="paragraph">
+                      Lorem Ipsum is simply dummy text of the printing.
+                    </p>
+                  </a>
+                  <a href="#" className="dropdown-link">
+                    Menu 1-2
+                    <p className="paragraph">
+                      Lorem Ipsum is simply dummy text of the printing.
+                    </p>
+                  </a>
+                  <a href="#" className="dropdown-link">
+                    Menu 1-3
+                    <p className="paragraph">
+                      Lorem Ipsum is simply dummy text of the printing.
+                    </p>
+                  </a>
+                </div>
+              </li>
+            </ul>
           </nav>
         );
-        case 'carousel':
+      case 'image':
+        return <img src="path/to/image.jpg" alt={item.content} />;
+      case 'footer':
+        return <footer dangerouslySetInnerHTML={{ __html: item.content }} />;
+      case 'cta':
         return (
-          <nav
-            contentEditable={!isPreview}
-            suppressContentEditableWarning
-            onBlur={(e) => handleContentChange(index, e.target.innerText)}
-            style={{
-              backgroundColor: '#f8fafc',
-              padding: '16px',
-              borderRadius: '12px',
-              boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <div style={{ display: 'flex', gap: '4px' }}>
-              <a href="#" style={{ color: '#2563eb', textDecoration: 'none' }}>Home</a>
-              <a href="#" style={{ color: '#2563eb', textDecoration: 'none' }}>About</a>
-              <a href="#" style={{ color: '#2563eb', textDecoration: 'none' }}>Contact</a>
-            </div>
-            <img src={logo} alt="Logo" style={{ width: '50px', height: '24px' }} />
-          </nav>
+          <div className="cta-banner" 
+          style={{
+            backgroundColor: '#f8fafc',
+            padding: '16px',
+            borderRadius: '12px',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+            <div className="cta-text" dangerouslySetInnerHTML={{ __html: item.content }} />
+            <img src="path/to/banner.jpg" alt="Banner" className="cta-image" />
+          </div>
         );
       default:
         return null;
